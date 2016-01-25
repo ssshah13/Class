@@ -1,0 +1,23 @@
+.model c4_sftreg1
+.inputs net4_1 net1_1 net7_1 net8_1 net9_1
+.outputs net3_1 net2_1
+  
+# C4
+.subckt c4_blk in[0]=net4_1 in[1]=net1_1 out[0]=net5_1 #c4_ota_bias[0] =7.000e-08&c4_ota_bias[1] =5.000e-10&c4_fg[0] =0&c4_ota_small_cap[0] =0&c4_ota_small_cap[1] =0&c4_ota_p_bias[0] =1.000e-07&c4_ota_n_bias[0] =1.000e-07&c4_ota_p_bias[1] =1.000e-07&c4_ota_n_bias[1] =1.000e-07&c4_cap_3x[0] =0&c4_cap_2x[0] =0&c4_cap_1x[0] =0
+  
+.subckt c4_blk in[0]=net4_1 in[1]=net1_1 out[0]=net5_2 #c4_ota_bias[0] =7.000e-08&c4_ota_bias[1] =5.000e-10&c4_fg[0] =0&c4_ota_small_cap[0] =0&c4_ota_small_cap[1] =0&c4_ota_p_bias[0] =1.000e-07&c4_ota_n_bias[0] =1.000e-07&c4_ota_p_bias[1] =1.000e-07&c4_ota_n_bias[1] =1.000e-07&c4_cap_3x[0] =0&c4_cap_2x[0] =0&c4_cap_1x[0] =0
+  
+.subckt c4_blk in[0]=net4_1 in[1]=net1_1 out[0]=net5_3 #c4_ota_bias[0] =7.000e-08&c4_ota_bias[1] =5.000e-10&c4_fg[0] =0&c4_ota_small_cap[0] =0&c4_ota_small_cap[1] =0&c4_ota_p_bias[0] =1.000e-07&c4_ota_n_bias[0] =1.000e-07&c4_ota_p_bias[1] =1.000e-07&c4_ota_n_bias[1] =1.000e-07&c4_cap_3x[0] =0&c4_cap_2x[0] =0&c4_cap_1x[0] =0
+  
+.subckt c4_blk in[0]=net4_1 in[1]=net1_1 out[0]=net5_4 #c4_ota_bias[0] =7.000e-08&c4_ota_bias[1] =5.000e-10&c4_fg[0] =0&c4_ota_small_cap[0] =0&c4_ota_small_cap[1] =0&c4_ota_p_bias[0] =1.000e-07&c4_ota_n_bias[0] =1.000e-07&c4_ota_p_bias[1] =1.000e-07&c4_ota_n_bias[1] =1.000e-07&c4_cap_3x[0] =0&c4_cap_2x[0] =0&c4_cap_1x[0] =0
+  
+# LPF
+.subckt ota in[0]=net6_1 in[1]=net2_1 out[0]=net2_1 #ota_bias =0.000008000000
+  
+# LPF
+.subckt ota in[0]=net6_1 in[1]=net3_1 out[0]=net3_1 #ota_bias =0.000008000000
+  
+# Shift register 16inputs 1output
+.subckt sftreg in[0]=net5_1 in[1]=net5_2 in[2]=net5_3 in[3]=net5_4 in[4]=net8_1 in[5]=net8_1 in[6]=net8_1 in[7]=net8_1 in[8]=net8_1 in[9]=net8_1 in[10]=net8_1 in[11]=net8_1 in[12]=net8_1 in[13]=net8_1 in[14]=net8_1 in[15]=net8_1 in[16]=net7_1 in[17]=net8_1 in[18]=net9_1 out[0]=net6_1 #sftreg_fg =0
+  
+.end
