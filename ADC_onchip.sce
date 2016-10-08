@@ -13,7 +13,7 @@ end
 
  //exec("~/rasp30/prog_assembly/libs/scilab_code/characterization/char_miteADC.sce",-1);
 
-[a1,b1]=unix_g("sudo ~/rasp30/prog_assembly/libs/sh/asm2ihex.sh ./sftreg_miteADC  ~/RASP_Workspace/ADC_test/Ramp_ADC_DAC.s43 16384 16384 16384")
+[a1,b1]=unix_g("sudo ~/rasp30/prog_assembly/libs/sh/asm2ihex.sh ./sftreg_miteADC  ./Ramp_ADC_DAC.s43 16384 16384 16384")
 if b1==1
 disp('There is an error in your assembly file')
 abort;

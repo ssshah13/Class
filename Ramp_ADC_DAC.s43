@@ -46,8 +46,6 @@ mov #0x4306, r6
 wait_GPIO:
 call #DAC_setup
 incd r6
-mov #0x000F, r5
-call #wait_10us
 clr @r7
 mov.b @r8, @r7
 INCD r7
