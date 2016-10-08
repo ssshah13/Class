@@ -1,0 +1,26 @@
+.model Ref_FGResistor1
+.inputs net9_1
+.outputs out_mite_adc
+
+# MITE
+.subckt mite in[0]=net10_1 in[1]=net10_1 in[2]=net9_1 out=net2_1 #mite_fg0 =1.000e-07
+
+# MITE
+.subckt mite in[0]=net10_1 in[1]=net10_1 in[2]=net9_1 out=net10_1 #mite_fg0 =1.000e-09
+
+#NFET 3
+.subckt nfet in[0]=net2_1 in[1]=net2_1 out[0]=net8_1
+
+#NFET 4
+.subckt nfet in[0]=net2_1 in[1]=net10_1 out[0]=net6_1
+
+# MITE_ADC
+.subckt meas_volt_mite in[0]=net10_1 out[0]=out_mite_adc #meas_fg =0.00001
+
+#GND_OUT 8
+.subckt gnd_out in[0]=fb_gndout_net6_1 in[1]=net6_1 out[0]=fb_gndout_net6_1  #gnd_out_c =0
+
+#GND_OUT 9
+.subckt gnd_out in[0]=fb_gndout_net8_1 in[1]=net8_1 out[0]=fb_gndout_net8_1  #gnd_out_c =0
+
+.end

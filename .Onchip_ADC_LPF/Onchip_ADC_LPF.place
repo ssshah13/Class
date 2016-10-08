@@ -1,0 +1,9 @@
+Netlist file: /home/ubuntu/RASP_Workspace/class_git/trunk//Onchip_ADC_LPF.net   Architecture file: /home/ubuntu/rasp30/vpr2swcs/./arch/rasp3a_arch.xml
+Array size: 7 x 14 logic blocks
+
+#block name	x	y	subblk	block number
+#----------	--	--	------	------------
+net2_1		1	6	0	#0
+net1_1		1	5	0	#1
+out:net1_1	0	5	3	#2
+net3_1		0	8	3	#3

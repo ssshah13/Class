@@ -1,0 +1,17 @@
+.model Peak_detector
+.inputs net1_1 vcc
+.outputs net7_1
+
+#OTA 2
+.subckt ota in[0]=net1_1 in[1]=net7_1 out[0]=net2_1 #ota_bias =5.100000e-07
+
+#NFET 3
+.subckt nfet in[0]=net2_1 in[1]=net7_1 out[0]=net3_1
+
+#VDD_OUT 4
+.subckt vdd_out in[0]=fb_vddout_net3_1 in[1]=net3_1 out[0]=fb_vddout_net3_1 #vdd_out_c =0
+
+#NMIRROR 7
+.subckt nmirror_vmm in[0]=vcc out=net7_1 #nmirror_bias[0] =2.000e-10
+
+.end
