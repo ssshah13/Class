@@ -1,0 +1,15 @@
+<block name="/home/ubuntu/RASP_Workspace/Class/Sims//Peak_detect_actual.net" instance="FPGA_packed_netlist[0]">
+	<inputs>
+		
+	</inputs>
+
+	<outputs>
+		
+	</outputs>
+
+	<globals>
+		
+	</globals>
+
+</block>
+

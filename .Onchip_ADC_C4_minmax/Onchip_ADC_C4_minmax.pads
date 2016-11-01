@@ -1,0 +1,4 @@
+net1_1 0 8 3 #int[3]
+net2_1 0 8 4 #int[4]
+out:out_adc_1 0 5 3 #int[3]
+out:out_adc_2 0 5 4 #int[4]

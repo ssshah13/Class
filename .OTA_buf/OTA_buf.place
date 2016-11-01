@@ -1,0 +1,8 @@
+Netlist file: /home/ubuntu/RASP_Workspace/Class//OTA_buf.net   Architecture file: /home/ubuntu/rasp30/vpr2swcs/./arch/rasp3a_arch.xml
+Array size: 7 x 14 logic blocks
+
+#block name	x	y	subblk	block number
+#----------	--	--	------	------------
+net2_1		3	1	0	#0
+out:net2_1	1	15	0	#1
+net1_1		3	15	0	#2

@@ -1,0 +1,8 @@
+.model Onchip_ADC
+.inputs net1_1 net2_1
+.outputs net1_1 out_adc_2
+  
+# ota_buf
+.subckt ota_buf in[0]=net2_1 out[0]=out_adc_2 #ota_biasfb =10e-6
+  
+.end

@@ -1,0 +1,2 @@
+net1_1 3 15 0 #tgate[0]
+out:net2_1 1 15 0 #ana_buff_out[0]
