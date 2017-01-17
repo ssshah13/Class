@@ -295,53 +295,53 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_m
    3               	.include "chip_para_RI.asm"
    1               	/* RI (Recover Injection Above & Sub threshold) parameters */
    2               	.set RI_GATE_S_SWC, 0x0040 /* Gate(SWC) = gnd */
-   3               	.set RI_VC1_SWC, 7616 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
-   4               	.set RI_VC2_SWC, 7426 /* Ivfg*2/5 @Vgm=0V */
-   5               	.set RI_VC3_SWC, 6857 /* Ivfg*1/10 @Vgm=0V */
+   3               	.set RI_VC1_SWC, 5569 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
+   4               	.set RI_VC2_SWC, 5431 /* Ivfg*2/5 @Vgm=0V */
+   5               	.set RI_VC3_SWC, 5016 /* Ivfg*1/10 @Vgm=0V */
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43 			page 6
 
 
-   6               	.set RI_VC4_SWC, 5717 /* Ivfg=1nA @Vgm=0V */
+   6               	.set RI_VC4_SWC, 4188 /* Ivfg=1nA @Vgm=0V */
    7               	.set RI_VD1_SWC, 0xea0e /* Vd @ final stage */
    8               	.set RI_VD2_SWC, 0xfe0e /* Vd @ pre-final stage */
-   9               	.set RI_INJ_T_SWC, 2 /* Injection time unit (*10us) */
+   9               	.set RI_INJ_T_SWC, 1 /* Injection time unit (*10us) */
   10               	.set RI_NUM_SWC, 300 /* # of Recover Injection */
   11               	
-  12               	.set RI_GATE_S_OTA, 0x4330 /* Gate(OTA) = 2.5V */
-  13               	.set RI_VC1_OTA, 9161 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
-  14               	.set RI_VC2_OTA, 8817 /* Ivfg*2/5 @Vgm=0V */
-  15               	.set RI_VC3_OTA, 7784 /* Ivfg*1/10 @Vgm=0V */
-  16               	.set RI_VC4_OTA, 5717 /* Ivfg=1nA @Vgm=0V */
+  12               	.set RI_GATE_S_OTA, 0x3700 /* Gate(OTA) = 2.5V */
+  13               	.set RI_VC1_OTA, 6283 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
+  14               	.set RI_VC2_OTA, 6074 /* Ivfg*2/5 @Vgm=0V */
+  15               	.set RI_VC3_OTA, 5445 /* Ivfg*1/10 @Vgm=0V */
+  16               	.set RI_VC4_OTA, 4188 /* Ivfg=1nA @Vgm=0V */
   17               	.set RI_VD1_OTA, 0xea0e /* Vd @ final stage */
   18               	.set RI_VD2_OTA, 0xfe0e /* Vd @ pre-final stage */
   19               	.set RI_INJ_T_OTA, 1 /* Injection time unit (*10us) */
   20               	.set RI_NUM_OTA, 300 /* # of Recover Injection */
   21               	
   22               	.set RI_GATE_S_OTAREF, 0x0040 /* Gate(OTAREF) = gnd */
-  23               	.set RI_VC1_OTAREF, 7971 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
-  24               	.set RI_VC2_OTAREF, 7745 /* Ivfg*2/5 @Vgm=0V */
-  25               	.set RI_VC3_OTAREF, 7069 /* Ivfg*1/10 @Vgm=0V */
-  26               	.set RI_VC4_OTAREF, 5717 /* Ivfg=1nA @Vgm=0V */
+  23               	.set RI_VC1_OTAREF, 5753 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
+  24               	.set RI_VC2_OTAREF, 5596 /* Ivfg*2/5 @Vgm=0V */
+  25               	.set RI_VC3_OTAREF, 5127 /* Ivfg*1/10 @Vgm=0V */
+  26               	.set RI_VC4_OTAREF, 4188 /* Ivfg=1nA @Vgm=0V */
   27               	.set RI_VD1_OTAREF, 0xea0e /* Vd @ final stage */
   28               	.set RI_VD2_OTAREF, 0xfe0e /* Vd @ pre-final stage */
   29               	.set RI_INJ_T_OTAREF, 1 /* Injection time unit (*10us) */
   30               	.set RI_NUM_OTAREF, 300 /* # of Recover Injection */
   31               	
-  32               	.set RI_GATE_S_MITE, 0x4330 /* Gate(MITE) = 2.0V */
-  33               	.set RI_VC1_MITE, 9809 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
-  34               	.set RI_VC2_MITE, 9400 /* Ivfg*2/5 @Vgm=0V */
-  35               	.set RI_VC3_MITE, 8172 /* Ivfg*1/10 @Vgm=0V */
-  36               	.set RI_VC4_MITE, 5717 /* Ivfg=1nA @Vgm=0V */
+  32               	.set RI_GATE_S_MITE, 0x2900 /* Gate(MITE) = 2.0V */
+  33               	.set RI_VC1_MITE, 6573 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
+  34               	.set RI_VC2_MITE, 6335 /* Ivfg*2/5 @Vgm=0V */
+  35               	.set RI_VC3_MITE, 5619 /* Ivfg*1/10 @Vgm=0V */
+  36               	.set RI_VC4_MITE, 4188 /* Ivfg=1nA @Vgm=0V */
   37               	.set RI_VD1_MITE, 0xea0e /* Vd @ final stage */
   38               	.set RI_VD2_MITE, 0xfe0e /* Vd @ pre-final stage */
   39               	.set RI_INJ_T_MITE, 1 /* Injection time unit (*10us) */
   40               	.set RI_NUM_MITE, 300 /* # of Recover Injection */
   41               	
-  42               	.set RI_GATE_S_DIRSWC, 0x1530 /* Gate(DIRSWC) = 1.4V */
-  43               	.set RI_VC1_DIRSWC, 7885 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
-  44               	.set RI_VC2_DIRSWC, 7668 /* Ivfg*2/5 @Vgm=0V */
-  45               	.set RI_VC3_DIRSWC, 7018 /* Ivfg*1/10 @Vgm=0V */
-  46               	.set RI_VC4_DIRSWC, 5717 /* Ivfg=1nA @Vgm=0V */
+  42               	.set RI_GATE_S_DIRSWC, 0x0100 /* Gate(DIRSWC) = 1.4V */
+  43               	.set RI_VC1_DIRSWC, 5626 /* Ivfg @Vgm=0V -> 1nA@Vgm=0.6V */
+  44               	.set RI_VC2_DIRSWC, 5482 /* Ivfg*2/5 @Vgm=0V */
+  45               	.set RI_VC3_DIRSWC, 5051 /* Ivfg*1/10 @Vgm=0V */
+  46               	.set RI_VC4_DIRSWC, 4188 /* Ivfg=1nA @Vgm=0V */
   47               	.set RI_VD1_DIRSWC, 0xea0e /* Vd @ final stage */
   48               	.set RI_VD2_DIRSWC, 0xfe0e /* Vd @ pre-final stage */
   49               	.set RI_INJ_T_DIRSWC, 1 /* Injection time unit (*10us) */
@@ -349,15 +349,15 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_m
   51               	
   52               	/* RIL (Recover Injection low sub threshold) parameters */
   53               	.set RIL_GATE_S_SWC, 0x0040 /* Gate(SWC) = gnd */
-  54               	.set RIL_VC1_SWC, 5717 /* Ivfg=1n A@Vgm=0V */
-  55               	.set RIL_VC2_SWC, 4997 /* Ivfg=lowest current @Vgm=0V */
+  54               	.set RIL_VC1_SWC, 4188 /* Ivfg=1n A@Vgm=0V */
+  55               	.set RIL_VC2_SWC, 4067 /* Ivfg=lowest current @Vgm=0V */
   56               	.set RIL_VD1_SWC, 0xea0e /* Vd @ final stage */
   57               	.set RIL_INJ_T_SWC, 1 /* Injection time unit (*10us) */
   58               	.set RIL_NUM_SWC, 300 /* # of Recover Injection */
   59               	
-  60               	.set RIL_GATE_S_OTA, 0x4330 /* Gate(OTA) = 2.5V */
-  61               	.set RIL_VC1_OTA, 5717 /* Ivfg=1n A@Vgm=0V */
-  62               	.set RIL_VC2_OTA, 5126 /* Ivfg=lowest current @Vgm=0V */
+  60               	.set RIL_GATE_S_OTA, 0x3700 /* Gate(OTA) = 2.5V */
+  61               	.set RIL_VC1_OTA, 4188 /* Ivfg=1n A@Vgm=0V */
+  62               	.set RIL_VC2_OTA, 4056 /* Ivfg=lowest current @Vgm=0V */
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43 			page 7
 
 
@@ -366,22 +366,22 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_m
   65               	.set RIL_NUM_OTA, 300 /* # of Recover Injection */
   66               	
   67               	.set RIL_GATE_S_OTAREF, 0x0040 /* Gate(OTAREF) = gnd */
-  68               	.set RIL_VC1_OTAREF, 5717 /* Ivfg=1n A@Vgm=0V */
-  69               	.set RIL_VC2_OTAREF, 5179 /* Ivfg=lowest current @Vgm=0V */
+  68               	.set RIL_VC1_OTAREF, 4188 /* Ivfg=1n A@Vgm=0V */
+  69               	.set RIL_VC2_OTAREF, 4058 /* Ivfg=lowest current @Vgm=0V */
   70               	.set RIL_VD1_OTAREF, 0xea0e /* Vd @ final stage */
   71               	.set RIL_INJ_T_OTAREF, 1 /* Injection time unit (*10us) */
   72               	.set RIL_NUM_OTAREF, 300 /* # of Recover Injection */
   73               	
-  74               	.set RIL_GATE_S_MITE, 0x4330 /* Gate(MITE) = 2.0V */
-  75               	.set RIL_VC1_MITE, 5717 /* Ivfg=1n A@Vgm=0V */
-  76               	.set RIL_VC2_MITE, 5216 /* Ivfg=lowest current @Vgm=0V */
+  74               	.set RIL_GATE_S_MITE, 0x2900 /* Gate(MITE) = 2.0V */
+  75               	.set RIL_VC1_MITE, 4188 /* Ivfg=1n A@Vgm=0V */
+  76               	.set RIL_VC2_MITE, 4062 /* Ivfg=lowest current @Vgm=0V */
   77               	.set RIL_VD1_MITE, 0xea0e /* Vd @ final stage */
   78               	.set RIL_INJ_T_MITE, 1 /* Injection time unit (*10us) */
   79               	.set RIL_NUM_MITE, 300 /* # of Recover Injection */
   80               	
-  81               	.set RIL_GATE_S_DIRSWC, 0x1530 /* Gate(DIRSWC) = 1.4V */
-  82               	.set RIL_VC1_DIRSWC, 5717 /* Ivfg=1n A@Vgm=0V */
-  83               	.set RIL_VC2_DIRSWC, 5240 /* Ivfg=lowest current @Vgm=0V */
+  81               	.set RIL_GATE_S_DIRSWC, 0x0100 /* Gate(DIRSWC) = 1.4V */
+  82               	.set RIL_VC1_DIRSWC, 4188 /* Ivfg=1n A@Vgm=0V */
+  83               	.set RIL_VC2_DIRSWC, 4060 /* Ivfg=lowest current @Vgm=0V */
   84               	.set RIL_VD1_DIRSWC, 0xea0e /* Vd @ final stage */
   85               	.set RIL_INJ_T_DIRSWC, 1 /* Injection time unit (*10us) */
   86               	.set RIL_NUM_DIRSWC, 300 /* # of Recover Injection */
@@ -476,7 +476,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_m
   77 00d0 284B      	        mov     @r11,    r8		; Read # of pulses
   78 00d2 0893      		cmp	#0x0000, r8
   79 00d4 3124      		jeq	coarse_inject_skip
-  80 00d6 B240 3043 		mov	#RI_GATE_S_MITE, &GATE_S	; gate_s 
+  80 00d6 B240 0029 		mov	#RI_GATE_S_MITE, &GATE_S	; gate_s 
   80      020B 
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43 			page 9
 
@@ -583,18 +583,18 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_m
  158 01e0 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
  158      0C0B 
  159               	;	cmp	r8, r9
- 160 01e6 3990 5126 		cmp	#RI_VC1_MITE, r9	; 215nA @ Vgm=0V -> 1nA @ Vgm = 0.6V
+ 160 01e6 3990 AD19 		cmp	#RI_VC1_MITE, r9	; 215nA @ Vgm=0V -> 1nA @ Vgm = 0.6V
  161 01ea 0330      		jn	status_1
  162 01ec 8B43 0000 		mov	#0x0000, @r11		; Injection over
  163 01f0 143C      		jmp	measure_verify_skip	
  164               	status_1:
- 165 01f2 3990 B824 		cmp	#RI_VC2_MITE, r9	; 149nA @ Vgm=0V
+ 165 01f2 3990 BF18 		cmp	#RI_VC2_MITE, r9	; 149nA @ Vgm=0V
  166 01f6 0430      		jn	status_2
  167 01f8 BB40 CCCC 		mov	#0xcccc, @r11		; Vd =0.6V, time resolution = 10us
  167      0000 
  168 01fe 0D3C      		jmp	measure_verify_skip	
  169               	status_2:
- 170 0200 3990 EC1F 		cmp	#RI_VC3_MITE, r9	; 41nA @ Vgm=0V
+ 170 0200 3990 F315 		cmp	#RI_VC3_MITE, r9	; 41nA @ Vgm=0V
  171 0204 0430      		jn	status_3
  172 0206 BB40 DDDD 		mov	#0xdddd, @r11		; Vd =0.4V, time resolution = 10us
  172      0000 
@@ -603,7 +603,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_m
 
  173 020c 063C      		jmp	measure_verify_skip	
  174               	status_3:
- 175 020e 3990 5516 		cmp	#RI_VC4_MITE, r9	; 8nA @ Vgm=0V
+ 175 020e 3990 5C10 		cmp	#RI_VC4_MITE, r9	; 8nA @ Vgm=0V
  176 0212 0330      		jn	measure_verify_skip
  177 0214 BB40 EEEE 		mov	#0xeeee, @r11		; time resolution = 10us
  177      0000 
@@ -721,315 +721,315 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_m
 
 
 DEFINED SYMBOLS
-       pmem_defs.asm:39     *ABS*:00000000 IE1
-       pmem_defs.asm:40     *ABS*:00000001 IE1_HI
-       pmem_defs.asm:41     *ABS*:00000002 IFG1
-       pmem_defs.asm:42     *ABS*:00000003 IFG1_HI
-       pmem_defs.asm:43     *ABS*:00000004 CPU_ID_LO
-       pmem_defs.asm:44     *ABS*:00000006 CPU_ID_HI
-       pmem_defs.asm:45     *ABS*:00000008 CPU_NR
-       pmem_defs.asm:50     *ABS*:00000020 P1IN
-       pmem_defs.asm:51     *ABS*:00000021 P1OUT
-       pmem_defs.asm:52     *ABS*:00000022 P1DIR
-       pmem_defs.asm:53     *ABS*:00000023 P1IFG
-       pmem_defs.asm:54     *ABS*:00000024 P1IES
-       pmem_defs.asm:55     *ABS*:00000025 P1IE
-       pmem_defs.asm:56     *ABS*:00000026 P1SEL
-       pmem_defs.asm:58     *ABS*:00000028 P2IN
-       pmem_defs.asm:59     *ABS*:00000029 P2OUT
-       pmem_defs.asm:60     *ABS*:0000002a P2DIR
-       pmem_defs.asm:61     *ABS*:0000002b P2IFG
-       pmem_defs.asm:62     *ABS*:0000002c P2IES
-       pmem_defs.asm:63     *ABS*:0000002d P2IE
-       pmem_defs.asm:64     *ABS*:0000002e P2SEL
-       pmem_defs.asm:66     *ABS*:00000018 P3IN
-       pmem_defs.asm:67     *ABS*:00000019 P3OUT
-       pmem_defs.asm:68     *ABS*:0000001a P3DIR
-       pmem_defs.asm:69     *ABS*:0000001b P3SEL
-       pmem_defs.asm:71     *ABS*:0000001c P4IN
-       pmem_defs.asm:72     *ABS*:0000001d P4OUT
-       pmem_defs.asm:73     *ABS*:0000001e P4DIR
-       pmem_defs.asm:74     *ABS*:0000001f P4SEL
-       pmem_defs.asm:76     *ABS*:00000030 P5IN
-       pmem_defs.asm:77     *ABS*:00000031 P5OUT
-       pmem_defs.asm:78     *ABS*:00000032 P5DIR
-       pmem_defs.asm:79     *ABS*:00000033 P5SEL
-       pmem_defs.asm:81     *ABS*:00000034 P6IN
-       pmem_defs.asm:82     *ABS*:00000035 P6OUT
-       pmem_defs.asm:83     *ABS*:00000036 P6DIR
-       pmem_defs.asm:84     *ABS*:00000037 P6SEL
-       pmem_defs.asm:89     *ABS*:00000057 BCSCTL1
-       pmem_defs.asm:90     *ABS*:00000058 BCSCTL2
-       pmem_defs.asm:95     *ABS*:00000120 WDTCTL
-       pmem_defs.asm:100    *ABS*:00000130 MPY
-       pmem_defs.asm:101    *ABS*:00000132 MPYS
-       pmem_defs.asm:102    *ABS*:00000134 MAC
-       pmem_defs.asm:103    *ABS*:00000136 MACS
-       pmem_defs.asm:104    *ABS*:00000138 OP2
-       pmem_defs.asm:105    *ABS*:0000013a RESLO
-       pmem_defs.asm:106    *ABS*:0000013c RESHI
-       pmem_defs.asm:107    *ABS*:0000013e SUMEXT
-       pmem_defs.asm:112    *ABS*:00000160 TACTL
-       pmem_defs.asm:113    *ABS*:00000170 TAR
-       pmem_defs.asm:114    *ABS*:00000162 TACCTL0
-       pmem_defs.asm:115    *ABS*:00000172 TACCR0
-       pmem_defs.asm:116    *ABS*:00000164 TACCTL1
-       pmem_defs.asm:117    *ABS*:00000174 TACCR1
-       pmem_defs.asm:118    *ABS*:00000166 TACCTL2
-       pmem_defs.asm:119    *ABS*:00000176 TACCR2
+       pmem_defs.asm:39     *ABS*:0000000000000000 IE1
+       pmem_defs.asm:40     *ABS*:0000000000000001 IE1_HI
+       pmem_defs.asm:41     *ABS*:0000000000000002 IFG1
+       pmem_defs.asm:42     *ABS*:0000000000000003 IFG1_HI
+       pmem_defs.asm:43     *ABS*:0000000000000004 CPU_ID_LO
+       pmem_defs.asm:44     *ABS*:0000000000000006 CPU_ID_HI
+       pmem_defs.asm:45     *ABS*:0000000000000008 CPU_NR
+       pmem_defs.asm:50     *ABS*:0000000000000020 P1IN
+       pmem_defs.asm:51     *ABS*:0000000000000021 P1OUT
+       pmem_defs.asm:52     *ABS*:0000000000000022 P1DIR
+       pmem_defs.asm:53     *ABS*:0000000000000023 P1IFG
+       pmem_defs.asm:54     *ABS*:0000000000000024 P1IES
+       pmem_defs.asm:55     *ABS*:0000000000000025 P1IE
+       pmem_defs.asm:56     *ABS*:0000000000000026 P1SEL
+       pmem_defs.asm:58     *ABS*:0000000000000028 P2IN
+       pmem_defs.asm:59     *ABS*:0000000000000029 P2OUT
+       pmem_defs.asm:60     *ABS*:000000000000002a P2DIR
+       pmem_defs.asm:61     *ABS*:000000000000002b P2IFG
+       pmem_defs.asm:62     *ABS*:000000000000002c P2IES
+       pmem_defs.asm:63     *ABS*:000000000000002d P2IE
+       pmem_defs.asm:64     *ABS*:000000000000002e P2SEL
+       pmem_defs.asm:66     *ABS*:0000000000000018 P3IN
+       pmem_defs.asm:67     *ABS*:0000000000000019 P3OUT
+       pmem_defs.asm:68     *ABS*:000000000000001a P3DIR
+       pmem_defs.asm:69     *ABS*:000000000000001b P3SEL
+       pmem_defs.asm:71     *ABS*:000000000000001c P4IN
+       pmem_defs.asm:72     *ABS*:000000000000001d P4OUT
+       pmem_defs.asm:73     *ABS*:000000000000001e P4DIR
+       pmem_defs.asm:74     *ABS*:000000000000001f P4SEL
+       pmem_defs.asm:76     *ABS*:0000000000000030 P5IN
+       pmem_defs.asm:77     *ABS*:0000000000000031 P5OUT
+       pmem_defs.asm:78     *ABS*:0000000000000032 P5DIR
+       pmem_defs.asm:79     *ABS*:0000000000000033 P5SEL
+       pmem_defs.asm:81     *ABS*:0000000000000034 P6IN
+       pmem_defs.asm:82     *ABS*:0000000000000035 P6OUT
+       pmem_defs.asm:83     *ABS*:0000000000000036 P6DIR
+       pmem_defs.asm:84     *ABS*:0000000000000037 P6SEL
+       pmem_defs.asm:89     *ABS*:0000000000000057 BCSCTL1
+       pmem_defs.asm:90     *ABS*:0000000000000058 BCSCTL2
+       pmem_defs.asm:95     *ABS*:0000000000000120 WDTCTL
+       pmem_defs.asm:100    *ABS*:0000000000000130 MPY
+       pmem_defs.asm:101    *ABS*:0000000000000132 MPYS
+       pmem_defs.asm:102    *ABS*:0000000000000134 MAC
+       pmem_defs.asm:103    *ABS*:0000000000000136 MACS
+       pmem_defs.asm:104    *ABS*:0000000000000138 OP2
+       pmem_defs.asm:105    *ABS*:000000000000013a RESLO
+       pmem_defs.asm:106    *ABS*:000000000000013c RESHI
+       pmem_defs.asm:107    *ABS*:000000000000013e SUMEXT
+       pmem_defs.asm:112    *ABS*:0000000000000160 TACTL
+       pmem_defs.asm:113    *ABS*:0000000000000170 TAR
+       pmem_defs.asm:114    *ABS*:0000000000000162 TACCTL0
+       pmem_defs.asm:115    *ABS*:0000000000000172 TACCR0
+       pmem_defs.asm:116    *ABS*:0000000000000164 TACCTL1
+       pmem_defs.asm:117    *ABS*:0000000000000174 TACCR1
+       pmem_defs.asm:118    *ABS*:0000000000000166 TACCTL2
+       pmem_defs.asm:119    *ABS*:0000000000000176 TACCR2
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43 			page 14
 
 
-       pmem_defs.asm:120    *ABS*:0000012e TAIV
-       pmem_defs.asm:125    *ABS*:00004000 DMEM_BASE
-       pmem_defs.asm:127    *ABS*:00004000 DMEM_200
-       pmem_defs.asm:128    *ABS*:00004001 DMEM_201
-       pmem_defs.asm:129    *ABS*:00004002 DMEM_202
-       pmem_defs.asm:130    *ABS*:00004003 DMEM_203
-       pmem_defs.asm:131    *ABS*:00004004 DMEM_204
-       pmem_defs.asm:132    *ABS*:00004005 DMEM_205
-       pmem_defs.asm:133    *ABS*:00004006 DMEM_206
-       pmem_defs.asm:134    *ABS*:00004007 DMEM_207
-       pmem_defs.asm:135    *ABS*:00004008 DMEM_208
-       pmem_defs.asm:136    *ABS*:00004009 DMEM_209
-       pmem_defs.asm:137    *ABS*:0000400a DMEM_20A
-       pmem_defs.asm:138    *ABS*:0000400b DMEM_20B
-       pmem_defs.asm:139    *ABS*:0000400c DMEM_20C
-       pmem_defs.asm:140    *ABS*:0000400d DMEM_20D
-       pmem_defs.asm:141    *ABS*:0000400e DMEM_20E
-       pmem_defs.asm:142    *ABS*:0000400f DMEM_20F
-       pmem_defs.asm:144    *ABS*:00004010 DMEM_210
-       pmem_defs.asm:145    *ABS*:00004011 DMEM_211
-       pmem_defs.asm:146    *ABS*:00004012 DMEM_212
-       pmem_defs.asm:147    *ABS*:00004013 DMEM_213
-       pmem_defs.asm:148    *ABS*:00004014 DMEM_214
-       pmem_defs.asm:149    *ABS*:00004015 DMEM_215
-       pmem_defs.asm:150    *ABS*:00004016 DMEM_216
-       pmem_defs.asm:151    *ABS*:00004017 DMEM_217
-       pmem_defs.asm:152    *ABS*:00004018 DMEM_218
-       pmem_defs.asm:153    *ABS*:00004019 DMEM_219
-       pmem_defs.asm:154    *ABS*:0000401a DMEM_21A
-       pmem_defs.asm:155    *ABS*:0000401b DMEM_21B
-       pmem_defs.asm:156    *ABS*:0000401c DMEM_21C
-       pmem_defs.asm:157    *ABS*:0000401d DMEM_21D
-       pmem_defs.asm:158    *ABS*:0000401e DMEM_21E
-       pmem_defs.asm:159    *ABS*:0000401f DMEM_21F
-       pmem_defs.asm:161    *ABS*:00004020 DMEM_220
-       pmem_defs.asm:162    *ABS*:00004021 DMEM_221
-       pmem_defs.asm:163    *ABS*:00004022 DMEM_222
-       pmem_defs.asm:164    *ABS*:00004023 DMEM_223
-       pmem_defs.asm:165    *ABS*:00004024 DMEM_224
-       pmem_defs.asm:166    *ABS*:00004025 DMEM_225
-       pmem_defs.asm:167    *ABS*:00004026 DMEM_226
-       pmem_defs.asm:168    *ABS*:00004027 DMEM_227
-       pmem_defs.asm:169    *ABS*:00004028 DMEM_228
-       pmem_defs.asm:170    *ABS*:00004029 DMEM_229
-       pmem_defs.asm:171    *ABS*:0000402a DMEM_22A
-       pmem_defs.asm:172    *ABS*:0000402b DMEM_22B
-       pmem_defs.asm:173    *ABS*:0000402c DMEM_22C
-       pmem_defs.asm:174    *ABS*:0000402d DMEM_22D
-       pmem_defs.asm:175    *ABS*:0000402e DMEM_22E
-       pmem_defs.asm:176    *ABS*:0000402f DMEM_22F
-       pmem_defs.asm:178    *ABS*:00004030 DMEM_230
-       pmem_defs.asm:179    *ABS*:00004031 DMEM_231
-       pmem_defs.asm:180    *ABS*:00004032 DMEM_232
-       pmem_defs.asm:181    *ABS*:00004033 DMEM_233
-       pmem_defs.asm:182    *ABS*:00004034 DMEM_234
-       pmem_defs.asm:183    *ABS*:00004035 DMEM_235
-       pmem_defs.asm:184    *ABS*:00004036 DMEM_236
+       pmem_defs.asm:120    *ABS*:000000000000012e TAIV
+       pmem_defs.asm:125    *ABS*:0000000000004000 DMEM_BASE
+       pmem_defs.asm:127    *ABS*:0000000000004000 DMEM_200
+       pmem_defs.asm:128    *ABS*:0000000000004001 DMEM_201
+       pmem_defs.asm:129    *ABS*:0000000000004002 DMEM_202
+       pmem_defs.asm:130    *ABS*:0000000000004003 DMEM_203
+       pmem_defs.asm:131    *ABS*:0000000000004004 DMEM_204
+       pmem_defs.asm:132    *ABS*:0000000000004005 DMEM_205
+       pmem_defs.asm:133    *ABS*:0000000000004006 DMEM_206
+       pmem_defs.asm:134    *ABS*:0000000000004007 DMEM_207
+       pmem_defs.asm:135    *ABS*:0000000000004008 DMEM_208
+       pmem_defs.asm:136    *ABS*:0000000000004009 DMEM_209
+       pmem_defs.asm:137    *ABS*:000000000000400a DMEM_20A
+       pmem_defs.asm:138    *ABS*:000000000000400b DMEM_20B
+       pmem_defs.asm:139    *ABS*:000000000000400c DMEM_20C
+       pmem_defs.asm:140    *ABS*:000000000000400d DMEM_20D
+       pmem_defs.asm:141    *ABS*:000000000000400e DMEM_20E
+       pmem_defs.asm:142    *ABS*:000000000000400f DMEM_20F
+       pmem_defs.asm:144    *ABS*:0000000000004010 DMEM_210
+       pmem_defs.asm:145    *ABS*:0000000000004011 DMEM_211
+       pmem_defs.asm:146    *ABS*:0000000000004012 DMEM_212
+       pmem_defs.asm:147    *ABS*:0000000000004013 DMEM_213
+       pmem_defs.asm:148    *ABS*:0000000000004014 DMEM_214
+       pmem_defs.asm:149    *ABS*:0000000000004015 DMEM_215
+       pmem_defs.asm:150    *ABS*:0000000000004016 DMEM_216
+       pmem_defs.asm:151    *ABS*:0000000000004017 DMEM_217
+       pmem_defs.asm:152    *ABS*:0000000000004018 DMEM_218
+       pmem_defs.asm:153    *ABS*:0000000000004019 DMEM_219
+       pmem_defs.asm:154    *ABS*:000000000000401a DMEM_21A
+       pmem_defs.asm:155    *ABS*:000000000000401b DMEM_21B
+       pmem_defs.asm:156    *ABS*:000000000000401c DMEM_21C
+       pmem_defs.asm:157    *ABS*:000000000000401d DMEM_21D
+       pmem_defs.asm:158    *ABS*:000000000000401e DMEM_21E
+       pmem_defs.asm:159    *ABS*:000000000000401f DMEM_21F
+       pmem_defs.asm:161    *ABS*:0000000000004020 DMEM_220
+       pmem_defs.asm:162    *ABS*:0000000000004021 DMEM_221
+       pmem_defs.asm:163    *ABS*:0000000000004022 DMEM_222
+       pmem_defs.asm:164    *ABS*:0000000000004023 DMEM_223
+       pmem_defs.asm:165    *ABS*:0000000000004024 DMEM_224
+       pmem_defs.asm:166    *ABS*:0000000000004025 DMEM_225
+       pmem_defs.asm:167    *ABS*:0000000000004026 DMEM_226
+       pmem_defs.asm:168    *ABS*:0000000000004027 DMEM_227
+       pmem_defs.asm:169    *ABS*:0000000000004028 DMEM_228
+       pmem_defs.asm:170    *ABS*:0000000000004029 DMEM_229
+       pmem_defs.asm:171    *ABS*:000000000000402a DMEM_22A
+       pmem_defs.asm:172    *ABS*:000000000000402b DMEM_22B
+       pmem_defs.asm:173    *ABS*:000000000000402c DMEM_22C
+       pmem_defs.asm:174    *ABS*:000000000000402d DMEM_22D
+       pmem_defs.asm:175    *ABS*:000000000000402e DMEM_22E
+       pmem_defs.asm:176    *ABS*:000000000000402f DMEM_22F
+       pmem_defs.asm:178    *ABS*:0000000000004030 DMEM_230
+       pmem_defs.asm:179    *ABS*:0000000000004031 DMEM_231
+       pmem_defs.asm:180    *ABS*:0000000000004032 DMEM_232
+       pmem_defs.asm:181    *ABS*:0000000000004033 DMEM_233
+       pmem_defs.asm:182    *ABS*:0000000000004034 DMEM_234
+       pmem_defs.asm:183    *ABS*:0000000000004035 DMEM_235
+       pmem_defs.asm:184    *ABS*:0000000000004036 DMEM_236
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43 			page 15
 
 
-       pmem_defs.asm:185    *ABS*:00004037 DMEM_237
-       pmem_defs.asm:186    *ABS*:00004038 DMEM_238
-       pmem_defs.asm:187    *ABS*:00004039 DMEM_239
-       pmem_defs.asm:188    *ABS*:0000403a DMEM_23A
-       pmem_defs.asm:189    *ABS*:0000403b DMEM_23B
-       pmem_defs.asm:190    *ABS*:0000403c DMEM_23C
-       pmem_defs.asm:191    *ABS*:0000403d DMEM_23D
-       pmem_defs.asm:192    *ABS*:0000403e DMEM_23E
-       pmem_defs.asm:193    *ABS*:0000403f DMEM_23F
-       pmem_defs.asm:195    *ABS*:00004040 DMEM_240
-       pmem_defs.asm:196    *ABS*:00004041 DMEM_241
-       pmem_defs.asm:197    *ABS*:00004042 DMEM_242
-       pmem_defs.asm:198    *ABS*:00004043 DMEM_243
-       pmem_defs.asm:199    *ABS*:00004044 DMEM_244
-       pmem_defs.asm:200    *ABS*:00004045 DMEM_245
-       pmem_defs.asm:201    *ABS*:00004046 DMEM_246
-       pmem_defs.asm:202    *ABS*:00004047 DMEM_247
-       pmem_defs.asm:203    *ABS*:00004048 DMEM_248
-       pmem_defs.asm:204    *ABS*:00004049 DMEM_249
-       pmem_defs.asm:205    *ABS*:0000404a DMEM_24A
-       pmem_defs.asm:206    *ABS*:0000404b DMEM_24B
-       pmem_defs.asm:207    *ABS*:0000404c DMEM_24C
-       pmem_defs.asm:208    *ABS*:0000404d DMEM_24D
-       pmem_defs.asm:209    *ABS*:0000404e DMEM_24E
-       pmem_defs.asm:210    *ABS*:0000404f DMEM_24F
-       pmem_defs.asm:212    *ABS*:00004050 DMEM_250
-       pmem_defs.asm:213    *ABS*:00004051 DMEM_251
-       pmem_defs.asm:214    *ABS*:00004052 DMEM_252
-       pmem_defs.asm:215    *ABS*:00004053 DMEM_253
-       pmem_defs.asm:216    *ABS*:00004054 DMEM_254
-       pmem_defs.asm:217    *ABS*:00004055 DMEM_255
-       pmem_defs.asm:218    *ABS*:00004056 DMEM_256
-       pmem_defs.asm:219    *ABS*:00004057 DMEM_257
-       pmem_defs.asm:220    *ABS*:00004058 DMEM_258
-       pmem_defs.asm:221    *ABS*:00004059 DMEM_259
-       pmem_defs.asm:222    *ABS*:0000405a DMEM_25A
-       pmem_defs.asm:223    *ABS*:0000405b DMEM_25B
-       pmem_defs.asm:224    *ABS*:0000405c DMEM_25C
-       pmem_defs.asm:225    *ABS*:0000405d DMEM_25D
-       pmem_defs.asm:226    *ABS*:0000405e DMEM_25E
-       pmem_defs.asm:227    *ABS*:0000405f DMEM_25F
-       pmem_defs.asm:229    *ABS*:00004060 DMEM_260
-       pmem_defs.asm:230    *ABS*:00004061 DMEM_261
-       pmem_defs.asm:231    *ABS*:00004062 DMEM_262
-       pmem_defs.asm:232    *ABS*:00004063 DMEM_263
-       pmem_defs.asm:233    *ABS*:00004064 DMEM_264
-       pmem_defs.asm:234    *ABS*:00004065 DMEM_265
-       pmem_defs.asm:235    *ABS*:00004066 DMEM_266
-       pmem_defs.asm:236    *ABS*:00004067 DMEM_267
-       pmem_defs.asm:237    *ABS*:00004068 DMEM_268
-       pmem_defs.asm:238    *ABS*:00004069 DMEM_269
-       pmem_defs.asm:239    *ABS*:0000406a DMEM_26A
-       pmem_defs.asm:240    *ABS*:0000406b DMEM_26B
-       pmem_defs.asm:241    *ABS*:0000406c DMEM_26C
-       pmem_defs.asm:242    *ABS*:0000406d DMEM_26D
-       pmem_defs.asm:243    *ABS*:0000406e DMEM_26E
-       pmem_defs.asm:244    *ABS*:0000406f DMEM_26F
+       pmem_defs.asm:185    *ABS*:0000000000004037 DMEM_237
+       pmem_defs.asm:186    *ABS*:0000000000004038 DMEM_238
+       pmem_defs.asm:187    *ABS*:0000000000004039 DMEM_239
+       pmem_defs.asm:188    *ABS*:000000000000403a DMEM_23A
+       pmem_defs.asm:189    *ABS*:000000000000403b DMEM_23B
+       pmem_defs.asm:190    *ABS*:000000000000403c DMEM_23C
+       pmem_defs.asm:191    *ABS*:000000000000403d DMEM_23D
+       pmem_defs.asm:192    *ABS*:000000000000403e DMEM_23E
+       pmem_defs.asm:193    *ABS*:000000000000403f DMEM_23F
+       pmem_defs.asm:195    *ABS*:0000000000004040 DMEM_240
+       pmem_defs.asm:196    *ABS*:0000000000004041 DMEM_241
+       pmem_defs.asm:197    *ABS*:0000000000004042 DMEM_242
+       pmem_defs.asm:198    *ABS*:0000000000004043 DMEM_243
+       pmem_defs.asm:199    *ABS*:0000000000004044 DMEM_244
+       pmem_defs.asm:200    *ABS*:0000000000004045 DMEM_245
+       pmem_defs.asm:201    *ABS*:0000000000004046 DMEM_246
+       pmem_defs.asm:202    *ABS*:0000000000004047 DMEM_247
+       pmem_defs.asm:203    *ABS*:0000000000004048 DMEM_248
+       pmem_defs.asm:204    *ABS*:0000000000004049 DMEM_249
+       pmem_defs.asm:205    *ABS*:000000000000404a DMEM_24A
+       pmem_defs.asm:206    *ABS*:000000000000404b DMEM_24B
+       pmem_defs.asm:207    *ABS*:000000000000404c DMEM_24C
+       pmem_defs.asm:208    *ABS*:000000000000404d DMEM_24D
+       pmem_defs.asm:209    *ABS*:000000000000404e DMEM_24E
+       pmem_defs.asm:210    *ABS*:000000000000404f DMEM_24F
+       pmem_defs.asm:212    *ABS*:0000000000004050 DMEM_250
+       pmem_defs.asm:213    *ABS*:0000000000004051 DMEM_251
+       pmem_defs.asm:214    *ABS*:0000000000004052 DMEM_252
+       pmem_defs.asm:215    *ABS*:0000000000004053 DMEM_253
+       pmem_defs.asm:216    *ABS*:0000000000004054 DMEM_254
+       pmem_defs.asm:217    *ABS*:0000000000004055 DMEM_255
+       pmem_defs.asm:218    *ABS*:0000000000004056 DMEM_256
+       pmem_defs.asm:219    *ABS*:0000000000004057 DMEM_257
+       pmem_defs.asm:220    *ABS*:0000000000004058 DMEM_258
+       pmem_defs.asm:221    *ABS*:0000000000004059 DMEM_259
+       pmem_defs.asm:222    *ABS*:000000000000405a DMEM_25A
+       pmem_defs.asm:223    *ABS*:000000000000405b DMEM_25B
+       pmem_defs.asm:224    *ABS*:000000000000405c DMEM_25C
+       pmem_defs.asm:225    *ABS*:000000000000405d DMEM_25D
+       pmem_defs.asm:226    *ABS*:000000000000405e DMEM_25E
+       pmem_defs.asm:227    *ABS*:000000000000405f DMEM_25F
+       pmem_defs.asm:229    *ABS*:0000000000004060 DMEM_260
+       pmem_defs.asm:230    *ABS*:0000000000004061 DMEM_261
+       pmem_defs.asm:231    *ABS*:0000000000004062 DMEM_262
+       pmem_defs.asm:232    *ABS*:0000000000004063 DMEM_263
+       pmem_defs.asm:233    *ABS*:0000000000004064 DMEM_264
+       pmem_defs.asm:234    *ABS*:0000000000004065 DMEM_265
+       pmem_defs.asm:235    *ABS*:0000000000004066 DMEM_266
+       pmem_defs.asm:236    *ABS*:0000000000004067 DMEM_267
+       pmem_defs.asm:237    *ABS*:0000000000004068 DMEM_268
+       pmem_defs.asm:238    *ABS*:0000000000004069 DMEM_269
+       pmem_defs.asm:239    *ABS*:000000000000406a DMEM_26A
+       pmem_defs.asm:240    *ABS*:000000000000406b DMEM_26B
+       pmem_defs.asm:241    *ABS*:000000000000406c DMEM_26C
+       pmem_defs.asm:242    *ABS*:000000000000406d DMEM_26D
+       pmem_defs.asm:243    *ABS*:000000000000406e DMEM_26E
+       pmem_defs.asm:244    *ABS*:000000000000406f DMEM_26F
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43 			page 16
 
 
-       pmem_defs.asm:246    *ABS*:00004100 DMEM_300
-       pmem_defs.asm:251    *ABS*:00004000 PMEM_LENGTH
-       pmem_defs.asm:256    *ABS*:00000b00 DRAIN_CTRL
-       pmem_defs.asm:257    *ABS*:00000b02 GATE_S
-       pmem_defs.asm:258    *ABS*:00000b04 ADC
-       pmem_defs.asm:259    *ABS*:00000b06 PULSE_CTRL
-       pmem_defs.asm:260    *ABS*:00000b08 ROW_SEL
-       pmem_defs.asm:261    *ABS*:00000b0a COL_SEL
-       pmem_defs.asm:262    *ABS*:00000b0c PROG_BITS
-       pmem_defs.asm:263    *ABS*:00000b0e TUN_MUX
-       pmem_defs.asm:264    *ABS*:00000b10 GATE_US_P
-       pmem_defs.asm:265    *ABS*:00000b12 GATE_US_N
-       pmem_defs.asm:266    *ABS*:00000b14 BIAS_DACS
-       pmem_defs.asm:267    *ABS*:00000160 GP_PER_1
-       pmem_defs.asm:268    *ABS*:00000162 GP_PER_2
-       pmem_defs.asm:269    *ABS*:00000164 GP_PER_3
-       pmem_defs.asm:270    *ABS*:00000166 GP_PER_4
- chip_para_debug.asm:1      *ABS*:00000000 RI_MEAS_ON
- chip_para_debug.asm:2      *ABS*:00000000 RIL_MEAS_ON
- chip_para_debug.asm:3      *ABS*:00000000 CP_MEAS_ON
- chip_para_debug.asm:4      *ABS*:00000000 CPL_MEAS_ON
- chip_para_debug.asm:5      *ABS*:00000000 FP_MEAS_ON
- chip_para_debug.asm:6      *ABS*:00000000 FPL_MEAS_ON
-    chip_para_RI.asm:2      *ABS*:00000040 RI_GATE_S_SWC
-    chip_para_RI.asm:3      *ABS*:00001dc0 RI_VC1_SWC
-    chip_para_RI.asm:4      *ABS*:00001d02 RI_VC2_SWC
-    chip_para_RI.asm:5      *ABS*:00001ac9 RI_VC3_SWC
-    chip_para_RI.asm:6      *ABS*:00001655 RI_VC4_SWC
-    chip_para_RI.asm:7      *ABS*:0000ea0e RI_VD1_SWC
-    chip_para_RI.asm:8      *ABS*:0000fe0e RI_VD2_SWC
-    chip_para_RI.asm:9      *ABS*:00000002 RI_INJ_T_SWC
-    chip_para_RI.asm:10     *ABS*:0000012c RI_NUM_SWC
-    chip_para_RI.asm:12     *ABS*:00004330 RI_GATE_S_OTA
-    chip_para_RI.asm:13     *ABS*:000023c9 RI_VC1_OTA
-    chip_para_RI.asm:14     *ABS*:00002271 RI_VC2_OTA
-    chip_para_RI.asm:15     *ABS*:00001e68 RI_VC3_OTA
-    chip_para_RI.asm:16     *ABS*:00001655 RI_VC4_OTA
-    chip_para_RI.asm:17     *ABS*:0000ea0e RI_VD1_OTA
-    chip_para_RI.asm:18     *ABS*:0000fe0e RI_VD2_OTA
-    chip_para_RI.asm:19     *ABS*:00000001 RI_INJ_T_OTA
-    chip_para_RI.asm:20     *ABS*:0000012c RI_NUM_OTA
-    chip_para_RI.asm:22     *ABS*:00000040 RI_GATE_S_OTAREF
-    chip_para_RI.asm:23     *ABS*:00001f23 RI_VC1_OTAREF
-    chip_para_RI.asm:24     *ABS*:00001e41 RI_VC2_OTAREF
-    chip_para_RI.asm:25     *ABS*:00001b9d RI_VC3_OTAREF
-    chip_para_RI.asm:26     *ABS*:00001655 RI_VC4_OTAREF
-    chip_para_RI.asm:27     *ABS*:0000ea0e RI_VD1_OTAREF
-    chip_para_RI.asm:28     *ABS*:0000fe0e RI_VD2_OTAREF
-    chip_para_RI.asm:29     *ABS*:00000001 RI_INJ_T_OTAREF
-    chip_para_RI.asm:30     *ABS*:0000012c RI_NUM_OTAREF
-    chip_para_RI.asm:32     *ABS*:00004330 RI_GATE_S_MITE
-    chip_para_RI.asm:33     *ABS*:00002651 RI_VC1_MITE
-    chip_para_RI.asm:34     *ABS*:000024b8 RI_VC2_MITE
-    chip_para_RI.asm:35     *ABS*:00001fec RI_VC3_MITE
-    chip_para_RI.asm:36     *ABS*:00001655 RI_VC4_MITE
-    chip_para_RI.asm:37     *ABS*:0000ea0e RI_VD1_MITE
-    chip_para_RI.asm:38     *ABS*:0000fe0e RI_VD2_MITE
+       pmem_defs.asm:246    *ABS*:0000000000004100 DMEM_300
+       pmem_defs.asm:251    *ABS*:0000000000004000 PMEM_LENGTH
+       pmem_defs.asm:256    *ABS*:0000000000000b00 DRAIN_CTRL
+       pmem_defs.asm:257    *ABS*:0000000000000b02 GATE_S
+       pmem_defs.asm:258    *ABS*:0000000000000b04 ADC
+       pmem_defs.asm:259    *ABS*:0000000000000b06 PULSE_CTRL
+       pmem_defs.asm:260    *ABS*:0000000000000b08 ROW_SEL
+       pmem_defs.asm:261    *ABS*:0000000000000b0a COL_SEL
+       pmem_defs.asm:262    *ABS*:0000000000000b0c PROG_BITS
+       pmem_defs.asm:263    *ABS*:0000000000000b0e TUN_MUX
+       pmem_defs.asm:264    *ABS*:0000000000000b10 GATE_US_P
+       pmem_defs.asm:265    *ABS*:0000000000000b12 GATE_US_N
+       pmem_defs.asm:266    *ABS*:0000000000000b14 BIAS_DACS
+       pmem_defs.asm:267    *ABS*:0000000000000160 GP_PER_1
+       pmem_defs.asm:268    *ABS*:0000000000000162 GP_PER_2
+       pmem_defs.asm:269    *ABS*:0000000000000164 GP_PER_3
+       pmem_defs.asm:270    *ABS*:0000000000000166 GP_PER_4
+ chip_para_debug.asm:1      *ABS*:0000000000000000 RI_MEAS_ON
+ chip_para_debug.asm:2      *ABS*:0000000000000000 RIL_MEAS_ON
+ chip_para_debug.asm:3      *ABS*:0000000000000000 CP_MEAS_ON
+ chip_para_debug.asm:4      *ABS*:0000000000000000 CPL_MEAS_ON
+ chip_para_debug.asm:5      *ABS*:0000000000000000 FP_MEAS_ON
+ chip_para_debug.asm:6      *ABS*:0000000000000000 FPL_MEAS_ON
+    chip_para_RI.asm:2      *ABS*:0000000000000040 RI_GATE_S_SWC
+    chip_para_RI.asm:3      *ABS*:00000000000015c1 RI_VC1_SWC
+    chip_para_RI.asm:4      *ABS*:0000000000001537 RI_VC2_SWC
+    chip_para_RI.asm:5      *ABS*:0000000000001398 RI_VC3_SWC
+    chip_para_RI.asm:6      *ABS*:000000000000105c RI_VC4_SWC
+    chip_para_RI.asm:7      *ABS*:000000000000ea0e RI_VD1_SWC
+    chip_para_RI.asm:8      *ABS*:000000000000fe0e RI_VD2_SWC
+    chip_para_RI.asm:9      *ABS*:0000000000000001 RI_INJ_T_SWC
+    chip_para_RI.asm:10     *ABS*:000000000000012c RI_NUM_SWC
+    chip_para_RI.asm:12     *ABS*:0000000000003700 RI_GATE_S_OTA
+    chip_para_RI.asm:13     *ABS*:000000000000188b RI_VC1_OTA
+    chip_para_RI.asm:14     *ABS*:00000000000017ba RI_VC2_OTA
+    chip_para_RI.asm:15     *ABS*:0000000000001545 RI_VC3_OTA
+    chip_para_RI.asm:16     *ABS*:000000000000105c RI_VC4_OTA
+    chip_para_RI.asm:17     *ABS*:000000000000ea0e RI_VD1_OTA
+    chip_para_RI.asm:18     *ABS*:000000000000fe0e RI_VD2_OTA
+    chip_para_RI.asm:19     *ABS*:0000000000000001 RI_INJ_T_OTA
+    chip_para_RI.asm:20     *ABS*:000000000000012c RI_NUM_OTA
+    chip_para_RI.asm:22     *ABS*:0000000000000040 RI_GATE_S_OTAREF
+    chip_para_RI.asm:23     *ABS*:0000000000001679 RI_VC1_OTAREF
+    chip_para_RI.asm:24     *ABS*:00000000000015dc RI_VC2_OTAREF
+    chip_para_RI.asm:25     *ABS*:0000000000001407 RI_VC3_OTAREF
+    chip_para_RI.asm:26     *ABS*:000000000000105c RI_VC4_OTAREF
+    chip_para_RI.asm:27     *ABS*:000000000000ea0e RI_VD1_OTAREF
+    chip_para_RI.asm:28     *ABS*:000000000000fe0e RI_VD2_OTAREF
+    chip_para_RI.asm:29     *ABS*:0000000000000001 RI_INJ_T_OTAREF
+    chip_para_RI.asm:30     *ABS*:000000000000012c RI_NUM_OTAREF
+    chip_para_RI.asm:32     *ABS*:0000000000002900 RI_GATE_S_MITE
+    chip_para_RI.asm:33     *ABS*:00000000000019ad RI_VC1_MITE
+    chip_para_RI.asm:34     *ABS*:00000000000018bf RI_VC2_MITE
+    chip_para_RI.asm:35     *ABS*:00000000000015f3 RI_VC3_MITE
+    chip_para_RI.asm:36     *ABS*:000000000000105c RI_VC4_MITE
+    chip_para_RI.asm:37     *ABS*:000000000000ea0e RI_VD1_MITE
+    chip_para_RI.asm:38     *ABS*:000000000000fe0e RI_VD2_MITE
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43 			page 17
 
 
-    chip_para_RI.asm:39     *ABS*:00000001 RI_INJ_T_MITE
-    chip_para_RI.asm:40     *ABS*:0000012c RI_NUM_MITE
-    chip_para_RI.asm:42     *ABS*:00001530 RI_GATE_S_DIRSWC
-    chip_para_RI.asm:43     *ABS*:00001ecd RI_VC1_DIRSWC
-    chip_para_RI.asm:44     *ABS*:00001df4 RI_VC2_DIRSWC
-    chip_para_RI.asm:45     *ABS*:00001b6a RI_VC3_DIRSWC
-    chip_para_RI.asm:46     *ABS*:00001655 RI_VC4_DIRSWC
-    chip_para_RI.asm:47     *ABS*:0000ea0e RI_VD1_DIRSWC
-    chip_para_RI.asm:48     *ABS*:0000fe0e RI_VD2_DIRSWC
-    chip_para_RI.asm:49     *ABS*:00000001 RI_INJ_T_DIRSWC
-    chip_para_RI.asm:50     *ABS*:0000012c RI_NUM_DIRSWC
-    chip_para_RI.asm:53     *ABS*:00000040 RIL_GATE_S_SWC
-    chip_para_RI.asm:54     *ABS*:00001655 RIL_VC1_SWC
-    chip_para_RI.asm:55     *ABS*:00001385 RIL_VC2_SWC
-    chip_para_RI.asm:56     *ABS*:0000ea0e RIL_VD1_SWC
-    chip_para_RI.asm:57     *ABS*:00000001 RIL_INJ_T_SWC
-    chip_para_RI.asm:58     *ABS*:0000012c RIL_NUM_SWC
-    chip_para_RI.asm:60     *ABS*:00004330 RIL_GATE_S_OTA
-    chip_para_RI.asm:61     *ABS*:00001655 RIL_VC1_OTA
-    chip_para_RI.asm:62     *ABS*:00001406 RIL_VC2_OTA
-    chip_para_RI.asm:63     *ABS*:0000ea0e RIL_VD1_OTA
-    chip_para_RI.asm:64     *ABS*:00000001 RIL_INJ_T_OTA
-    chip_para_RI.asm:65     *ABS*:0000012c RIL_NUM_OTA
-    chip_para_RI.asm:67     *ABS*:00000040 RIL_GATE_S_OTAREF
-    chip_para_RI.asm:68     *ABS*:00001655 RIL_VC1_OTAREF
-    chip_para_RI.asm:69     *ABS*:0000143b RIL_VC2_OTAREF
-    chip_para_RI.asm:70     *ABS*:0000ea0e RIL_VD1_OTAREF
-    chip_para_RI.asm:71     *ABS*:00000001 RIL_INJ_T_OTAREF
-    chip_para_RI.asm:72     *ABS*:0000012c RIL_NUM_OTAREF
-    chip_para_RI.asm:74     *ABS*:00004330 RIL_GATE_S_MITE
-    chip_para_RI.asm:75     *ABS*:00001655 RIL_VC1_MITE
-    chip_para_RI.asm:76     *ABS*:00001460 RIL_VC2_MITE
-    chip_para_RI.asm:77     *ABS*:0000ea0e RIL_VD1_MITE
-    chip_para_RI.asm:78     *ABS*:00000001 RIL_INJ_T_MITE
-    chip_para_RI.asm:79     *ABS*:0000012c RIL_NUM_MITE
-    chip_para_RI.asm:81     *ABS*:00001530 RIL_GATE_S_DIRSWC
-    chip_para_RI.asm:82     *ABS*:00001655 RIL_VC1_DIRSWC
-    chip_para_RI.asm:83     *ABS*:00001478 RIL_VC2_DIRSWC
-    chip_para_RI.asm:84     *ABS*:0000ea0e RIL_VD1_DIRSWC
-    chip_para_RI.asm:85     *ABS*:00000001 RIL_INJ_T_DIRSWC
-    chip_para_RI.asm:86     *ABS*:0000012c RIL_NUM_DIRSWC
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:7      .text:00000000 main
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:12     .text:0000000e init_wait
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:187    .text:0000022e block_measure
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:33     .text:0000005a coarse_loop_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:125    .text:0000016c measure_verify
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:62     .text:000000a2 coarse_inject
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:45     .text:0000007e skip_measurement
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:49     .text:00000084 coarse_loop_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:248    .text:000002de end_of_test
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:69     .text:000000be coarse_inject_set_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:107    .text:00000138 coarse_inject_skip
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:226    .text:000002ba wait_ms
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:94     .text:00000118 injection_pulse
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:237    .text:000002cc wait_10us
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:103    .text:0000012c pulse_width_10us
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:111    .text:0000013e coarse_inject_e
+    chip_para_RI.asm:39     *ABS*:0000000000000001 RI_INJ_T_MITE
+    chip_para_RI.asm:40     *ABS*:000000000000012c RI_NUM_MITE
+    chip_para_RI.asm:42     *ABS*:0000000000000100 RI_GATE_S_DIRSWC
+    chip_para_RI.asm:43     *ABS*:00000000000015fa RI_VC1_DIRSWC
+    chip_para_RI.asm:44     *ABS*:000000000000156a RI_VC2_DIRSWC
+    chip_para_RI.asm:45     *ABS*:00000000000013bb RI_VC3_DIRSWC
+    chip_para_RI.asm:46     *ABS*:000000000000105c RI_VC4_DIRSWC
+    chip_para_RI.asm:47     *ABS*:000000000000ea0e RI_VD1_DIRSWC
+    chip_para_RI.asm:48     *ABS*:000000000000fe0e RI_VD2_DIRSWC
+    chip_para_RI.asm:49     *ABS*:0000000000000001 RI_INJ_T_DIRSWC
+    chip_para_RI.asm:50     *ABS*:000000000000012c RI_NUM_DIRSWC
+    chip_para_RI.asm:53     *ABS*:0000000000000040 RIL_GATE_S_SWC
+    chip_para_RI.asm:54     *ABS*:000000000000105c RIL_VC1_SWC
+    chip_para_RI.asm:55     *ABS*:0000000000000fe3 RIL_VC2_SWC
+    chip_para_RI.asm:56     *ABS*:000000000000ea0e RIL_VD1_SWC
+    chip_para_RI.asm:57     *ABS*:0000000000000001 RIL_INJ_T_SWC
+    chip_para_RI.asm:58     *ABS*:000000000000012c RIL_NUM_SWC
+    chip_para_RI.asm:60     *ABS*:0000000000003700 RIL_GATE_S_OTA
+    chip_para_RI.asm:61     *ABS*:000000000000105c RIL_VC1_OTA
+    chip_para_RI.asm:62     *ABS*:0000000000000fd8 RIL_VC2_OTA
+    chip_para_RI.asm:63     *ABS*:000000000000ea0e RIL_VD1_OTA
+    chip_para_RI.asm:64     *ABS*:0000000000000001 RIL_INJ_T_OTA
+    chip_para_RI.asm:65     *ABS*:000000000000012c RIL_NUM_OTA
+    chip_para_RI.asm:67     *ABS*:0000000000000040 RIL_GATE_S_OTAREF
+    chip_para_RI.asm:68     *ABS*:000000000000105c RIL_VC1_OTAREF
+    chip_para_RI.asm:69     *ABS*:0000000000000fda RIL_VC2_OTAREF
+    chip_para_RI.asm:70     *ABS*:000000000000ea0e RIL_VD1_OTAREF
+    chip_para_RI.asm:71     *ABS*:0000000000000001 RIL_INJ_T_OTAREF
+    chip_para_RI.asm:72     *ABS*:000000000000012c RIL_NUM_OTAREF
+    chip_para_RI.asm:74     *ABS*:0000000000002900 RIL_GATE_S_MITE
+    chip_para_RI.asm:75     *ABS*:000000000000105c RIL_VC1_MITE
+    chip_para_RI.asm:76     *ABS*:0000000000000fde RIL_VC2_MITE
+    chip_para_RI.asm:77     *ABS*:000000000000ea0e RIL_VD1_MITE
+    chip_para_RI.asm:78     *ABS*:0000000000000001 RIL_INJ_T_MITE
+    chip_para_RI.asm:79     *ABS*:000000000000012c RIL_NUM_MITE
+    chip_para_RI.asm:81     *ABS*:0000000000000100 RIL_GATE_S_DIRSWC
+    chip_para_RI.asm:82     *ABS*:000000000000105c RIL_VC1_DIRSWC
+    chip_para_RI.asm:83     *ABS*:0000000000000fdc RIL_VC2_DIRSWC
+    chip_para_RI.asm:84     *ABS*:000000000000ea0e RIL_VD1_DIRSWC
+    chip_para_RI.asm:85     *ABS*:0000000000000001 RIL_INJ_T_DIRSWC
+    chip_para_RI.asm:86     *ABS*:000000000000012c RIL_NUM_DIRSWC
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:7      .text:0000000000000000 main
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:12     .text:000000000000000e init_wait
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:187    .text:000000000000022e block_measure
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:33     .text:000000000000005a coarse_loop_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:125    .text:000000000000016c measure_verify
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:62     .text:00000000000000a2 coarse_inject
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:45     .text:000000000000007e skip_measurement
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:49     .text:0000000000000084 coarse_loop_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:248    .text:00000000000002de end_of_test
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:69     .text:00000000000000be coarse_inject_set_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:107    .text:0000000000000138 coarse_inject_skip
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:226    .text:00000000000002ba wait_ms
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:94     .text:0000000000000118 injection_pulse
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:237    .text:00000000000002cc wait_10us
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:103    .text:000000000000012c pulse_width_10us
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:111    .text:000000000000013e coarse_inject_e
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43 			page 18
 
 
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:132    .text:00000188 measure_verify_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:178    .text:0000021a measure_verify_skip
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:164    .text:000001f2 status_1
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:169    .text:00000200 status_2
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:174    .text:0000020e status_3
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:182    .text:00000220 measure_verify_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:194    .text:0000024a block_measure_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:221    .text:000002ac block_measure_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:229    .text:000002c0 wait_ms_loop
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:240    .text:000002d2 wait_10us_loop
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:132    .text:0000000000000188 measure_verify_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:178    .text:000000000000021a measure_verify_skip
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:164    .text:00000000000001f2 status_1
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:169    .text:0000000000000200 status_2
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:174    .text:000000000000020e status_3
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:182    .text:0000000000000220 measure_verify_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:194    .text:000000000000024a block_measure_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:221    .text:00000000000002ac block_measure_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:229    .text:00000000000002c0 wait_ms_loop
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/recover_inject_CAB_mite.s43:240    .text:00000000000002d2 wait_10us_loop
 
 NO UNDEFINED SYMBOLS
 
@@ -1247,77 +1247,77 @@ SYMBOL TABLE:
 00000000 l       *ABS*	00000000 FP_MEAS_ON
 00000000 l       *ABS*	00000000 FPL_MEAS_ON
 00000040 l       *ABS*	00000000 RI_GATE_S_SWC
-00001dc0 l       *ABS*	00000000 RI_VC1_SWC
-00001d02 l       *ABS*	00000000 RI_VC2_SWC
-00001ac9 l       *ABS*	00000000 RI_VC3_SWC
-00001655 l       *ABS*	00000000 RI_VC4_SWC
+000015c1 l       *ABS*	00000000 RI_VC1_SWC
+00001537 l       *ABS*	00000000 RI_VC2_SWC
+00001398 l       *ABS*	00000000 RI_VC3_SWC
+0000105c l       *ABS*	00000000 RI_VC4_SWC
 0000ea0e l       *ABS*	00000000 RI_VD1_SWC
 0000fe0e l       *ABS*	00000000 RI_VD2_SWC
-00000002 l       *ABS*	00000000 RI_INJ_T_SWC
+00000001 l       *ABS*	00000000 RI_INJ_T_SWC
 0000012c l       *ABS*	00000000 RI_NUM_SWC
-00004330 l       *ABS*	00000000 RI_GATE_S_OTA
-000023c9 l       *ABS*	00000000 RI_VC1_OTA
-00002271 l       *ABS*	00000000 RI_VC2_OTA
-00001e68 l       *ABS*	00000000 RI_VC3_OTA
-00001655 l       *ABS*	00000000 RI_VC4_OTA
+00003700 l       *ABS*	00000000 RI_GATE_S_OTA
+0000188b l       *ABS*	00000000 RI_VC1_OTA
+000017ba l       *ABS*	00000000 RI_VC2_OTA
+00001545 l       *ABS*	00000000 RI_VC3_OTA
+0000105c l       *ABS*	00000000 RI_VC4_OTA
 0000ea0e l       *ABS*	00000000 RI_VD1_OTA
 0000fe0e l       *ABS*	00000000 RI_VD2_OTA
 00000001 l       *ABS*	00000000 RI_INJ_T_OTA
 0000012c l       *ABS*	00000000 RI_NUM_OTA
 00000040 l       *ABS*	00000000 RI_GATE_S_OTAREF
-00001f23 l       *ABS*	00000000 RI_VC1_OTAREF
-00001e41 l       *ABS*	00000000 RI_VC2_OTAREF
-00001b9d l       *ABS*	00000000 RI_VC3_OTAREF
-00001655 l       *ABS*	00000000 RI_VC4_OTAREF
+00001679 l       *ABS*	00000000 RI_VC1_OTAREF
+000015dc l       *ABS*	00000000 RI_VC2_OTAREF
+00001407 l       *ABS*	00000000 RI_VC3_OTAREF
+0000105c l       *ABS*	00000000 RI_VC4_OTAREF
 0000ea0e l       *ABS*	00000000 RI_VD1_OTAREF
 0000fe0e l       *ABS*	00000000 RI_VD2_OTAREF
 00000001 l       *ABS*	00000000 RI_INJ_T_OTAREF
 0000012c l       *ABS*	00000000 RI_NUM_OTAREF
-00004330 l       *ABS*	00000000 RI_GATE_S_MITE
-00002651 l       *ABS*	00000000 RI_VC1_MITE
-000024b8 l       *ABS*	00000000 RI_VC2_MITE
-00001fec l       *ABS*	00000000 RI_VC3_MITE
-00001655 l       *ABS*	00000000 RI_VC4_MITE
+00002900 l       *ABS*	00000000 RI_GATE_S_MITE
+000019ad l       *ABS*	00000000 RI_VC1_MITE
+000018bf l       *ABS*	00000000 RI_VC2_MITE
+000015f3 l       *ABS*	00000000 RI_VC3_MITE
+0000105c l       *ABS*	00000000 RI_VC4_MITE
 0000ea0e l       *ABS*	00000000 RI_VD1_MITE
 0000fe0e l       *ABS*	00000000 RI_VD2_MITE
 00000001 l       *ABS*	00000000 RI_INJ_T_MITE
 0000012c l       *ABS*	00000000 RI_NUM_MITE
-00001530 l       *ABS*	00000000 RI_GATE_S_DIRSWC
-00001ecd l       *ABS*	00000000 RI_VC1_DIRSWC
-00001df4 l       *ABS*	00000000 RI_VC2_DIRSWC
-00001b6a l       *ABS*	00000000 RI_VC3_DIRSWC
-00001655 l       *ABS*	00000000 RI_VC4_DIRSWC
+00000100 l       *ABS*	00000000 RI_GATE_S_DIRSWC
+000015fa l       *ABS*	00000000 RI_VC1_DIRSWC
+0000156a l       *ABS*	00000000 RI_VC2_DIRSWC
+000013bb l       *ABS*	00000000 RI_VC3_DIRSWC
+0000105c l       *ABS*	00000000 RI_VC4_DIRSWC
 0000ea0e l       *ABS*	00000000 RI_VD1_DIRSWC
 0000fe0e l       *ABS*	00000000 RI_VD2_DIRSWC
 00000001 l       *ABS*	00000000 RI_INJ_T_DIRSWC
 0000012c l       *ABS*	00000000 RI_NUM_DIRSWC
 00000040 l       *ABS*	00000000 RIL_GATE_S_SWC
-00001655 l       *ABS*	00000000 RIL_VC1_SWC
-00001385 l       *ABS*	00000000 RIL_VC2_SWC
+0000105c l       *ABS*	00000000 RIL_VC1_SWC
+00000fe3 l       *ABS*	00000000 RIL_VC2_SWC
 0000ea0e l       *ABS*	00000000 RIL_VD1_SWC
 00000001 l       *ABS*	00000000 RIL_INJ_T_SWC
 0000012c l       *ABS*	00000000 RIL_NUM_SWC
-00004330 l       *ABS*	00000000 RIL_GATE_S_OTA
-00001655 l       *ABS*	00000000 RIL_VC1_OTA
-00001406 l       *ABS*	00000000 RIL_VC2_OTA
+00003700 l       *ABS*	00000000 RIL_GATE_S_OTA
+0000105c l       *ABS*	00000000 RIL_VC1_OTA
+00000fd8 l       *ABS*	00000000 RIL_VC2_OTA
 0000ea0e l       *ABS*	00000000 RIL_VD1_OTA
 00000001 l       *ABS*	00000000 RIL_INJ_T_OTA
 0000012c l       *ABS*	00000000 RIL_NUM_OTA
 00000040 l       *ABS*	00000000 RIL_GATE_S_OTAREF
-00001655 l       *ABS*	00000000 RIL_VC1_OTAREF
-0000143b l       *ABS*	00000000 RIL_VC2_OTAREF
+0000105c l       *ABS*	00000000 RIL_VC1_OTAREF
+00000fda l       *ABS*	00000000 RIL_VC2_OTAREF
 0000ea0e l       *ABS*	00000000 RIL_VD1_OTAREF
 00000001 l       *ABS*	00000000 RIL_INJ_T_OTAREF
 0000012c l       *ABS*	00000000 RIL_NUM_OTAREF
-00004330 l       *ABS*	00000000 RIL_GATE_S_MITE
-00001655 l       *ABS*	00000000 RIL_VC1_MITE
-00001460 l       *ABS*	00000000 RIL_VC2_MITE
+00002900 l       *ABS*	00000000 RIL_GATE_S_MITE
+0000105c l       *ABS*	00000000 RIL_VC1_MITE
+00000fde l       *ABS*	00000000 RIL_VC2_MITE
 0000ea0e l       *ABS*	00000000 RIL_VD1_MITE
 00000001 l       *ABS*	00000000 RIL_INJ_T_MITE
 0000012c l       *ABS*	00000000 RIL_NUM_MITE
-00001530 l       *ABS*	00000000 RIL_GATE_S_DIRSWC
-00001655 l       *ABS*	00000000 RIL_VC1_DIRSWC
-00001478 l       *ABS*	00000000 RIL_VC2_DIRSWC
+00000100 l       *ABS*	00000000 RIL_GATE_S_DIRSWC
+0000105c l       *ABS*	00000000 RIL_VC1_DIRSWC
+00000fdc l       *ABS*	00000000 RIL_VC2_DIRSWC
 0000ea0e l       *ABS*	00000000 RIL_VD1_DIRSWC
 00000001 l       *ABS*	00000000 RIL_INJ_T_DIRSWC
 0000012c l       *ABS*	00000000 RIL_NUM_DIRSWC
@@ -1364,7 +1364,7 @@ Contents of section .text:
  00a0 1e3d3b40 00702c4b b2400080 0c0bb240  .=;@.p,K.@.....@
  00b0 04be6401 b2402400 6001b243 0e0b2b53  ..d..@$.`..C..+S
  00c0 a24b080b 2b53a24b 0a0b2b53 2b532b53  .K..+S.K..+S+S+S
- 00d0 284b0893 3124b240 3043020b b2406000  (K..1$.@0C...@`.
+ 00d0 284b0893 3124b240 0029020b b2406000  (K..1$.@.)...@`.
  00e0 100bb240 6000120b b2406600 000bb240  ...@`....@f....@
  00f0 14006001 2543b012 0000b240 0eea000b  ..`.%C.....@....
  0100 3890cccc 0924b240 0efe000b 3890dddd  8....$.@....8...
@@ -1381,10 +1381,10 @@ Contents of section .text:
  01b0 b2406600 000b2543 b0120000 b240a400  .@f...%C.....@..
  01c0 000b3540 0a00b012 0000b240 00b00c0b  ..5@.......@....
  01d0 35400500 b0120000 8243040b 1942040b  5@.......C...B..
- 01e0 b2400080 0c0b3990 51260330 8b430000  .@....9.Q&.0.C..
- 01f0 143c3990 b8240430 bb40cccc 00000d3c  .<9..$.0.@.....<
- 0200 3990ec1f 0430bb40 dddd0000 063c3990  9....0.@.....<9.
- 0210 55160330 bb40eeee 00001c83 0124b43f  U..0.@.......$.?
+ 01e0 b2400080 0c0b3990 ad190330 8b430000  .@....9....0.C..
+ 01f0 143c3990 bf180430 bb40cccc 00000d3c  .<9....0.@.....<
+ 0200 3990f315 0430bb40 dddd0000 063c3990  9....0.@.....<9.
+ 0210 5c100330 bb40eeee 00001c83 0124b43f  \..0.@.......$.?
  0220 b2406600 000bb240 24006001 30413b40  .@f....@$.`.0A;@
  0230 00702c4b b2400080 0c0bb240 04be6401  .p,K.@.....@..d.
  0240 b2402400 6001a243 0e0b2b53 a24b080b  .@$.`..C..+S.K..
@@ -1495,7 +1495,7 @@ Disassembly of section .text:
   d0:	28 4b       	mov	@r11,	r8	
   d2:	08 93       	tst	r8		
   d4:	31 24       	jz	$+100    	;abs 0x138
-  d6:	b2 40 30 43 	mov	#17200,	&0x0b02	;#0x4330
+  d6:	b2 40 00 29 	mov	#10496,	&0x0b02	;#0x2900
   da:	02 0b 
   dc:	b2 40 60 00 	mov	#96,	&0x0b10	;#0x0060
   e0:	10 0b 
@@ -1609,27 +1609,27 @@ Disassembly of section .text:
  1dc:	19 42 04 0b 	mov	&0x0b04,r9	
  1e0:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
  1e4:	0c 0b 
- 1e6:	39 90 51 26 	cmp	#9809,	r9	;#0x2651
+ 1e6:	39 90 ad 19 	cmp	#6573,	r9	;#0x19ad
  1ea:	03 30       	jn	$+8      	;abs 0x1f2
  1ec:	8b 43 00 00 	mov	#0,	0(r11)	;r3 As==00, 0x0000(r11)
  1f0:	14 3c       	jmp	$+42     	;abs 0x21a
 
 000001f2 <status_1>:
- 1f2:	39 90 b8 24 	cmp	#9400,	r9	;#0x24b8
+ 1f2:	39 90 bf 18 	cmp	#6335,	r9	;#0x18bf
  1f6:	04 30       	jn	$+10     	;abs 0x200
  1f8:	bb 40 cc cc 	mov	#-13108,0(r11)	;#0xcccc, 0x0000(r11)
  1fc:	00 00 
  1fe:	0d 3c       	jmp	$+28     	;abs 0x21a
 
 00000200 <status_2>:
- 200:	39 90 ec 1f 	cmp	#8172,	r9	;#0x1fec
+ 200:	39 90 f3 15 	cmp	#5619,	r9	;#0x15f3
  204:	04 30       	jn	$+10     	;abs 0x20e
  206:	bb 40 dd dd 	mov	#-8739,	0(r11)	;#0xdddd, 0x0000(r11)
  20a:	00 00 
  20c:	06 3c       	jmp	$+14     	;abs 0x21a
 
 0000020e <status_3>:
- 20e:	39 90 55 16 	cmp	#5717,	r9	;#0x1655
+ 20e:	39 90 5c 10 	cmp	#4188,	r9	;#0x105c
  212:	03 30       	jn	$+8      	;abs 0x21a
  214:	bb 40 ee ee 	mov	#-4370,	0(r11)	;#0xeeee, 0x0000(r11)
  218:	00 00 

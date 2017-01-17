@@ -295,7 +295,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04
    7               	.set INJ_TIME_SP_4, 200 /* injection time for switch programming (10us) (4th pulse)*/
    8               	.set INJ_TIME_SP_5, 200 /* injection time for switch programming (10us) (5th pulse)*/
    9               	.set INJ_TIME_SP_SUM, 61 /* injection time for switch programming (ms) (calculation time)*/
-  10               	.set INJ_TIME_SP_RUN, 5000 /* injection time for switch programming in run-mode(10us)*/
+  10               	.set INJ_TIME_SP_RUN, 1 /* injection time for switch programming in run-mode(10us)*/
    3               	
    4               	.global main
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43 			page 6
@@ -334,7 +334,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04
   29 0054 B012 0000 		call	#switch_inject
   30 0058 B012 0000 		call	#block_measure
   31 005c B743 0000 		mov	#0xFFFF, @r7		; Data End
-  32 0060 553D      		jmp     end_of_test
+  32 0060 543D      		jmp     end_of_test
   33               	
   34               	switch_inject:
   35 0062 3B40 0055 		mov	#0x5500, r11
@@ -366,7 +366,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04
   52      0C0B 
   53 00a6 B243 0E0B 	    	mov     #0xFFFF, &TUN_MUX       ; Set tunnel mux, <3>:switch <4>:cab <5>:ble
   54 00aa 0893      		cmp	#0x0000, r8
-  55 00ac 7124      		jeq	inject_in_prog_mode
+  55 00ac 7024      		jeq	inject_in_prog_mode
   56               	
   57 00ae 8243 0C0B 	        mov     #0x0000, &PROG_BITS     ; PROG = 0 <- Due to the RASP3.0 Error in vol_swc block
   58 00b2 A243 0E0B 		mov     #0x0002, &TUN_MUX       ; Set tunnel mux, <3>:switch <4>:cab <5>:ble
@@ -378,219 +378,219 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04
   61      120B 
   62 00c8 B240 2600 		mov 	#0x0026, &DRAIN_CTRL
   62      000B 
-  63 00ce 3540 8813 	        mov     #INJ_TIME_SP_RUN, r5	; Number of 10us to inject
-  64 00d2 B012 0000 		call    #wait_10us              ; Call the waiting function
-  65 00d6 1A53      		add     #1, r10	        	; Calculate time
-  66 00d8 B240 6600 		mov     #0x0066, &DRAIN_CTRL    ; drain = ivdd, no use DAC, i2v mux control = No connection  
+  63 00ce 1543      	        mov     #INJ_TIME_SP_RUN, r5	; Number of 10us to inject
+  64 00d0 B012 0000 		call    #wait_10us              ; Call the waiting function
+  65 00d4 1A53      		add     #1, r10	        	; Calculate time
+  66 00d6 B240 6600 		mov     #0x0066, &DRAIN_CTRL    ; drain = ivdd, no use DAC, i2v mux control = No connection  
   66      000B 
-  67 00de B240 0080 	        mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
+  67 00dc B240 0080 	        mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
   67      0C0B 
-  68 00e4 B243 0E0B 	    	mov     #0xFFFF, &TUN_MUX       ; Set tunnel mux, <3>:switch <4>:cab <5>:ble
-  69 00e8 B240 4000 		mov	#0x0040, &GATE_S	
+  68 00e2 B243 0E0B 	    	mov     #0xFFFF, &TUN_MUX       ; Set tunnel mux, <3>:switch <4>:cab <5>:ble
+  69 00e6 B240 4000 		mov	#0x0040, &GATE_S	
   69      020B 
-  70 00ee B240 6000 		mov	#0x0060, &GATE_US_P	; gate_us_p = ivdd
+  70 00ec B240 6000 		mov	#0x0060, &GATE_US_P	; gate_us_p = ivdd
   70      100B 
-  71 00f4 B240 6000 		mov	#0x0060, &GATE_US_N	; gate_us_n = ivdd
+  71 00f2 B240 6000 		mov	#0x0060, &GATE_US_N	; gate_us_n = ivdd
   71      120B 
-  72 00fa B240 2600 		mov 	#0x0026, &DRAIN_CTRL
+  72 00f8 B240 2600 		mov 	#0x0026, &DRAIN_CTRL
   72      000B 
-  73 0100 3540 50C3 	        mov     #50000, r5	         	; Number of 10us to inject
-  74 0104 B012 0000 		call    #wait_10us              ; Call the waiting function
-  75 0108 3A50 F401 		add     #500, r10	        ; Calculate time
-  76 010c 3540 50C3 	        mov     #50000, r5	         	; Number of 10us to inject
-  77 0110 B012 0000 		call    #wait_10us              ; Call the waiting function
-  78 0114 3A50 F401 		add     #500, r10	        ; Calculate time
-  79 0118 8243 020B 	        mov	#0x0000, &GATE_S	;gate_s = 2.5V
-  80 011c 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
-  81 0120 B012 0000 		call    #wait_10us              ; Call the waiting function
-  82 0124 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
-  83 0128 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
-  84 012c B012 0000 		call    #wait_10us              ; Call the waiting function
-  85 0130 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
-  86 0134 B240 0050 		mov	#0x5000, &GATE_S	;gate_s = 3.481V
+  73 00fe 3540 50C3 	        mov     #50000, r5	         	; Number of 10us to inject
+  74 0102 B012 0000 		call    #wait_10us              ; Call the waiting function
+  75 0106 3A50 F401 		add     #500, r10	        ; Calculate time
+  76 010a 3540 50C3 	        mov     #50000, r5	         	; Number of 10us to inject
+  77 010e B012 0000 		call    #wait_10us              ; Call the waiting function
+  78 0112 3A50 F401 		add     #500, r10	        ; Calculate time
+  79 0116 8243 020B 	        mov	#0x0000, &GATE_S	;gate_s = 2.5V
+  80 011a 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
+  81 011e B012 0000 		call    #wait_10us              ; Call the waiting function
+  82 0122 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
+  83 0126 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
+  84 012a B012 0000 		call    #wait_10us              ; Call the waiting function
+  85 012e 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
+  86 0132 B240 0050 		mov	#0x5000, &GATE_S	;gate_s = 3.481V
   86      020B 
-  87 013a 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
-  88 013e B012 0000 		call    #wait_10us              ; Call the waiting function
-  89 0142 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
-  90 0146 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
-  91 014a B012 0000 		call    #wait_10us              ; Call the waiting function
-  92 014e 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
-  93 0152 B240 00B0 		mov	#0xB000, &GATE_S	;gate_s = 4.572V
+  87 0138 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
+  88 013c B012 0000 		call    #wait_10us              ; Call the waiting function
+  89 0140 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
+  90 0144 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
+  91 0148 B012 0000 		call    #wait_10us              ; Call the waiting function
+  92 014c 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
+  93 0150 B240 00B0 		mov	#0xB000, &GATE_S	;gate_s = 4.572V
   93      020B 
-  94 0158 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
+  94 0156 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43 			page 8
 
 
-  95 015c B012 0000 		call    #wait_10us              ; Call the waiting function
-  96 0160 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
-  97 0164 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
-  98 0168 B012 0000 		call    #wait_10us              ; Call the waiting function
-  99 016c 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
- 100 0170 B240 6000 	        mov	#0x0060, &GATE_S	;gate_s = ivdd
+  95 015a B012 0000 		call    #wait_10us              ; Call the waiting function
+  96 015e 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
+  97 0162 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
+  98 0166 B012 0000 		call    #wait_10us              ; Call the waiting function
+  99 016a 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
+ 100 016e B240 6000 	        mov	#0x0060, &GATE_S	;gate_s = ivdd
  100      020B 
- 101 0176 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
- 102 017a B012 0000 		call    #wait_10us              ; Call the waiting function
- 103 017e 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
- 104 0182 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
- 105 0186 B012 0000 		call    #wait_10us              ; Call the waiting function
- 106 018a 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
- 107 018e 2D3C      		jmp	after_inject_pulse
+ 101 0174 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
+ 102 0178 B012 0000 		call    #wait_10us              ; Call the waiting function
+ 103 017c 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
+ 104 0180 3540 3075 	        mov     #30000, r5	         	; Number of 10us to inject
+ 105 0184 B012 0000 		call    #wait_10us              ; Call the waiting function
+ 106 0188 3A50 2C01 		add     #300, r10	        ; Calculate time [ms]
+ 107 018c 2D3C      		jmp	after_inject_pulse
  108               	
  109               	inject_in_prog_mode:
- 110 0190 B240 4000 		mov	#0x0040, &GATE_S	
+ 110 018e B240 4000 		mov	#0x0040, &GATE_S	
  110      020B 
- 111 0196 B240 6000 		mov	#0x0060, &GATE_US_P	; gate_us_p = ivdd
+ 111 0194 B240 6000 		mov	#0x0060, &GATE_US_P	; gate_us_p = ivdd
  111      100B 
- 112 019c B240 6000 		mov	#0x0060, &GATE_US_N	; gate_us_n = ivdd
+ 112 019a B240 6000 		mov	#0x0060, &GATE_US_N	; gate_us_n = ivdd
  112      120B 
- 113 01a2 B240 2600 		mov 	#0x0026, &DRAIN_CTRL
+ 113 01a0 B240 2600 		mov 	#0x0026, &DRAIN_CTRL
  113      000B 
- 114 01a8 3540 8813 	        mov     #INJ_TIME_SP_1, r5	         	; Number of 10us to inject
- 115 01ac B012 0000 		call    #wait_10us              ; Call the waiting function
- 116 01b0 8243 020B 		mov	#0x0000, &GATE_S	;gate_s = 2.5V
- 117 01b4 3540 F401 	        mov     #INJ_TIME_SP_2, r5	         	; Number of 10us to inject
- 118 01b8 B012 0000 		call    #wait_10us              ; Call the waiting function
- 119 01bc B240 0050 		mov	#0x5000, &GATE_S	;gate_s = 3.481V
+ 114 01a6 3540 8813 	        mov     #INJ_TIME_SP_1, r5	         	; Number of 10us to inject
+ 115 01aa B012 0000 		call    #wait_10us              ; Call the waiting function
+ 116 01ae 8243 020B 		mov	#0x0000, &GATE_S	;gate_s = 2.5V
+ 117 01b2 3540 F401 	        mov     #INJ_TIME_SP_2, r5	         	; Number of 10us to inject
+ 118 01b6 B012 0000 		call    #wait_10us              ; Call the waiting function
+ 119 01ba B240 0050 		mov	#0x5000, &GATE_S	;gate_s = 3.481V
  119      020B 
- 120 01c2 3540 C800 	        mov     #INJ_TIME_SP_3, r5	         	; Number of 10us to inject
- 121 01c6 B012 0000 		call    #wait_10us              ; Call the waiting function
- 122 01ca B240 00B0 		mov	#0xB000, &GATE_S	;gate_s = 4.572V
+ 120 01c0 3540 C800 	        mov     #INJ_TIME_SP_3, r5	         	; Number of 10us to inject
+ 121 01c4 B012 0000 		call    #wait_10us              ; Call the waiting function
+ 122 01c8 B240 00B0 		mov	#0xB000, &GATE_S	;gate_s = 4.572V
  122      020B 
- 123 01d0 3540 C800 	        mov     #INJ_TIME_SP_4, r5	         	; Number of 10us to inject
- 124 01d4 B012 0000 		call    #wait_10us              ; Call the waiting function
- 125 01d8 B240 6000 		mov	#0x0060, &GATE_S	;gate_s = ivdd
+ 123 01ce 3540 C800 	        mov     #INJ_TIME_SP_4, r5	         	; Number of 10us to inject
+ 124 01d2 B012 0000 		call    #wait_10us              ; Call the waiting function
+ 125 01d6 B240 6000 		mov	#0x0060, &GATE_S	;gate_s = ivdd
  125      020B 
- 126 01de 3540 C800 	        mov     #INJ_TIME_SP_5, r5	         	; Number of 10us to inject
- 127 01e2 B012 0000 		call    #wait_10us              ; Call the waiting function
- 128 01e6 3A50 3D00 		add     #INJ_TIME_SP_SUM, r10	        ; Calculate time [ms]
+ 126 01dc 3540 C800 	        mov     #INJ_TIME_SP_5, r5	         	; Number of 10us to inject
+ 127 01e0 B012 0000 		call    #wait_10us              ; Call the waiting function
+ 128 01e4 3A50 3D00 		add     #INJ_TIME_SP_SUM, r10	        ; Calculate time [ms]
  129               	after_inject_pulse:
- 130 01ea B240 6600 		mov     #0x0066, &DRAIN_CTRL    ; drain = ivdd, no use DAC, i2v mux control = No connection  
+ 130 01e8 B240 6600 		mov     #0x0066, &DRAIN_CTRL    ; drain = ivdd, no use DAC, i2v mux control = No connection  
  130      000B 
- 131 01f0 1543      		mov     #1, r5             	; Number of ms
- 132 01f2 B012 0000 		call    #wait_ms                ; Call the waiting function
- 133 01f6 1C83      	       	dec.w   r12
- 134 01f8 0124      	        jz      switch_inject_e
- 135 01fa 4A3F      	 	jmp	switch_inject_s
+ 131 01ee 1543      		mov     #1, r5             	; Number of ms
+ 132 01f0 B012 0000 		call    #wait_ms                ; Call the waiting function
+ 133 01f4 1C83      	       	dec.w   r12
+ 134 01f6 0124      	        jz      switch_inject_e
+ 135 01f8 4B3F      	 	jmp	switch_inject_s
  136               	switch_inject_e:
- 137 01fc A242 6001 		mov     #0x0004, &GP_PER_1      ; IVDD to 0V, Set vtun_ext = On
- 138 0200 2543      		mov     #2, r5             	; Number of ms
- 139 0202 B012 0000 		call    #wait_ms                ; Call the waiting function
- 140 0206 B240 2400 		mov     #0x0024, &GP_PER_1      ; IVDD to 2.5V, Set vtun_ext = On
+ 137 01fa A242 6001 		mov     #0x0004, &GP_PER_1      ; IVDD to 0V, Set vtun_ext = On
+ 138 01fe 2543      		mov     #2, r5             	; Number of ms
+ 139 0200 B012 0000 		call    #wait_ms                ; Call the waiting function
+ 140 0204 B240 2400 		mov     #0x0024, &GP_PER_1      ; IVDD to 2.5V, Set vtun_ext = On
  140      6001 
- 141 020c 1543      		mov     #1, r5             	; Number of ms
+ 141 020a 1543      		mov     #1, r5             	; Number of ms
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43 			page 9
 
 
- 142 020e B012 0000 		call    #wait_ms                ; Call the waiting function
- 143 0212 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
+ 142 020c B012 0000 		call    #wait_ms                ; Call the waiting function
+ 143 0210 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
  143      0C0B 
- 144 0218 A243 0E0B 		mov     #0x0002, &TUN_MUX       ; Set tunnel mux, <3>:switch <4>:cab <5>:ble
- 145 021c B240 4000 		mov	#0x0040, &GATE_US_P	; gate_us_p = gnd
+ 144 0216 A243 0E0B 		mov     #0x0002, &TUN_MUX       ; Set tunnel mux, <3>:switch <4>:cab <5>:ble
+ 145 021a B240 4000 		mov	#0x0040, &GATE_US_P	; gate_us_p = gnd
  145      100B 
- 146 0222 B240 4000 		mov	#0x0040, &GATE_US_N	; gate_us_n = gnd
+ 146 0220 B240 4000 		mov	#0x0040, &GATE_US_N	; gate_us_n = gnd
  146      120B 
- 147 0228 1543      		mov     #1, r5             	; Number of ms
- 148 022a B012 0000 		call    #wait_ms                ; Call the waiting function
- 149 022e B740 3333 		mov     #0x3333, @r7	        ; Record Injection 0x3333 
+ 147 0226 1543      		mov     #1, r5             	; Number of ms
+ 148 0228 B012 0000 		call    #wait_ms                ; Call the waiting function
+ 149 022c B740 3333 		mov     #0x3333, @r7	        ; Record Injection 0x3333 
  149      0000 
- 150 0234 2753      		incd	r7
- 151 0236 874A 0000 		mov     r10, @r7	        ; Record time 
- 152 023a 2753      		incd	r7
- 153 023c 3041      		ret
+ 150 0232 2753      		incd	r7
+ 151 0234 874A 0000 		mov     r10, @r7	        ; Record time 
+ 152 0238 2753      		incd	r7
+ 153 023a 3041      		ret
  154               	
  155               	block_measure:
- 156 023e 3B40 0055 		mov	#0x5500, r11
- 157 0242 2C4B      		mov	@r11, r12		; No. of FGs 
- 158 0244 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
+ 156 023c 3B40 0055 		mov	#0x5500, r11
+ 157 0240 2C4B      		mov	@r11, r12		; No. of FGs 
+ 158 0242 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
  158      0C0B 
- 159 024a B240 04BE 		mov     #0xBE04, &GP_PER_3    	; ########### VTUN_EXT TO 5V
+ 159 0248 B240 04BE 		mov     #0xBE04, &GP_PER_3    	; ########### VTUN_EXT TO 5V
  159      6401 
- 160 0250 B240 2400 		mov     #0x0024, &GP_PER_1      ; IVDD to 2.5V, Set vtun_ext = On
+ 160 024e B240 2400 		mov     #0x0024, &GP_PER_1      ; IVDD to 2.5V, Set vtun_ext = On
  160      6001 
- 161 0256 A243 0E0B 	   	mov     #0x0002, &TUN_MUX       ; Reset tunnel mux (gnd), <3>:switch <4>:cab <5>:ble
+ 161 0254 A243 0E0B 	   	mov     #0x0002, &TUN_MUX       ; Reset tunnel mux (gnd), <3>:switch <4>:cab <5>:ble
  162               	block_measure_s:
- 163 025a 2B53      		incd	r11
- 164 025c A24B 080B 		mov     @r11,    &ROW_SEL
- 165 0260 2B53      		incd	r11
- 166 0262 A24B 0A0B 	        mov     @r11,    &COL_SEL
- 167 0266 2B53      		incd	r11
- 168 0268 284B      		mov	@r11, r8		; type of block (C or not) (0: normal, 1: measure in run mode) 
- 169 026a B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
+ 163 0258 2B53      		incd	r11
+ 164 025a A24B 080B 		mov     @r11,    &ROW_SEL
+ 165 025e 2B53      		incd	r11
+ 166 0260 A24B 0A0B 	        mov     @r11,    &COL_SEL
+ 167 0264 2B53      		incd	r11
+ 168 0266 284B      		mov	@r11, r8		; type of block (C or not) (0: normal, 1: measure in run mode) 
+ 169 0268 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
  169      0C0B 
- 170 0270 0893      		cmp	#0x0000, r8
- 171 0272 0224      		jeq	measure_in_prog_mode_1
- 172 0274 8243 0C0B 	        mov     #0x0000, &PROG_BITS     ; PROG = 0 <- Due to the RASP3.0 Error in vol_swc block
+ 170 026e 0893      		cmp	#0x0000, r8
+ 171 0270 0224      		jeq	measure_in_prog_mode_1
+ 172 0272 8243 0C0B 	        mov     #0x0000, &PROG_BITS     ; PROG = 0 <- Due to the RASP3.0 Error in vol_swc block
  173               	measure_in_prog_mode_1:
- 174 0278 B240 4000 		mov 	#0x0040, &GATE_S	; gnd
+ 174 0276 B240 4000 		mov 	#0x0040, &GATE_S	; gnd
  174      020B 
- 175 027e B240 4000 		mov	#0x0040, &GATE_US_P	; gate_us_p = gnd
+ 175 027c B240 4000 		mov	#0x0040, &GATE_US_P	; gate_us_p = gnd
  175      100B 
- 176 0284 B240 4000 		mov	#0x0040, &GATE_US_N	; gate_us_n = gnd
+ 176 0282 B240 4000 		mov	#0x0040, &GATE_US_N	; gate_us_n = gnd
  176      120B 
- 177 028a B240 6600 		mov     #0x0066, &DRAIN_CTRL    ; drain = ivdd, no use DAC, i2v mux control = No connection  
+ 177 0288 B240 6600 		mov     #0x0066, &DRAIN_CTRL    ; drain = ivdd, no use DAC, i2v mux control = No connection  
  177      000B 
- 178 0290 2543      	        mov     #2, r5             	; Number of ms
- 179 0292 B012 0000 		call    #wait_ms                ; Call the waiting function
- 180 0296 B240 A400 		mov	#0x00A4, &DRAIN_CTRL	; 101 cascode off, no use DAC, i2v mux control=fg_inn;
+ 178 028e 2543      	        mov     #2, r5             	; Number of ms
+ 179 0290 B012 0000 		call    #wait_ms                ; Call the waiting function
+ 180 0294 B240 A400 		mov	#0x00A4, &DRAIN_CTRL	; 101 cascode off, no use DAC, i2v mux control=fg_inn;
  180      000B 
- 181 029c 3540 0A00 	        mov     #10, r5             	; Number of ms
- 182 02a0 B012 0000 	        call    #wait_ms                ; Call the waiting function
- 183 02a4 B240 00B0 		mov     #0xB000, &PROG_BITS     ; Set measure_adc high, Toggle the adc counter's clear_n
+ 181 029a 3540 0A00 	        mov     #10, r5             	; Number of ms
+ 182 029e B012 0000 	        call    #wait_ms                ; Call the waiting function
+ 183 02a2 B240 00B0 		mov     #0xB000, &PROG_BITS     ; Set measure_adc high, Toggle the adc counter's clear_n
  183      0C0B 
- 184 02aa 0893      		cmp	#0x0000, r8
+ 184 02a8 0893      		cmp	#0x0000, r8
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43 			page 10
 
 
- 185 02ac 0324      		jeq	measure_in_prog_mode_2
- 186 02ae B240 0030 		mov     #0x3000, &PROG_BITS     ; Set measure_adc high, Toggle the adc counter's clear_n
+ 185 02aa 0324      		jeq	measure_in_prog_mode_2
+ 186 02ac B240 0030 		mov     #0x3000, &PROG_BITS     ; Set measure_adc high, Toggle the adc counter's clear_n
  186      0C0B 
  187               	measure_in_prog_mode_2:
- 188 02b4 3540 0500 	        mov     #5, r5             	; Number of ms
- 189 02b8 B012 0000 		call    #wait_ms                ; Call the waiting function
- 190 02bc 8243 040B 	        mov     #0, &ADC                ; Write counter value into ADC via dummy write
- 191 02c0 9742 040B 		mov     &ADC, @r7	        ; Get value in counter
+ 188 02b2 3540 0500 	        mov     #5, r5             	; Number of ms
+ 189 02b6 B012 0000 		call    #wait_ms                ; Call the waiting function
+ 190 02ba 8243 040B 	        mov     #0, &ADC                ; Write counter value into ADC via dummy write
+ 191 02be 9742 040B 		mov     &ADC, @r7	        ; Get value in counter
  191      0000 
- 192 02c6 2753      		incd	r7
- 193 02c8 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
+ 192 02c4 2753      		incd	r7
+ 193 02c6 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
  193      0C0B 
- 194 02ce 1C83      	       	dec.w   r12
- 195 02d0 0124      	        jz      block_measure_e
- 196 02d2 C33F      		jmp	block_measure_s
+ 194 02cc 1C83      	       	dec.w   r12
+ 195 02ce 0124      	        jz      block_measure_e
+ 196 02d0 C33F      		jmp	block_measure_s
  197               	block_measure_e:
- 198 02d4 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
+ 198 02d2 B240 0080 		mov     #0x8000, &PROG_BITS     ; PROG = 1, OV_N = don't care, MEAS_ADC = 0, CLEAR_N = 0
  198      0C0B 
- 199 02da B240 6600 		mov     #0x0066, &DRAIN_CTRL    ; drain = ivdd, no use DAC, i2v mux control = No connection  
+ 199 02d8 B240 6600 		mov     #0x0066, &DRAIN_CTRL    ; drain = ivdd, no use DAC, i2v mux control = No connection  
  199      000B 
- 200 02e0 B240 2400 	        mov     #0x0024, &GP_PER_1      ; IVDD to 2.5V, Set vtun_ext = On
+ 200 02de B240 2400 	        mov     #0x0024, &GP_PER_1      ; IVDD to 2.5V, Set vtun_ext = On
  200      6001 
- 201 02e6 3041      		ret
+ 201 02e4 3041      		ret
  202               	
  203               	wait_ms:
- 204 02e8 3440 FC0C 	        mov     #3324, r4               ; Number of clock cycles in a ms (chariterized by pulse mea
- 205 02ec 0644      	        mov     r4, r6                  ; Get number of inner loop iterations
+ 204 02e6 3440 FC0C 	        mov     #3324, r4               ; Number of clock cycles in a ms (chariterized by pulse mea
+ 205 02ea 0644      	        mov     r4, r6                  ; Get number of inner loop iterations
  206               	wait_ms_loop:
- 207 02ee 1683      	        dec.w   r6                      ; Subtract from number of clk cycles.Execution takes 2 cloc
- 208 02f0 FE23      	        jnz     wait_ms_loop            ; Test for loop termination. Execution takes 2 clock cycles
- 209 02f2 0644      	        mov     r4, r6                  ; Reset number of clock cycles
- 210 02f4 1583      	        dec.w   r5                      ; Decrement number of ms total
- 211 02f6 FB23      	        jnz     wait_ms_loop            ; Keep looping if necessary
- 212 02f8 3041      	        ret    
+ 207 02ec 1683      	        dec.w   r6                      ; Subtract from number of clk cycles.Execution takes 2 cloc
+ 208 02ee FE23      	        jnz     wait_ms_loop            ; Test for loop termination. Execution takes 2 clock cycles
+ 209 02f0 0644      	        mov     r4, r6                  ; Reset number of clock cycles
+ 210 02f2 1583      	        dec.w   r5                      ; Decrement number of ms total
+ 211 02f4 FB23      	        jnz     wait_ms_loop            ; Keep looping if necessary
+ 212 02f6 3041      	        ret    
  213               	 
  214               	wait_10us:
- 215 02fa 3440 2200 	        mov     #34, r4                 ; Number of clock cycles in 100 us (3324 was divided by 100
- 216 02fe 0644      	        mov     r4, r6                  ; Get number of inner loop iterations
+ 215 02f8 3440 2200 	        mov     #34, r4                 ; Number of clock cycles in 100 us (3324 was divided by 100
+ 216 02fc 0644      	        mov     r4, r6                  ; Get number of inner loop iterations
  217               	wait_10us_loop:
- 218 0300 1683      	        dec.w   r6                      ; Subtract from number of clk cycles.Execution takes 2 cloc
- 219 0302 FE23      	        jnz     wait_10us_loop          ; Test for loop termination. Execution takes 2 clock cycles
- 220 0304 0644      	        mov     r4, r6                  ; Reset number of clock cycles
- 221 0306 1583      	        dec.w   r5                      ; Decrement number of ms total
- 222 0308 FB23      	        jnz     wait_10us_loop          ; Keep looping if necessary
- 223 030a 3041      	        ret   
+ 218 02fe 1683      	        dec.w   r6                      ; Subtract from number of clk cycles.Execution takes 2 cloc
+ 219 0300 FE23      	        jnz     wait_10us_loop          ; Test for loop termination. Execution takes 2 clock cycles
+ 220 0302 0644      	        mov     r4, r6                  ; Reset number of clock cycles
+ 221 0304 1583      	        dec.w   r5                      ; Decrement number of ms total
+ 222 0306 FB23      	        jnz     wait_10us_loop          ; Keep looping if necessary
+ 223 0308 3041      	        ret   
  224               	
  225               	end_of_test:
- 226 030c 8243 5800 		mov	#0x0000, &BCSCTL2
- 227 0310 0343      		nop
- 228 0312 3043      		br #0xffff
+ 226 030a 8243 5800 		mov	#0x0000, &BCSCTL2
+ 227 030e 0343      		nop
+ 228 0310 3043      		br #0xffff
  229               	
  230               	/* ----------------------         INTERRUPT VECTORS  --------------- */
  231               	.section .vectors, "a"
@@ -617,226 +617,226 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04
 
 
 DEFINED SYMBOLS
-       pmem_defs.asm:39     *ABS*:00000000 IE1
-       pmem_defs.asm:40     *ABS*:00000001 IE1_HI
-       pmem_defs.asm:41     *ABS*:00000002 IFG1
-       pmem_defs.asm:42     *ABS*:00000003 IFG1_HI
-       pmem_defs.asm:43     *ABS*:00000004 CPU_ID_LO
-       pmem_defs.asm:44     *ABS*:00000006 CPU_ID_HI
-       pmem_defs.asm:45     *ABS*:00000008 CPU_NR
-       pmem_defs.asm:50     *ABS*:00000020 P1IN
-       pmem_defs.asm:51     *ABS*:00000021 P1OUT
-       pmem_defs.asm:52     *ABS*:00000022 P1DIR
-       pmem_defs.asm:53     *ABS*:00000023 P1IFG
-       pmem_defs.asm:54     *ABS*:00000024 P1IES
-       pmem_defs.asm:55     *ABS*:00000025 P1IE
-       pmem_defs.asm:56     *ABS*:00000026 P1SEL
-       pmem_defs.asm:58     *ABS*:00000028 P2IN
-       pmem_defs.asm:59     *ABS*:00000029 P2OUT
-       pmem_defs.asm:60     *ABS*:0000002a P2DIR
-       pmem_defs.asm:61     *ABS*:0000002b P2IFG
-       pmem_defs.asm:62     *ABS*:0000002c P2IES
-       pmem_defs.asm:63     *ABS*:0000002d P2IE
-       pmem_defs.asm:64     *ABS*:0000002e P2SEL
-       pmem_defs.asm:66     *ABS*:00000018 P3IN
-       pmem_defs.asm:67     *ABS*:00000019 P3OUT
-       pmem_defs.asm:68     *ABS*:0000001a P3DIR
-       pmem_defs.asm:69     *ABS*:0000001b P3SEL
-       pmem_defs.asm:71     *ABS*:0000001c P4IN
-       pmem_defs.asm:72     *ABS*:0000001d P4OUT
-       pmem_defs.asm:73     *ABS*:0000001e P4DIR
-       pmem_defs.asm:74     *ABS*:0000001f P4SEL
-       pmem_defs.asm:76     *ABS*:00000030 P5IN
-       pmem_defs.asm:77     *ABS*:00000031 P5OUT
-       pmem_defs.asm:78     *ABS*:00000032 P5DIR
-       pmem_defs.asm:79     *ABS*:00000033 P5SEL
-       pmem_defs.asm:81     *ABS*:00000034 P6IN
-       pmem_defs.asm:82     *ABS*:00000035 P6OUT
-       pmem_defs.asm:83     *ABS*:00000036 P6DIR
-       pmem_defs.asm:84     *ABS*:00000037 P6SEL
-       pmem_defs.asm:89     *ABS*:00000057 BCSCTL1
-       pmem_defs.asm:90     *ABS*:00000058 BCSCTL2
-       pmem_defs.asm:95     *ABS*:00000120 WDTCTL
-       pmem_defs.asm:100    *ABS*:00000130 MPY
-       pmem_defs.asm:101    *ABS*:00000132 MPYS
-       pmem_defs.asm:102    *ABS*:00000134 MAC
-       pmem_defs.asm:103    *ABS*:00000136 MACS
-       pmem_defs.asm:104    *ABS*:00000138 OP2
-       pmem_defs.asm:105    *ABS*:0000013a RESLO
-       pmem_defs.asm:106    *ABS*:0000013c RESHI
-       pmem_defs.asm:107    *ABS*:0000013e SUMEXT
-       pmem_defs.asm:112    *ABS*:00000160 TACTL
-       pmem_defs.asm:113    *ABS*:00000170 TAR
-       pmem_defs.asm:114    *ABS*:00000162 TACCTL0
-       pmem_defs.asm:115    *ABS*:00000172 TACCR0
-       pmem_defs.asm:116    *ABS*:00000164 TACCTL1
-       pmem_defs.asm:117    *ABS*:00000174 TACCR1
-       pmem_defs.asm:118    *ABS*:00000166 TACCTL2
-       pmem_defs.asm:119    *ABS*:00000176 TACCR2
+       pmem_defs.asm:39     *ABS*:0000000000000000 IE1
+       pmem_defs.asm:40     *ABS*:0000000000000001 IE1_HI
+       pmem_defs.asm:41     *ABS*:0000000000000002 IFG1
+       pmem_defs.asm:42     *ABS*:0000000000000003 IFG1_HI
+       pmem_defs.asm:43     *ABS*:0000000000000004 CPU_ID_LO
+       pmem_defs.asm:44     *ABS*:0000000000000006 CPU_ID_HI
+       pmem_defs.asm:45     *ABS*:0000000000000008 CPU_NR
+       pmem_defs.asm:50     *ABS*:0000000000000020 P1IN
+       pmem_defs.asm:51     *ABS*:0000000000000021 P1OUT
+       pmem_defs.asm:52     *ABS*:0000000000000022 P1DIR
+       pmem_defs.asm:53     *ABS*:0000000000000023 P1IFG
+       pmem_defs.asm:54     *ABS*:0000000000000024 P1IES
+       pmem_defs.asm:55     *ABS*:0000000000000025 P1IE
+       pmem_defs.asm:56     *ABS*:0000000000000026 P1SEL
+       pmem_defs.asm:58     *ABS*:0000000000000028 P2IN
+       pmem_defs.asm:59     *ABS*:0000000000000029 P2OUT
+       pmem_defs.asm:60     *ABS*:000000000000002a P2DIR
+       pmem_defs.asm:61     *ABS*:000000000000002b P2IFG
+       pmem_defs.asm:62     *ABS*:000000000000002c P2IES
+       pmem_defs.asm:63     *ABS*:000000000000002d P2IE
+       pmem_defs.asm:64     *ABS*:000000000000002e P2SEL
+       pmem_defs.asm:66     *ABS*:0000000000000018 P3IN
+       pmem_defs.asm:67     *ABS*:0000000000000019 P3OUT
+       pmem_defs.asm:68     *ABS*:000000000000001a P3DIR
+       pmem_defs.asm:69     *ABS*:000000000000001b P3SEL
+       pmem_defs.asm:71     *ABS*:000000000000001c P4IN
+       pmem_defs.asm:72     *ABS*:000000000000001d P4OUT
+       pmem_defs.asm:73     *ABS*:000000000000001e P4DIR
+       pmem_defs.asm:74     *ABS*:000000000000001f P4SEL
+       pmem_defs.asm:76     *ABS*:0000000000000030 P5IN
+       pmem_defs.asm:77     *ABS*:0000000000000031 P5OUT
+       pmem_defs.asm:78     *ABS*:0000000000000032 P5DIR
+       pmem_defs.asm:79     *ABS*:0000000000000033 P5SEL
+       pmem_defs.asm:81     *ABS*:0000000000000034 P6IN
+       pmem_defs.asm:82     *ABS*:0000000000000035 P6OUT
+       pmem_defs.asm:83     *ABS*:0000000000000036 P6DIR
+       pmem_defs.asm:84     *ABS*:0000000000000037 P6SEL
+       pmem_defs.asm:89     *ABS*:0000000000000057 BCSCTL1
+       pmem_defs.asm:90     *ABS*:0000000000000058 BCSCTL2
+       pmem_defs.asm:95     *ABS*:0000000000000120 WDTCTL
+       pmem_defs.asm:100    *ABS*:0000000000000130 MPY
+       pmem_defs.asm:101    *ABS*:0000000000000132 MPYS
+       pmem_defs.asm:102    *ABS*:0000000000000134 MAC
+       pmem_defs.asm:103    *ABS*:0000000000000136 MACS
+       pmem_defs.asm:104    *ABS*:0000000000000138 OP2
+       pmem_defs.asm:105    *ABS*:000000000000013a RESLO
+       pmem_defs.asm:106    *ABS*:000000000000013c RESHI
+       pmem_defs.asm:107    *ABS*:000000000000013e SUMEXT
+       pmem_defs.asm:112    *ABS*:0000000000000160 TACTL
+       pmem_defs.asm:113    *ABS*:0000000000000170 TAR
+       pmem_defs.asm:114    *ABS*:0000000000000162 TACCTL0
+       pmem_defs.asm:115    *ABS*:0000000000000172 TACCR0
+       pmem_defs.asm:116    *ABS*:0000000000000164 TACCTL1
+       pmem_defs.asm:117    *ABS*:0000000000000174 TACCR1
+       pmem_defs.asm:118    *ABS*:0000000000000166 TACCTL2
+       pmem_defs.asm:119    *ABS*:0000000000000176 TACCR2
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43 			page 13
 
 
-       pmem_defs.asm:120    *ABS*:0000012e TAIV
-       pmem_defs.asm:125    *ABS*:00004000 DMEM_BASE
-       pmem_defs.asm:127    *ABS*:00004000 DMEM_200
-       pmem_defs.asm:128    *ABS*:00004001 DMEM_201
-       pmem_defs.asm:129    *ABS*:00004002 DMEM_202
-       pmem_defs.asm:130    *ABS*:00004003 DMEM_203
-       pmem_defs.asm:131    *ABS*:00004004 DMEM_204
-       pmem_defs.asm:132    *ABS*:00004005 DMEM_205
-       pmem_defs.asm:133    *ABS*:00004006 DMEM_206
-       pmem_defs.asm:134    *ABS*:00004007 DMEM_207
-       pmem_defs.asm:135    *ABS*:00004008 DMEM_208
-       pmem_defs.asm:136    *ABS*:00004009 DMEM_209
-       pmem_defs.asm:137    *ABS*:0000400a DMEM_20A
-       pmem_defs.asm:138    *ABS*:0000400b DMEM_20B
-       pmem_defs.asm:139    *ABS*:0000400c DMEM_20C
-       pmem_defs.asm:140    *ABS*:0000400d DMEM_20D
-       pmem_defs.asm:141    *ABS*:0000400e DMEM_20E
-       pmem_defs.asm:142    *ABS*:0000400f DMEM_20F
-       pmem_defs.asm:144    *ABS*:00004010 DMEM_210
-       pmem_defs.asm:145    *ABS*:00004011 DMEM_211
-       pmem_defs.asm:146    *ABS*:00004012 DMEM_212
-       pmem_defs.asm:147    *ABS*:00004013 DMEM_213
-       pmem_defs.asm:148    *ABS*:00004014 DMEM_214
-       pmem_defs.asm:149    *ABS*:00004015 DMEM_215
-       pmem_defs.asm:150    *ABS*:00004016 DMEM_216
-       pmem_defs.asm:151    *ABS*:00004017 DMEM_217
-       pmem_defs.asm:152    *ABS*:00004018 DMEM_218
-       pmem_defs.asm:153    *ABS*:00004019 DMEM_219
-       pmem_defs.asm:154    *ABS*:0000401a DMEM_21A
-       pmem_defs.asm:155    *ABS*:0000401b DMEM_21B
-       pmem_defs.asm:156    *ABS*:0000401c DMEM_21C
-       pmem_defs.asm:157    *ABS*:0000401d DMEM_21D
-       pmem_defs.asm:158    *ABS*:0000401e DMEM_21E
-       pmem_defs.asm:159    *ABS*:0000401f DMEM_21F
-       pmem_defs.asm:161    *ABS*:00004020 DMEM_220
-       pmem_defs.asm:162    *ABS*:00004021 DMEM_221
-       pmem_defs.asm:163    *ABS*:00004022 DMEM_222
-       pmem_defs.asm:164    *ABS*:00004023 DMEM_223
-       pmem_defs.asm:165    *ABS*:00004024 DMEM_224
-       pmem_defs.asm:166    *ABS*:00004025 DMEM_225
-       pmem_defs.asm:167    *ABS*:00004026 DMEM_226
-       pmem_defs.asm:168    *ABS*:00004027 DMEM_227
-       pmem_defs.asm:169    *ABS*:00004028 DMEM_228
-       pmem_defs.asm:170    *ABS*:00004029 DMEM_229
-       pmem_defs.asm:171    *ABS*:0000402a DMEM_22A
-       pmem_defs.asm:172    *ABS*:0000402b DMEM_22B
-       pmem_defs.asm:173    *ABS*:0000402c DMEM_22C
-       pmem_defs.asm:174    *ABS*:0000402d DMEM_22D
-       pmem_defs.asm:175    *ABS*:0000402e DMEM_22E
-       pmem_defs.asm:176    *ABS*:0000402f DMEM_22F
-       pmem_defs.asm:178    *ABS*:00004030 DMEM_230
-       pmem_defs.asm:179    *ABS*:00004031 DMEM_231
-       pmem_defs.asm:180    *ABS*:00004032 DMEM_232
-       pmem_defs.asm:181    *ABS*:00004033 DMEM_233
-       pmem_defs.asm:182    *ABS*:00004034 DMEM_234
-       pmem_defs.asm:183    *ABS*:00004035 DMEM_235
-       pmem_defs.asm:184    *ABS*:00004036 DMEM_236
+       pmem_defs.asm:120    *ABS*:000000000000012e TAIV
+       pmem_defs.asm:125    *ABS*:0000000000004000 DMEM_BASE
+       pmem_defs.asm:127    *ABS*:0000000000004000 DMEM_200
+       pmem_defs.asm:128    *ABS*:0000000000004001 DMEM_201
+       pmem_defs.asm:129    *ABS*:0000000000004002 DMEM_202
+       pmem_defs.asm:130    *ABS*:0000000000004003 DMEM_203
+       pmem_defs.asm:131    *ABS*:0000000000004004 DMEM_204
+       pmem_defs.asm:132    *ABS*:0000000000004005 DMEM_205
+       pmem_defs.asm:133    *ABS*:0000000000004006 DMEM_206
+       pmem_defs.asm:134    *ABS*:0000000000004007 DMEM_207
+       pmem_defs.asm:135    *ABS*:0000000000004008 DMEM_208
+       pmem_defs.asm:136    *ABS*:0000000000004009 DMEM_209
+       pmem_defs.asm:137    *ABS*:000000000000400a DMEM_20A
+       pmem_defs.asm:138    *ABS*:000000000000400b DMEM_20B
+       pmem_defs.asm:139    *ABS*:000000000000400c DMEM_20C
+       pmem_defs.asm:140    *ABS*:000000000000400d DMEM_20D
+       pmem_defs.asm:141    *ABS*:000000000000400e DMEM_20E
+       pmem_defs.asm:142    *ABS*:000000000000400f DMEM_20F
+       pmem_defs.asm:144    *ABS*:0000000000004010 DMEM_210
+       pmem_defs.asm:145    *ABS*:0000000000004011 DMEM_211
+       pmem_defs.asm:146    *ABS*:0000000000004012 DMEM_212
+       pmem_defs.asm:147    *ABS*:0000000000004013 DMEM_213
+       pmem_defs.asm:148    *ABS*:0000000000004014 DMEM_214
+       pmem_defs.asm:149    *ABS*:0000000000004015 DMEM_215
+       pmem_defs.asm:150    *ABS*:0000000000004016 DMEM_216
+       pmem_defs.asm:151    *ABS*:0000000000004017 DMEM_217
+       pmem_defs.asm:152    *ABS*:0000000000004018 DMEM_218
+       pmem_defs.asm:153    *ABS*:0000000000004019 DMEM_219
+       pmem_defs.asm:154    *ABS*:000000000000401a DMEM_21A
+       pmem_defs.asm:155    *ABS*:000000000000401b DMEM_21B
+       pmem_defs.asm:156    *ABS*:000000000000401c DMEM_21C
+       pmem_defs.asm:157    *ABS*:000000000000401d DMEM_21D
+       pmem_defs.asm:158    *ABS*:000000000000401e DMEM_21E
+       pmem_defs.asm:159    *ABS*:000000000000401f DMEM_21F
+       pmem_defs.asm:161    *ABS*:0000000000004020 DMEM_220
+       pmem_defs.asm:162    *ABS*:0000000000004021 DMEM_221
+       pmem_defs.asm:163    *ABS*:0000000000004022 DMEM_222
+       pmem_defs.asm:164    *ABS*:0000000000004023 DMEM_223
+       pmem_defs.asm:165    *ABS*:0000000000004024 DMEM_224
+       pmem_defs.asm:166    *ABS*:0000000000004025 DMEM_225
+       pmem_defs.asm:167    *ABS*:0000000000004026 DMEM_226
+       pmem_defs.asm:168    *ABS*:0000000000004027 DMEM_227
+       pmem_defs.asm:169    *ABS*:0000000000004028 DMEM_228
+       pmem_defs.asm:170    *ABS*:0000000000004029 DMEM_229
+       pmem_defs.asm:171    *ABS*:000000000000402a DMEM_22A
+       pmem_defs.asm:172    *ABS*:000000000000402b DMEM_22B
+       pmem_defs.asm:173    *ABS*:000000000000402c DMEM_22C
+       pmem_defs.asm:174    *ABS*:000000000000402d DMEM_22D
+       pmem_defs.asm:175    *ABS*:000000000000402e DMEM_22E
+       pmem_defs.asm:176    *ABS*:000000000000402f DMEM_22F
+       pmem_defs.asm:178    *ABS*:0000000000004030 DMEM_230
+       pmem_defs.asm:179    *ABS*:0000000000004031 DMEM_231
+       pmem_defs.asm:180    *ABS*:0000000000004032 DMEM_232
+       pmem_defs.asm:181    *ABS*:0000000000004033 DMEM_233
+       pmem_defs.asm:182    *ABS*:0000000000004034 DMEM_234
+       pmem_defs.asm:183    *ABS*:0000000000004035 DMEM_235
+       pmem_defs.asm:184    *ABS*:0000000000004036 DMEM_236
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43 			page 14
 
 
-       pmem_defs.asm:185    *ABS*:00004037 DMEM_237
-       pmem_defs.asm:186    *ABS*:00004038 DMEM_238
-       pmem_defs.asm:187    *ABS*:00004039 DMEM_239
-       pmem_defs.asm:188    *ABS*:0000403a DMEM_23A
-       pmem_defs.asm:189    *ABS*:0000403b DMEM_23B
-       pmem_defs.asm:190    *ABS*:0000403c DMEM_23C
-       pmem_defs.asm:191    *ABS*:0000403d DMEM_23D
-       pmem_defs.asm:192    *ABS*:0000403e DMEM_23E
-       pmem_defs.asm:193    *ABS*:0000403f DMEM_23F
-       pmem_defs.asm:195    *ABS*:00004040 DMEM_240
-       pmem_defs.asm:196    *ABS*:00004041 DMEM_241
-       pmem_defs.asm:197    *ABS*:00004042 DMEM_242
-       pmem_defs.asm:198    *ABS*:00004043 DMEM_243
-       pmem_defs.asm:199    *ABS*:00004044 DMEM_244
-       pmem_defs.asm:200    *ABS*:00004045 DMEM_245
-       pmem_defs.asm:201    *ABS*:00004046 DMEM_246
-       pmem_defs.asm:202    *ABS*:00004047 DMEM_247
-       pmem_defs.asm:203    *ABS*:00004048 DMEM_248
-       pmem_defs.asm:204    *ABS*:00004049 DMEM_249
-       pmem_defs.asm:205    *ABS*:0000404a DMEM_24A
-       pmem_defs.asm:206    *ABS*:0000404b DMEM_24B
-       pmem_defs.asm:207    *ABS*:0000404c DMEM_24C
-       pmem_defs.asm:208    *ABS*:0000404d DMEM_24D
-       pmem_defs.asm:209    *ABS*:0000404e DMEM_24E
-       pmem_defs.asm:210    *ABS*:0000404f DMEM_24F
-       pmem_defs.asm:212    *ABS*:00004050 DMEM_250
-       pmem_defs.asm:213    *ABS*:00004051 DMEM_251
-       pmem_defs.asm:214    *ABS*:00004052 DMEM_252
-       pmem_defs.asm:215    *ABS*:00004053 DMEM_253
-       pmem_defs.asm:216    *ABS*:00004054 DMEM_254
-       pmem_defs.asm:217    *ABS*:00004055 DMEM_255
-       pmem_defs.asm:218    *ABS*:00004056 DMEM_256
-       pmem_defs.asm:219    *ABS*:00004057 DMEM_257
-       pmem_defs.asm:220    *ABS*:00004058 DMEM_258
-       pmem_defs.asm:221    *ABS*:00004059 DMEM_259
-       pmem_defs.asm:222    *ABS*:0000405a DMEM_25A
-       pmem_defs.asm:223    *ABS*:0000405b DMEM_25B
-       pmem_defs.asm:224    *ABS*:0000405c DMEM_25C
-       pmem_defs.asm:225    *ABS*:0000405d DMEM_25D
-       pmem_defs.asm:226    *ABS*:0000405e DMEM_25E
-       pmem_defs.asm:227    *ABS*:0000405f DMEM_25F
-       pmem_defs.asm:229    *ABS*:00004060 DMEM_260
-       pmem_defs.asm:230    *ABS*:00004061 DMEM_261
-       pmem_defs.asm:231    *ABS*:00004062 DMEM_262
-       pmem_defs.asm:232    *ABS*:00004063 DMEM_263
-       pmem_defs.asm:233    *ABS*:00004064 DMEM_264
-       pmem_defs.asm:234    *ABS*:00004065 DMEM_265
-       pmem_defs.asm:235    *ABS*:00004066 DMEM_266
-       pmem_defs.asm:236    *ABS*:00004067 DMEM_267
-       pmem_defs.asm:237    *ABS*:00004068 DMEM_268
-       pmem_defs.asm:238    *ABS*:00004069 DMEM_269
-       pmem_defs.asm:239    *ABS*:0000406a DMEM_26A
-       pmem_defs.asm:240    *ABS*:0000406b DMEM_26B
-       pmem_defs.asm:241    *ABS*:0000406c DMEM_26C
-       pmem_defs.asm:242    *ABS*:0000406d DMEM_26D
-       pmem_defs.asm:243    *ABS*:0000406e DMEM_26E
-       pmem_defs.asm:244    *ABS*:0000406f DMEM_26F
+       pmem_defs.asm:185    *ABS*:0000000000004037 DMEM_237
+       pmem_defs.asm:186    *ABS*:0000000000004038 DMEM_238
+       pmem_defs.asm:187    *ABS*:0000000000004039 DMEM_239
+       pmem_defs.asm:188    *ABS*:000000000000403a DMEM_23A
+       pmem_defs.asm:189    *ABS*:000000000000403b DMEM_23B
+       pmem_defs.asm:190    *ABS*:000000000000403c DMEM_23C
+       pmem_defs.asm:191    *ABS*:000000000000403d DMEM_23D
+       pmem_defs.asm:192    *ABS*:000000000000403e DMEM_23E
+       pmem_defs.asm:193    *ABS*:000000000000403f DMEM_23F
+       pmem_defs.asm:195    *ABS*:0000000000004040 DMEM_240
+       pmem_defs.asm:196    *ABS*:0000000000004041 DMEM_241
+       pmem_defs.asm:197    *ABS*:0000000000004042 DMEM_242
+       pmem_defs.asm:198    *ABS*:0000000000004043 DMEM_243
+       pmem_defs.asm:199    *ABS*:0000000000004044 DMEM_244
+       pmem_defs.asm:200    *ABS*:0000000000004045 DMEM_245
+       pmem_defs.asm:201    *ABS*:0000000000004046 DMEM_246
+       pmem_defs.asm:202    *ABS*:0000000000004047 DMEM_247
+       pmem_defs.asm:203    *ABS*:0000000000004048 DMEM_248
+       pmem_defs.asm:204    *ABS*:0000000000004049 DMEM_249
+       pmem_defs.asm:205    *ABS*:000000000000404a DMEM_24A
+       pmem_defs.asm:206    *ABS*:000000000000404b DMEM_24B
+       pmem_defs.asm:207    *ABS*:000000000000404c DMEM_24C
+       pmem_defs.asm:208    *ABS*:000000000000404d DMEM_24D
+       pmem_defs.asm:209    *ABS*:000000000000404e DMEM_24E
+       pmem_defs.asm:210    *ABS*:000000000000404f DMEM_24F
+       pmem_defs.asm:212    *ABS*:0000000000004050 DMEM_250
+       pmem_defs.asm:213    *ABS*:0000000000004051 DMEM_251
+       pmem_defs.asm:214    *ABS*:0000000000004052 DMEM_252
+       pmem_defs.asm:215    *ABS*:0000000000004053 DMEM_253
+       pmem_defs.asm:216    *ABS*:0000000000004054 DMEM_254
+       pmem_defs.asm:217    *ABS*:0000000000004055 DMEM_255
+       pmem_defs.asm:218    *ABS*:0000000000004056 DMEM_256
+       pmem_defs.asm:219    *ABS*:0000000000004057 DMEM_257
+       pmem_defs.asm:220    *ABS*:0000000000004058 DMEM_258
+       pmem_defs.asm:221    *ABS*:0000000000004059 DMEM_259
+       pmem_defs.asm:222    *ABS*:000000000000405a DMEM_25A
+       pmem_defs.asm:223    *ABS*:000000000000405b DMEM_25B
+       pmem_defs.asm:224    *ABS*:000000000000405c DMEM_25C
+       pmem_defs.asm:225    *ABS*:000000000000405d DMEM_25D
+       pmem_defs.asm:226    *ABS*:000000000000405e DMEM_25E
+       pmem_defs.asm:227    *ABS*:000000000000405f DMEM_25F
+       pmem_defs.asm:229    *ABS*:0000000000004060 DMEM_260
+       pmem_defs.asm:230    *ABS*:0000000000004061 DMEM_261
+       pmem_defs.asm:231    *ABS*:0000000000004062 DMEM_262
+       pmem_defs.asm:232    *ABS*:0000000000004063 DMEM_263
+       pmem_defs.asm:233    *ABS*:0000000000004064 DMEM_264
+       pmem_defs.asm:234    *ABS*:0000000000004065 DMEM_265
+       pmem_defs.asm:235    *ABS*:0000000000004066 DMEM_266
+       pmem_defs.asm:236    *ABS*:0000000000004067 DMEM_267
+       pmem_defs.asm:237    *ABS*:0000000000004068 DMEM_268
+       pmem_defs.asm:238    *ABS*:0000000000004069 DMEM_269
+       pmem_defs.asm:239    *ABS*:000000000000406a DMEM_26A
+       pmem_defs.asm:240    *ABS*:000000000000406b DMEM_26B
+       pmem_defs.asm:241    *ABS*:000000000000406c DMEM_26C
+       pmem_defs.asm:242    *ABS*:000000000000406d DMEM_26D
+       pmem_defs.asm:243    *ABS*:000000000000406e DMEM_26E
+       pmem_defs.asm:244    *ABS*:000000000000406f DMEM_26F
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43 			page 15
 
 
-       pmem_defs.asm:246    *ABS*:00004100 DMEM_300
-       pmem_defs.asm:251    *ABS*:00004000 PMEM_LENGTH
-       pmem_defs.asm:256    *ABS*:00000b00 DRAIN_CTRL
-       pmem_defs.asm:257    *ABS*:00000b02 GATE_S
-       pmem_defs.asm:258    *ABS*:00000b04 ADC
-       pmem_defs.asm:259    *ABS*:00000b06 PULSE_CTRL
-       pmem_defs.asm:260    *ABS*:00000b08 ROW_SEL
-       pmem_defs.asm:261    *ABS*:00000b0a COL_SEL
-       pmem_defs.asm:262    *ABS*:00000b0c PROG_BITS
-       pmem_defs.asm:263    *ABS*:00000b0e TUN_MUX
-       pmem_defs.asm:264    *ABS*:00000b10 GATE_US_P
-       pmem_defs.asm:265    *ABS*:00000b12 GATE_US_N
-       pmem_defs.asm:266    *ABS*:00000b14 BIAS_DACS
-       pmem_defs.asm:267    *ABS*:00000160 GP_PER_1
-       pmem_defs.asm:268    *ABS*:00000162 GP_PER_2
-       pmem_defs.asm:269    *ABS*:00000164 GP_PER_3
-       pmem_defs.asm:270    *ABS*:00000166 GP_PER_4
-    chip_para_SP.asm:4      *ABS*:00001388 INJ_TIME_SP_1
-    chip_para_SP.asm:5      *ABS*:000001f4 INJ_TIME_SP_2
-    chip_para_SP.asm:6      *ABS*:000000c8 INJ_TIME_SP_3
-    chip_para_SP.asm:7      *ABS*:000000c8 INJ_TIME_SP_4
-    chip_para_SP.asm:8      *ABS*:000000c8 INJ_TIME_SP_5
-    chip_para_SP.asm:9      *ABS*:0000003d INJ_TIME_SP_SUM
-    chip_para_SP.asm:10     *ABS*:00001388 INJ_TIME_SP_RUN
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:6      .text:00000000 main
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:11     .text:0000000e init_wait
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:155    .text:0000023e block_measure
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:34     .text:00000062 switch_inject
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:225    .text:0000030c end_of_test
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:203    .text:000002e8 wait_ms
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:45     .text:00000090 switch_inject_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:109    .text:00000190 inject_in_prog_mode
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:214    .text:000002fa wait_10us
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:129    .text:000001ea after_inject_pulse
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:136    .text:000001fc switch_inject_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:162    .text:0000025a block_measure_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:173    .text:00000278 measure_in_prog_mode_1
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:187    .text:000002b4 measure_in_prog_mode_2
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:197    .text:000002d4 block_measure_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:206    .text:000002ee wait_ms_loop
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:217    .text:00000300 wait_10us_loop
+       pmem_defs.asm:246    *ABS*:0000000000004100 DMEM_300
+       pmem_defs.asm:251    *ABS*:0000000000004000 PMEM_LENGTH
+       pmem_defs.asm:256    *ABS*:0000000000000b00 DRAIN_CTRL
+       pmem_defs.asm:257    *ABS*:0000000000000b02 GATE_S
+       pmem_defs.asm:258    *ABS*:0000000000000b04 ADC
+       pmem_defs.asm:259    *ABS*:0000000000000b06 PULSE_CTRL
+       pmem_defs.asm:260    *ABS*:0000000000000b08 ROW_SEL
+       pmem_defs.asm:261    *ABS*:0000000000000b0a COL_SEL
+       pmem_defs.asm:262    *ABS*:0000000000000b0c PROG_BITS
+       pmem_defs.asm:263    *ABS*:0000000000000b0e TUN_MUX
+       pmem_defs.asm:264    *ABS*:0000000000000b10 GATE_US_P
+       pmem_defs.asm:265    *ABS*:0000000000000b12 GATE_US_N
+       pmem_defs.asm:266    *ABS*:0000000000000b14 BIAS_DACS
+       pmem_defs.asm:267    *ABS*:0000000000000160 GP_PER_1
+       pmem_defs.asm:268    *ABS*:0000000000000162 GP_PER_2
+       pmem_defs.asm:269    *ABS*:0000000000000164 GP_PER_3
+       pmem_defs.asm:270    *ABS*:0000000000000166 GP_PER_4
+    chip_para_SP.asm:4      *ABS*:0000000000001388 INJ_TIME_SP_1
+    chip_para_SP.asm:5      *ABS*:00000000000001f4 INJ_TIME_SP_2
+    chip_para_SP.asm:6      *ABS*:00000000000000c8 INJ_TIME_SP_3
+    chip_para_SP.asm:7      *ABS*:00000000000000c8 INJ_TIME_SP_4
+    chip_para_SP.asm:8      *ABS*:00000000000000c8 INJ_TIME_SP_5
+    chip_para_SP.asm:9      *ABS*:000000000000003d INJ_TIME_SP_SUM
+    chip_para_SP.asm:10     *ABS*:0000000000000001 INJ_TIME_SP_RUN
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:6      .text:0000000000000000 main
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:11     .text:000000000000000e init_wait
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:155    .text:000000000000023c block_measure
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:34     .text:0000000000000062 switch_inject
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:225    .text:000000000000030a end_of_test
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:203    .text:00000000000002e6 wait_ms
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:45     .text:0000000000000090 switch_inject_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:109    .text:000000000000018e inject_in_prog_mode
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:214    .text:00000000000002f8 wait_10us
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:129    .text:00000000000001e8 after_inject_pulse
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:136    .text:00000000000001fa switch_inject_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:162    .text:0000000000000258 block_measure_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:173    .text:0000000000000276 measure_in_prog_mode_1
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:187    .text:00000000000002b2 measure_in_prog_mode_2
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:197    .text:00000000000002d2 block_measure_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:206    .text:00000000000002ec wait_ms_loop
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/switch_program_ver04.s43:217    .text:00000000000002fe wait_10us_loop
 
 NO UNDEFINED SYMBOLS
 
@@ -848,13 +848,13 @@ start address 0x00000000
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000314  00000000  00000000  00000034  2**0
+  0 .text         00000312  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  1 .data         00000000  00000000  00000000  00000348  2**0
+  1 .data         00000000  00000000  00000000  00000346  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000000  00000000  00000000  00000348  2**0
+  2 .bss          00000000  00000000  00000000  00000346  2**0
                   ALLOC
-  3 .vectors      00000020  00000000  00000000  00000348  2**0
+  3 .vectors      00000020  00000000  00000000  00000346  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
@@ -1053,23 +1053,23 @@ SYMBOL TABLE:
 000000c8 l       *ABS*	00000000 INJ_TIME_SP_4
 000000c8 l       *ABS*	00000000 INJ_TIME_SP_5
 0000003d l       *ABS*	00000000 INJ_TIME_SP_SUM
-00001388 l       *ABS*	00000000 INJ_TIME_SP_RUN
+00000001 l       *ABS*	00000000 INJ_TIME_SP_RUN
 0000000e l       .text	00000000 init_wait
-0000023e l       .text	00000000 block_measure
+0000023c l       .text	00000000 block_measure
 00000062 l       .text	00000000 switch_inject
-0000030c l       .text	00000000 end_of_test
-000002e8 l       .text	00000000 wait_ms
+0000030a l       .text	00000000 end_of_test
+000002e6 l       .text	00000000 wait_ms
 00000090 l       .text	00000000 switch_inject_s
-00000190 l       .text	00000000 inject_in_prog_mode
-000002fa l       .text	00000000 wait_10us
-000001ea l       .text	00000000 after_inject_pulse
-000001fc l       .text	00000000 switch_inject_e
-0000025a l       .text	00000000 block_measure_s
-00000278 l       .text	00000000 measure_in_prog_mode_1
-000002b4 l       .text	00000000 measure_in_prog_mode_2
-000002d4 l       .text	00000000 block_measure_e
-000002ee l       .text	00000000 wait_ms_loop
-00000300 l       .text	00000000 wait_10us_loop
+0000018e l       .text	00000000 inject_in_prog_mode
+000002f8 l       .text	00000000 wait_10us
+000001e8 l       .text	00000000 after_inject_pulse
+000001fa l       .text	00000000 switch_inject_e
+00000258 l       .text	00000000 block_measure_s
+00000276 l       .text	00000000 measure_in_prog_mode_1
+000002b2 l       .text	00000000 measure_in_prog_mode_2
+000002d2 l       .text	00000000 block_measure_e
+000002ec l       .text	00000000 wait_ms_loop
+000002fe l       .text	00000000 wait_10us_loop
 00000000 l    d  .vectors	00000000 .vectors
 00000000 g       .text	00000000 main
 
@@ -1081,50 +1081,50 @@ Contents of section .text:
  0030 b2402400 6001b240 00800c0b 8243080b  .@$.`..@.....C..
  0040 82430a0b 874a0000 2753874a 00002753  .C...J..'S.J..'S
  0050 b0120000 b0120000 b0120000 b7430000  .............C..
- 0060 553d3b40 00552c4b b2400080 0c0bb240  U=;@.U,K.@.....@
+ 0060 543d3b40 00552c4b b2400080 0c0bb240  T=;@.U,K.@.....@
  0070 04be6401 b2402400 6001b243 0e0bb240  ..d..@$.`..C...@
  0080 6600000b b2401400 60012543 b0120000  f....@..`.%C....
  0090 2b53a24b 080b2b53 a24b0a0b 2b53284b  +S.K..+S.K..+S(K
- 00a0 b2400080 0c0bb243 0e0b0893 71248243  .@.....C....q$.C
+ 00a0 b2400080 0c0bb243 0e0b0893 70248243  .@.....C....p$.C
  00b0 0c0ba243 0e0bb240 4000020b b2404000  ...C...@@....@@.
- 00c0 100bb240 4000120b b2402600 000b3540  ...@@....@&...5@
- 00d0 8813b012 00001a53 b2406600 000bb240  .......S.@f....@
- 00e0 00800c0b b2430e0b b2404000 020bb240  .....C...@@....@
- 00f0 6000100b b2406000 120bb240 2600000b  `....@`....@&...
- 0100 354050c3 b0120000 3a50f401 354050c3  5@P.....:P..5@P.
- 0110 b0120000 3a50f401 8243020b 35403075  ....:P...C..5@0u
- 0120 b0120000 3a502c01 35403075 b0120000  ....:P,.5@0u....
- 0130 3a502c01 b2400050 020b3540 3075b012  :P,..@.P..5@0u..
- 0140 00003a50 2c013540 3075b012 00003a50  ..:P,.5@0u....:P
- 0150 2c01b240 00b0020b 35403075 b0120000  ,..@....5@0u....
- 0160 3a502c01 35403075 b0120000 3a502c01  :P,.5@0u....:P,.
- 0170 b2406000 020b3540 3075b012 00003a50  .@`...5@0u....:P
- 0180 2c013540 3075b012 00003a50 2c012d3c  ,.5@0u....:P,.-<
- 0190 b2404000 020bb240 6000100b b2406000  .@@....@`....@`.
- 01a0 120bb240 2600000b 35408813 b0120000  ...@&...5@......
- 01b0 8243020b 3540f401 b0120000 b2400050  .C..5@.......@.P
- 01c0 020b3540 c800b012 0000b240 00b0020b  ..5@.......@....
- 01d0 3540c800 b0120000 b2406000 020b3540  5@.......@`...5@
- 01e0 c800b012 00003a50 3d00b240 6600000b  ......:P=..@f...
- 01f0 1543b012 00001c83 01244a3f a2426001  .C.......$J?.B`.
- 0200 2543b012 0000b240 24006001 1543b012  %C.....@$.`..C..
- 0210 0000b240 00800c0b a2430e0b b2404000  ...@.....C...@@.
- 0220 100bb240 4000120b 1543b012 0000b740  ...@@....C.....@
- 0230 33330000 2753874a 00002753 30413b40  33..'S.J..'S0A;@
- 0240 00552c4b b2400080 0c0bb240 04be6401  .U,K.@.....@..d.
- 0250 b2402400 6001a243 0e0b2b53 a24b080b  .@$.`..C..+S.K..
- 0260 2b53a24b 0a0b2b53 284bb240 00800c0b  +S.K..+S(K.@....
- 0270 08930224 82430c0b b2404000 020bb240  ...$.C...@@....@
- 0280 4000100b b2404000 120bb240 6600000b  @....@@....@f...
- 0290 2543b012 0000b240 a400000b 35400a00  %C.....@....5@..
- 02a0 b0120000 b24000b0 0c0b0893 0324b240  .....@.......$.@
- 02b0 00300c0b 35400500 b0120000 8243040b  .0..5@.......C..
- 02c0 9742040b 00002753 b2400080 0c0b1c83  .B....'S.@......
- 02d0 0124c33f b2400080 0c0bb240 6600000b  .$.?.@.....@f...
- 02e0 b2402400 60013041 3440fc0c 06441683  .@$.`.0A4@...D..
- 02f0 fe230644 1583fb23 30413440 22000644  .#.D...#0A4@"..D
- 0300 1683fe23 06441583 fb233041 82435800  ...#.D...#0A.CX.
- 0310 03433043                             .C0C            
+ 00c0 100bb240 4000120b b2402600 000b1543  ...@@....@&....C
+ 00d0 b0120000 1a53b240 6600000b b2400080  .....S.@f....@..
+ 00e0 0c0bb243 0e0bb240 4000020b b2406000  ...C...@@....@`.
+ 00f0 100bb240 6000120b b2402600 000b3540  ...@`....@&...5@
+ 0100 50c3b012 00003a50 f4013540 50c3b012  P.....:P..5@P...
+ 0110 00003a50 f4018243 020b3540 3075b012  ..:P...C..5@0u..
+ 0120 00003a50 2c013540 3075b012 00003a50  ..:P,.5@0u....:P
+ 0130 2c01b240 0050020b 35403075 b0120000  ,..@.P..5@0u....
+ 0140 3a502c01 35403075 b0120000 3a502c01  :P,.5@0u....:P,.
+ 0150 b24000b0 020b3540 3075b012 00003a50  .@....5@0u....:P
+ 0160 2c013540 3075b012 00003a50 2c01b240  ,.5@0u....:P,..@
+ 0170 6000020b 35403075 b0120000 3a502c01  `...5@0u....:P,.
+ 0180 35403075 b0120000 3a502c01 2d3cb240  5@0u....:P,.-<.@
+ 0190 4000020b b2406000 100bb240 6000120b  @....@`....@`...
+ 01a0 b2402600 000b3540 8813b012 00008243  .@&...5@.......C
+ 01b0 020b3540 f401b012 0000b240 0050020b  ..5@.......@.P..
+ 01c0 3540c800 b0120000 b24000b0 020b3540  5@.......@....5@
+ 01d0 c800b012 0000b240 6000020b 3540c800  .......@`...5@..
+ 01e0 b0120000 3a503d00 b2406600 000b1543  ....:P=..@f....C
+ 01f0 b0120000 1c830124 4b3fa242 60012543  .......$K?.B`.%C
+ 0200 b0120000 b2402400 60011543 b0120000  .....@$.`..C....
+ 0210 b2400080 0c0ba243 0e0bb240 4000100b  .@.....C...@@...
+ 0220 b2404000 120b1543 b0120000 b7403333  .@@....C.....@33
+ 0230 00002753 874a0000 27533041 3b400055  ..'S.J..'S0A;@.U
+ 0240 2c4bb240 00800c0b b24004be 6401b240  ,K.@.....@..d..@
+ 0250 24006001 a2430e0b 2b53a24b 080b2b53  $.`..C..+S.K..+S
+ 0260 a24b0a0b 2b53284b b2400080 0c0b0893  .K..+S(K.@......
+ 0270 02248243 0c0bb240 4000020b b2404000  .$.C...@@....@@.
+ 0280 100bb240 4000120b b2406600 000b2543  ...@@....@f...%C
+ 0290 b0120000 b240a400 000b3540 0a00b012  .....@....5@....
+ 02a0 0000b240 00b00c0b 08930324 b2400030  ...@.......$.@.0
+ 02b0 0c0b3540 0500b012 00008243 040b9742  ..5@.......C...B
+ 02c0 040b0000 2753b240 00800c0b 1c830124  ....'S.@.......$
+ 02d0 c33fb240 00800c0b b2406600 000bb240  .?.@.....@f....@
+ 02e0 24006001 30413440 fc0c0644 1683fe23  $.`.0A4@...D...#
+ 02f0 06441583 fb233041 34402200 06441683  .D...#0A4@"..D..
+ 0300 fe230644 1583fb23 30418243 58000343  .#.D...#0A.CX..C
+ 0310 3043                                 0C              
 Contents of section .vectors:
  0000 00000000 00000000 00000000 00000000  ................
  0010 00000000 00000000 00000000 00000000  ................
@@ -1161,13 +1161,13 @@ Disassembly of section .text:
   4a:	87 4a 00 00 	mov	r10,	0(r7)	;0x0000(r7)
   4e:	27 53       	incd	r7		
   50:	b0 12 00 00 	call	#0x0000	
-			52: R_MSP430_16	.text+0x23e
+			52: R_MSP430_16	.text+0x23c
   54:	b0 12 00 00 	call	#0x0000	
 			56: R_MSP430_16	.text+0x62
   58:	b0 12 00 00 	call	#0x0000	
-			5a: R_MSP430_16	.text+0x23e
+			5a: R_MSP430_16	.text+0x23c
   5c:	b7 43 00 00 	mov	#-1,	0(r7)	;r3 As==11, 0x0000(r7)
-  60:	55 3d       	jmp	$+684    	;abs 0x30c
+  60:	54 3d       	jmp	$+682    	;abs 0x30a
 
 00000062 <switch_inject>:
   62:	3b 40 00 55 	mov	#21760,	r11	;#0x5500
@@ -1185,7 +1185,7 @@ Disassembly of section .text:
   88:	60 01 
   8a:	25 43       	mov	#2,	r5	;r3 As==10
   8c:	b0 12 00 00 	call	#0x0000	
-			8e: R_MSP430_16	.text+0x2e8
+			8e: R_MSP430_16	.text+0x2e6
 
 00000090 <switch_inject_s>:
   90:	2b 53       	incd	r11		
@@ -1198,7 +1198,7 @@ Disassembly of section .text:
   a4:	0c 0b 
   a6:	b2 43 0e 0b 	mov	#-1,	&0x0b0e	;r3 As==11
   aa:	08 93       	tst	r8		
-  ac:	71 24       	jz	$+228    	;abs 0x190
+  ac:	70 24       	jz	$+226    	;abs 0x18e
   ae:	82 43 0c 0b 	mov	#0,	&0x0b0c	;r3 As==00
   b2:	a2 43 0e 0b 	mov	#2,	&0x0b0e	;r3 As==10
   b6:	b2 40 40 00 	mov	#64,	&0x0b02	;#0x0040
@@ -1209,238 +1209,238 @@ Disassembly of section .text:
   c6:	12 0b 
   c8:	b2 40 26 00 	mov	#38,	&0x0b00	;#0x0026
   cc:	00 0b 
-  ce:	35 40 88 13 	mov	#5000,	r5	;#0x1388
-  d2:	b0 12 00 00 	call	#0x0000	
-			d4: R_MSP430_16	.text+0x2fa
-  d6:	1a 53       	inc	r10		
-  d8:	b2 40 66 00 	mov	#102,	&0x0b00	;#0x0066
-  dc:	00 0b 
-  de:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
-  e2:	0c 0b 
-  e4:	b2 43 0e 0b 	mov	#-1,	&0x0b0e	;r3 As==11
-  e8:	b2 40 40 00 	mov	#64,	&0x0b02	;#0x0040
-  ec:	02 0b 
-  ee:	b2 40 60 00 	mov	#96,	&0x0b10	;#0x0060
-  f2:	10 0b 
-  f4:	b2 40 60 00 	mov	#96,	&0x0b12	;#0x0060
-  f8:	12 0b 
-  fa:	b2 40 26 00 	mov	#38,	&0x0b00	;#0x0026
-  fe:	00 0b 
- 100:	35 40 50 c3 	mov	#-15536,r5	;#0xc350
- 104:	b0 12 00 00 	call	#0x0000	
-			106: R_MSP430_16	.text+0x2fa
- 108:	3a 50 f4 01 	add	#500,	r10	;#0x01f4
- 10c:	35 40 50 c3 	mov	#-15536,r5	;#0xc350
- 110:	b0 12 00 00 	call	#0x0000	
-			112: R_MSP430_16	.text+0x2fa
- 114:	3a 50 f4 01 	add	#500,	r10	;#0x01f4
- 118:	82 43 02 0b 	mov	#0,	&0x0b02	;r3 As==00
- 11c:	35 40 30 75 	mov	#30000,	r5	;#0x7530
- 120:	b0 12 00 00 	call	#0x0000	
-			122: R_MSP430_16	.text+0x2fa
- 124:	3a 50 2c 01 	add	#300,	r10	;#0x012c
- 128:	35 40 30 75 	mov	#30000,	r5	;#0x7530
- 12c:	b0 12 00 00 	call	#0x0000	
-			12e: R_MSP430_16	.text+0x2fa
- 130:	3a 50 2c 01 	add	#300,	r10	;#0x012c
- 134:	b2 40 00 50 	mov	#20480,	&0x0b02	;#0x5000
- 138:	02 0b 
- 13a:	35 40 30 75 	mov	#30000,	r5	;#0x7530
- 13e:	b0 12 00 00 	call	#0x0000	
-			140: R_MSP430_16	.text+0x2fa
- 142:	3a 50 2c 01 	add	#300,	r10	;#0x012c
- 146:	35 40 30 75 	mov	#30000,	r5	;#0x7530
- 14a:	b0 12 00 00 	call	#0x0000	
-			14c: R_MSP430_16	.text+0x2fa
- 14e:	3a 50 2c 01 	add	#300,	r10	;#0x012c
- 152:	b2 40 00 b0 	mov	#-20480,&0x0b02	;#0xb000
- 156:	02 0b 
- 158:	35 40 30 75 	mov	#30000,	r5	;#0x7530
- 15c:	b0 12 00 00 	call	#0x0000	
-			15e: R_MSP430_16	.text+0x2fa
- 160:	3a 50 2c 01 	add	#300,	r10	;#0x012c
- 164:	35 40 30 75 	mov	#30000,	r5	;#0x7530
- 168:	b0 12 00 00 	call	#0x0000	
-			16a: R_MSP430_16	.text+0x2fa
- 16c:	3a 50 2c 01 	add	#300,	r10	;#0x012c
- 170:	b2 40 60 00 	mov	#96,	&0x0b02	;#0x0060
- 174:	02 0b 
- 176:	35 40 30 75 	mov	#30000,	r5	;#0x7530
- 17a:	b0 12 00 00 	call	#0x0000	
-			17c: R_MSP430_16	.text+0x2fa
- 17e:	3a 50 2c 01 	add	#300,	r10	;#0x012c
- 182:	35 40 30 75 	mov	#30000,	r5	;#0x7530
- 186:	b0 12 00 00 	call	#0x0000	
-			188: R_MSP430_16	.text+0x2fa
- 18a:	3a 50 2c 01 	add	#300,	r10	;#0x012c
- 18e:	2d 3c       	jmp	$+92     	;abs 0x1ea
+  ce:	15 43       	mov	#1,	r5	;r3 As==01
+  d0:	b0 12 00 00 	call	#0x0000	
+			d2: R_MSP430_16	.text+0x2f8
+  d4:	1a 53       	inc	r10		
+  d6:	b2 40 66 00 	mov	#102,	&0x0b00	;#0x0066
+  da:	00 0b 
+  dc:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
+  e0:	0c 0b 
+  e2:	b2 43 0e 0b 	mov	#-1,	&0x0b0e	;r3 As==11
+  e6:	b2 40 40 00 	mov	#64,	&0x0b02	;#0x0040
+  ea:	02 0b 
+  ec:	b2 40 60 00 	mov	#96,	&0x0b10	;#0x0060
+  f0:	10 0b 
+  f2:	b2 40 60 00 	mov	#96,	&0x0b12	;#0x0060
+  f6:	12 0b 
+  f8:	b2 40 26 00 	mov	#38,	&0x0b00	;#0x0026
+  fc:	00 0b 
+  fe:	35 40 50 c3 	mov	#-15536,r5	;#0xc350
+ 102:	b0 12 00 00 	call	#0x0000	
+			104: R_MSP430_16	.text+0x2f8
+ 106:	3a 50 f4 01 	add	#500,	r10	;#0x01f4
+ 10a:	35 40 50 c3 	mov	#-15536,r5	;#0xc350
+ 10e:	b0 12 00 00 	call	#0x0000	
+			110: R_MSP430_16	.text+0x2f8
+ 112:	3a 50 f4 01 	add	#500,	r10	;#0x01f4
+ 116:	82 43 02 0b 	mov	#0,	&0x0b02	;r3 As==00
+ 11a:	35 40 30 75 	mov	#30000,	r5	;#0x7530
+ 11e:	b0 12 00 00 	call	#0x0000	
+			120: R_MSP430_16	.text+0x2f8
+ 122:	3a 50 2c 01 	add	#300,	r10	;#0x012c
+ 126:	35 40 30 75 	mov	#30000,	r5	;#0x7530
+ 12a:	b0 12 00 00 	call	#0x0000	
+			12c: R_MSP430_16	.text+0x2f8
+ 12e:	3a 50 2c 01 	add	#300,	r10	;#0x012c
+ 132:	b2 40 00 50 	mov	#20480,	&0x0b02	;#0x5000
+ 136:	02 0b 
+ 138:	35 40 30 75 	mov	#30000,	r5	;#0x7530
+ 13c:	b0 12 00 00 	call	#0x0000	
+			13e: R_MSP430_16	.text+0x2f8
+ 140:	3a 50 2c 01 	add	#300,	r10	;#0x012c
+ 144:	35 40 30 75 	mov	#30000,	r5	;#0x7530
+ 148:	b0 12 00 00 	call	#0x0000	
+			14a: R_MSP430_16	.text+0x2f8
+ 14c:	3a 50 2c 01 	add	#300,	r10	;#0x012c
+ 150:	b2 40 00 b0 	mov	#-20480,&0x0b02	;#0xb000
+ 154:	02 0b 
+ 156:	35 40 30 75 	mov	#30000,	r5	;#0x7530
+ 15a:	b0 12 00 00 	call	#0x0000	
+			15c: R_MSP430_16	.text+0x2f8
+ 15e:	3a 50 2c 01 	add	#300,	r10	;#0x012c
+ 162:	35 40 30 75 	mov	#30000,	r5	;#0x7530
+ 166:	b0 12 00 00 	call	#0x0000	
+			168: R_MSP430_16	.text+0x2f8
+ 16a:	3a 50 2c 01 	add	#300,	r10	;#0x012c
+ 16e:	b2 40 60 00 	mov	#96,	&0x0b02	;#0x0060
+ 172:	02 0b 
+ 174:	35 40 30 75 	mov	#30000,	r5	;#0x7530
+ 178:	b0 12 00 00 	call	#0x0000	
+			17a: R_MSP430_16	.text+0x2f8
+ 17c:	3a 50 2c 01 	add	#300,	r10	;#0x012c
+ 180:	35 40 30 75 	mov	#30000,	r5	;#0x7530
+ 184:	b0 12 00 00 	call	#0x0000	
+			186: R_MSP430_16	.text+0x2f8
+ 188:	3a 50 2c 01 	add	#300,	r10	;#0x012c
+ 18c:	2d 3c       	jmp	$+92     	;abs 0x1e8
 
-00000190 <inject_in_prog_mode>:
- 190:	b2 40 40 00 	mov	#64,	&0x0b02	;#0x0040
- 194:	02 0b 
- 196:	b2 40 60 00 	mov	#96,	&0x0b10	;#0x0060
- 19a:	10 0b 
- 19c:	b2 40 60 00 	mov	#96,	&0x0b12	;#0x0060
- 1a0:	12 0b 
- 1a2:	b2 40 26 00 	mov	#38,	&0x0b00	;#0x0026
- 1a6:	00 0b 
- 1a8:	35 40 88 13 	mov	#5000,	r5	;#0x1388
- 1ac:	b0 12 00 00 	call	#0x0000	
-			1ae: R_MSP430_16	.text+0x2fa
- 1b0:	82 43 02 0b 	mov	#0,	&0x0b02	;r3 As==00
- 1b4:	35 40 f4 01 	mov	#500,	r5	;#0x01f4
- 1b8:	b0 12 00 00 	call	#0x0000	
-			1ba: R_MSP430_16	.text+0x2fa
- 1bc:	b2 40 00 50 	mov	#20480,	&0x0b02	;#0x5000
- 1c0:	02 0b 
- 1c2:	35 40 c8 00 	mov	#200,	r5	;#0x00c8
- 1c6:	b0 12 00 00 	call	#0x0000	
-			1c8: R_MSP430_16	.text+0x2fa
- 1ca:	b2 40 00 b0 	mov	#-20480,&0x0b02	;#0xb000
- 1ce:	02 0b 
- 1d0:	35 40 c8 00 	mov	#200,	r5	;#0x00c8
- 1d4:	b0 12 00 00 	call	#0x0000	
-			1d6: R_MSP430_16	.text+0x2fa
- 1d8:	b2 40 60 00 	mov	#96,	&0x0b02	;#0x0060
- 1dc:	02 0b 
- 1de:	35 40 c8 00 	mov	#200,	r5	;#0x00c8
- 1e2:	b0 12 00 00 	call	#0x0000	
-			1e4: R_MSP430_16	.text+0x2fa
- 1e6:	3a 50 3d 00 	add	#61,	r10	;#0x003d
+0000018e <inject_in_prog_mode>:
+ 18e:	b2 40 40 00 	mov	#64,	&0x0b02	;#0x0040
+ 192:	02 0b 
+ 194:	b2 40 60 00 	mov	#96,	&0x0b10	;#0x0060
+ 198:	10 0b 
+ 19a:	b2 40 60 00 	mov	#96,	&0x0b12	;#0x0060
+ 19e:	12 0b 
+ 1a0:	b2 40 26 00 	mov	#38,	&0x0b00	;#0x0026
+ 1a4:	00 0b 
+ 1a6:	35 40 88 13 	mov	#5000,	r5	;#0x1388
+ 1aa:	b0 12 00 00 	call	#0x0000	
+			1ac: R_MSP430_16	.text+0x2f8
+ 1ae:	82 43 02 0b 	mov	#0,	&0x0b02	;r3 As==00
+ 1b2:	35 40 f4 01 	mov	#500,	r5	;#0x01f4
+ 1b6:	b0 12 00 00 	call	#0x0000	
+			1b8: R_MSP430_16	.text+0x2f8
+ 1ba:	b2 40 00 50 	mov	#20480,	&0x0b02	;#0x5000
+ 1be:	02 0b 
+ 1c0:	35 40 c8 00 	mov	#200,	r5	;#0x00c8
+ 1c4:	b0 12 00 00 	call	#0x0000	
+			1c6: R_MSP430_16	.text+0x2f8
+ 1c8:	b2 40 00 b0 	mov	#-20480,&0x0b02	;#0xb000
+ 1cc:	02 0b 
+ 1ce:	35 40 c8 00 	mov	#200,	r5	;#0x00c8
+ 1d2:	b0 12 00 00 	call	#0x0000	
+			1d4: R_MSP430_16	.text+0x2f8
+ 1d6:	b2 40 60 00 	mov	#96,	&0x0b02	;#0x0060
+ 1da:	02 0b 
+ 1dc:	35 40 c8 00 	mov	#200,	r5	;#0x00c8
+ 1e0:	b0 12 00 00 	call	#0x0000	
+			1e2: R_MSP430_16	.text+0x2f8
+ 1e4:	3a 50 3d 00 	add	#61,	r10	;#0x003d
 
-000001ea <after_inject_pulse>:
- 1ea:	b2 40 66 00 	mov	#102,	&0x0b00	;#0x0066
- 1ee:	00 0b 
- 1f0:	15 43       	mov	#1,	r5	;r3 As==01
- 1f2:	b0 12 00 00 	call	#0x0000	
-			1f4: R_MSP430_16	.text+0x2e8
- 1f6:	1c 83       	dec	r12		
- 1f8:	01 24       	jz	$+4      	;abs 0x1fc
- 1fa:	4a 3f       	jmp	$-362    	;abs 0x90
+000001e8 <after_inject_pulse>:
+ 1e8:	b2 40 66 00 	mov	#102,	&0x0b00	;#0x0066
+ 1ec:	00 0b 
+ 1ee:	15 43       	mov	#1,	r5	;r3 As==01
+ 1f0:	b0 12 00 00 	call	#0x0000	
+			1f2: R_MSP430_16	.text+0x2e6
+ 1f4:	1c 83       	dec	r12		
+ 1f6:	01 24       	jz	$+4      	;abs 0x1fa
+ 1f8:	4b 3f       	jmp	$-360    	;abs 0x90
 
-000001fc <switch_inject_e>:
- 1fc:	a2 42 60 01 	mov	#4,	&0x0160	;r2 As==10
- 200:	25 43       	mov	#2,	r5	;r3 As==10
- 202:	b0 12 00 00 	call	#0x0000	
-			204: R_MSP430_16	.text+0x2e8
- 206:	b2 40 24 00 	mov	#36,	&0x0160	;#0x0024
- 20a:	60 01 
- 20c:	15 43       	mov	#1,	r5	;r3 As==01
- 20e:	b0 12 00 00 	call	#0x0000	
-			210: R_MSP430_16	.text+0x2e8
- 212:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
- 216:	0c 0b 
- 218:	a2 43 0e 0b 	mov	#2,	&0x0b0e	;r3 As==10
- 21c:	b2 40 40 00 	mov	#64,	&0x0b10	;#0x0040
- 220:	10 0b 
- 222:	b2 40 40 00 	mov	#64,	&0x0b12	;#0x0040
- 226:	12 0b 
- 228:	15 43       	mov	#1,	r5	;r3 As==01
- 22a:	b0 12 00 00 	call	#0x0000	
-			22c: R_MSP430_16	.text+0x2e8
- 22e:	b7 40 33 33 	mov	#13107,	0(r7)	;#0x3333, 0x0000(r7)
- 232:	00 00 
- 234:	27 53       	incd	r7		
- 236:	87 4a 00 00 	mov	r10,	0(r7)	;0x0000(r7)
- 23a:	27 53       	incd	r7		
- 23c:	30 41       	ret			
+000001fa <switch_inject_e>:
+ 1fa:	a2 42 60 01 	mov	#4,	&0x0160	;r2 As==10
+ 1fe:	25 43       	mov	#2,	r5	;r3 As==10
+ 200:	b0 12 00 00 	call	#0x0000	
+			202: R_MSP430_16	.text+0x2e6
+ 204:	b2 40 24 00 	mov	#36,	&0x0160	;#0x0024
+ 208:	60 01 
+ 20a:	15 43       	mov	#1,	r5	;r3 As==01
+ 20c:	b0 12 00 00 	call	#0x0000	
+			20e: R_MSP430_16	.text+0x2e6
+ 210:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
+ 214:	0c 0b 
+ 216:	a2 43 0e 0b 	mov	#2,	&0x0b0e	;r3 As==10
+ 21a:	b2 40 40 00 	mov	#64,	&0x0b10	;#0x0040
+ 21e:	10 0b 
+ 220:	b2 40 40 00 	mov	#64,	&0x0b12	;#0x0040
+ 224:	12 0b 
+ 226:	15 43       	mov	#1,	r5	;r3 As==01
+ 228:	b0 12 00 00 	call	#0x0000	
+			22a: R_MSP430_16	.text+0x2e6
+ 22c:	b7 40 33 33 	mov	#13107,	0(r7)	;#0x3333, 0x0000(r7)
+ 230:	00 00 
+ 232:	27 53       	incd	r7		
+ 234:	87 4a 00 00 	mov	r10,	0(r7)	;0x0000(r7)
+ 238:	27 53       	incd	r7		
+ 23a:	30 41       	ret			
 
-0000023e <block_measure>:
- 23e:	3b 40 00 55 	mov	#21760,	r11	;#0x5500
- 242:	2c 4b       	mov	@r11,	r12	
- 244:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
- 248:	0c 0b 
- 24a:	b2 40 04 be 	mov	#-16892,&0x0164	;#0xbe04
- 24e:	64 01 
- 250:	b2 40 24 00 	mov	#36,	&0x0160	;#0x0024
- 254:	60 01 
- 256:	a2 43 0e 0b 	mov	#2,	&0x0b0e	;r3 As==10
+0000023c <block_measure>:
+ 23c:	3b 40 00 55 	mov	#21760,	r11	;#0x5500
+ 240:	2c 4b       	mov	@r11,	r12	
+ 242:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
+ 246:	0c 0b 
+ 248:	b2 40 04 be 	mov	#-16892,&0x0164	;#0xbe04
+ 24c:	64 01 
+ 24e:	b2 40 24 00 	mov	#36,	&0x0160	;#0x0024
+ 252:	60 01 
+ 254:	a2 43 0e 0b 	mov	#2,	&0x0b0e	;r3 As==10
 
-0000025a <block_measure_s>:
- 25a:	2b 53       	incd	r11		
- 25c:	a2 4b 08 0b 	mov	@r11,	&0x0b08	
- 260:	2b 53       	incd	r11		
- 262:	a2 4b 0a 0b 	mov	@r11,	&0x0b0a	
- 266:	2b 53       	incd	r11		
- 268:	28 4b       	mov	@r11,	r8	
- 26a:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
- 26e:	0c 0b 
- 270:	08 93       	tst	r8		
- 272:	02 24       	jz	$+6      	;abs 0x278
- 274:	82 43 0c 0b 	mov	#0,	&0x0b0c	;r3 As==00
+00000258 <block_measure_s>:
+ 258:	2b 53       	incd	r11		
+ 25a:	a2 4b 08 0b 	mov	@r11,	&0x0b08	
+ 25e:	2b 53       	incd	r11		
+ 260:	a2 4b 0a 0b 	mov	@r11,	&0x0b0a	
+ 264:	2b 53       	incd	r11		
+ 266:	28 4b       	mov	@r11,	r8	
+ 268:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
+ 26c:	0c 0b 
+ 26e:	08 93       	tst	r8		
+ 270:	02 24       	jz	$+6      	;abs 0x276
+ 272:	82 43 0c 0b 	mov	#0,	&0x0b0c	;r3 As==00
 
-00000278 <measure_in_prog_mode_1>:
- 278:	b2 40 40 00 	mov	#64,	&0x0b02	;#0x0040
- 27c:	02 0b 
- 27e:	b2 40 40 00 	mov	#64,	&0x0b10	;#0x0040
- 282:	10 0b 
- 284:	b2 40 40 00 	mov	#64,	&0x0b12	;#0x0040
- 288:	12 0b 
- 28a:	b2 40 66 00 	mov	#102,	&0x0b00	;#0x0066
- 28e:	00 0b 
- 290:	25 43       	mov	#2,	r5	;r3 As==10
- 292:	b0 12 00 00 	call	#0x0000	
-			294: R_MSP430_16	.text+0x2e8
- 296:	b2 40 a4 00 	mov	#164,	&0x0b00	;#0x00a4
- 29a:	00 0b 
- 29c:	35 40 0a 00 	mov	#10,	r5	;#0x000a
- 2a0:	b0 12 00 00 	call	#0x0000	
-			2a2: R_MSP430_16	.text+0x2e8
- 2a4:	b2 40 00 b0 	mov	#-20480,&0x0b0c	;#0xb000
- 2a8:	0c 0b 
- 2aa:	08 93       	tst	r8		
- 2ac:	03 24       	jz	$+8      	;abs 0x2b4
- 2ae:	b2 40 00 30 	mov	#12288,	&0x0b0c	;#0x3000
- 2b2:	0c 0b 
+00000276 <measure_in_prog_mode_1>:
+ 276:	b2 40 40 00 	mov	#64,	&0x0b02	;#0x0040
+ 27a:	02 0b 
+ 27c:	b2 40 40 00 	mov	#64,	&0x0b10	;#0x0040
+ 280:	10 0b 
+ 282:	b2 40 40 00 	mov	#64,	&0x0b12	;#0x0040
+ 286:	12 0b 
+ 288:	b2 40 66 00 	mov	#102,	&0x0b00	;#0x0066
+ 28c:	00 0b 
+ 28e:	25 43       	mov	#2,	r5	;r3 As==10
+ 290:	b0 12 00 00 	call	#0x0000	
+			292: R_MSP430_16	.text+0x2e6
+ 294:	b2 40 a4 00 	mov	#164,	&0x0b00	;#0x00a4
+ 298:	00 0b 
+ 29a:	35 40 0a 00 	mov	#10,	r5	;#0x000a
+ 29e:	b0 12 00 00 	call	#0x0000	
+			2a0: R_MSP430_16	.text+0x2e6
+ 2a2:	b2 40 00 b0 	mov	#-20480,&0x0b0c	;#0xb000
+ 2a6:	0c 0b 
+ 2a8:	08 93       	tst	r8		
+ 2aa:	03 24       	jz	$+8      	;abs 0x2b2
+ 2ac:	b2 40 00 30 	mov	#12288,	&0x0b0c	;#0x3000
+ 2b0:	0c 0b 
 
-000002b4 <measure_in_prog_mode_2>:
- 2b4:	35 40 05 00 	mov	#5,	r5	;#0x0005
- 2b8:	b0 12 00 00 	call	#0x0000	
-			2ba: R_MSP430_16	.text+0x2e8
- 2bc:	82 43 04 0b 	mov	#0,	&0x0b04	;r3 As==00
- 2c0:	97 42 04 0b 	mov	&0x0b04,0(r7)	;0x0000(r7)
- 2c4:	00 00 
- 2c6:	27 53       	incd	r7		
- 2c8:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
- 2cc:	0c 0b 
- 2ce:	1c 83       	dec	r12		
- 2d0:	01 24       	jz	$+4      	;abs 0x2d4
- 2d2:	c3 3f       	jmp	$-120    	;abs 0x25a
+000002b2 <measure_in_prog_mode_2>:
+ 2b2:	35 40 05 00 	mov	#5,	r5	;#0x0005
+ 2b6:	b0 12 00 00 	call	#0x0000	
+			2b8: R_MSP430_16	.text+0x2e6
+ 2ba:	82 43 04 0b 	mov	#0,	&0x0b04	;r3 As==00
+ 2be:	97 42 04 0b 	mov	&0x0b04,0(r7)	;0x0000(r7)
+ 2c2:	00 00 
+ 2c4:	27 53       	incd	r7		
+ 2c6:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
+ 2ca:	0c 0b 
+ 2cc:	1c 83       	dec	r12		
+ 2ce:	01 24       	jz	$+4      	;abs 0x2d2
+ 2d0:	c3 3f       	jmp	$-120    	;abs 0x258
 
-000002d4 <block_measure_e>:
- 2d4:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
- 2d8:	0c 0b 
- 2da:	b2 40 66 00 	mov	#102,	&0x0b00	;#0x0066
- 2de:	00 0b 
- 2e0:	b2 40 24 00 	mov	#36,	&0x0160	;#0x0024
- 2e4:	60 01 
- 2e6:	30 41       	ret			
+000002d2 <block_measure_e>:
+ 2d2:	b2 40 00 80 	mov	#-32768,&0x0b0c	;#0x8000
+ 2d6:	0c 0b 
+ 2d8:	b2 40 66 00 	mov	#102,	&0x0b00	;#0x0066
+ 2dc:	00 0b 
+ 2de:	b2 40 24 00 	mov	#36,	&0x0160	;#0x0024
+ 2e2:	60 01 
+ 2e4:	30 41       	ret			
 
-000002e8 <wait_ms>:
- 2e8:	34 40 fc 0c 	mov	#3324,	r4	;#0x0cfc
- 2ec:	06 44       	mov	r4,	r6	
+000002e6 <wait_ms>:
+ 2e6:	34 40 fc 0c 	mov	#3324,	r4	;#0x0cfc
+ 2ea:	06 44       	mov	r4,	r6	
 
-000002ee <wait_ms_loop>:
- 2ee:	16 83       	dec	r6		
- 2f0:	fe 23       	jnz	$-2      	;abs 0x2ee
- 2f2:	06 44       	mov	r4,	r6	
- 2f4:	15 83       	dec	r5		
- 2f6:	fb 23       	jnz	$-8      	;abs 0x2ee
- 2f8:	30 41       	ret			
+000002ec <wait_ms_loop>:
+ 2ec:	16 83       	dec	r6		
+ 2ee:	fe 23       	jnz	$-2      	;abs 0x2ec
+ 2f0:	06 44       	mov	r4,	r6	
+ 2f2:	15 83       	dec	r5		
+ 2f4:	fb 23       	jnz	$-8      	;abs 0x2ec
+ 2f6:	30 41       	ret			
 
-000002fa <wait_10us>:
- 2fa:	34 40 22 00 	mov	#34,	r4	;#0x0022
- 2fe:	06 44       	mov	r4,	r6	
+000002f8 <wait_10us>:
+ 2f8:	34 40 22 00 	mov	#34,	r4	;#0x0022
+ 2fc:	06 44       	mov	r4,	r6	
 
-00000300 <wait_10us_loop>:
- 300:	16 83       	dec	r6		
- 302:	fe 23       	jnz	$-2      	;abs 0x300
- 304:	06 44       	mov	r4,	r6	
- 306:	15 83       	dec	r5		
- 308:	fb 23       	jnz	$-8      	;abs 0x300
- 30a:	30 41       	ret			
+000002fe <wait_10us_loop>:
+ 2fe:	16 83       	dec	r6		
+ 300:	fe 23       	jnz	$-2      	;abs 0x2fe
+ 302:	06 44       	mov	r4,	r6	
+ 304:	15 83       	dec	r5		
+ 306:	fb 23       	jnz	$-8      	;abs 0x2fe
+ 308:	30 41       	ret			
 
-0000030c <end_of_test>:
- 30c:	82 43 58 00 	mov	#0,	&0x0058	;r3 As==00
- 310:	03 43       	nop			
- 312:	30 43       	br	#-1		;r3 As==11
+0000030a <end_of_test>:
+ 30a:	82 43 58 00 	mov	#0,	&0x0058	;r3 As==00
+ 30e:	03 43       	nop			
+ 310:	30 43       	br	#-1		;r3 As==11

@@ -292,7 +292,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CA
    4               	.set TUN_TIME_SP, 3 /* tunneling time for switch FGs (ms) */
    5               	.set R_TUN_TIME_SP, 2 /* reverse tunneling time for switch FGs (ms) */
    6               	.set TUN_TIME_TP_CAB, 40 /* tunneling time for CAB FGs (ms) */
-   7               	.set R_TUN_TIME_TP_CAB, 20 /* Reverse tunneling time for CAB FGs (ms) */
+   7               	.set R_TUN_TIME_TP_CAB, 40 /* Reverse tunneling time for CAB FGs (ms) */
    3               	
    4               	.global main
    5               	
@@ -500,9 +500,9 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CA
  148 020c B012 0000 	        call    #wait_ms                ; Call the waiting function
  149 0210 B240 1000 	        mov     #0x0010, &GP_PER_1      ; IVDD to 6.0V, Set vtun_ext = Off(0V)
  149      6001 
- 150 0216 3540 1400 	        mov     #R_TUN_TIME_TP_CAB, r5	         	; Number of 10us to reverse_tunnel
+ 150 0216 3540 2800 	        mov     #R_TUN_TIME_TP_CAB, r5	         	; Number of 10us to reverse_tunnel
  151 021a B012 0000 		call    #wait_ms              	; Call the waiting function
- 152 021e 3A50 1400 		add     #R_TUN_TIME_TP_CAB, r10	        	; Calculate time
+ 152 021e 3A50 2800 		add     #R_TUN_TIME_TP_CAB, r10	        	; Calculate time
  153 0222 B240 2000 	        mov     #0x0020, &GP_PER_1      ; IVDD to 2.5V, Set vtun_ext = Off(0V)
  153      6001 
  154 0228 3540 0500 	        mov     #5, r5             	; Number of ms
@@ -581,225 +581,225 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CA
 
 
 DEFINED SYMBOLS
-       pmem_defs.asm:39     *ABS*:00000000 IE1
-       pmem_defs.asm:40     *ABS*:00000001 IE1_HI
-       pmem_defs.asm:41     *ABS*:00000002 IFG1
-       pmem_defs.asm:42     *ABS*:00000003 IFG1_HI
-       pmem_defs.asm:43     *ABS*:00000004 CPU_ID_LO
-       pmem_defs.asm:44     *ABS*:00000006 CPU_ID_HI
-       pmem_defs.asm:45     *ABS*:00000008 CPU_NR
-       pmem_defs.asm:50     *ABS*:00000020 P1IN
-       pmem_defs.asm:51     *ABS*:00000021 P1OUT
-       pmem_defs.asm:52     *ABS*:00000022 P1DIR
-       pmem_defs.asm:53     *ABS*:00000023 P1IFG
-       pmem_defs.asm:54     *ABS*:00000024 P1IES
-       pmem_defs.asm:55     *ABS*:00000025 P1IE
-       pmem_defs.asm:56     *ABS*:00000026 P1SEL
-       pmem_defs.asm:58     *ABS*:00000028 P2IN
-       pmem_defs.asm:59     *ABS*:00000029 P2OUT
-       pmem_defs.asm:60     *ABS*:0000002a P2DIR
-       pmem_defs.asm:61     *ABS*:0000002b P2IFG
-       pmem_defs.asm:62     *ABS*:0000002c P2IES
-       pmem_defs.asm:63     *ABS*:0000002d P2IE
-       pmem_defs.asm:64     *ABS*:0000002e P2SEL
-       pmem_defs.asm:66     *ABS*:00000018 P3IN
-       pmem_defs.asm:67     *ABS*:00000019 P3OUT
-       pmem_defs.asm:68     *ABS*:0000001a P3DIR
-       pmem_defs.asm:69     *ABS*:0000001b P3SEL
-       pmem_defs.asm:71     *ABS*:0000001c P4IN
-       pmem_defs.asm:72     *ABS*:0000001d P4OUT
-       pmem_defs.asm:73     *ABS*:0000001e P4DIR
-       pmem_defs.asm:74     *ABS*:0000001f P4SEL
-       pmem_defs.asm:76     *ABS*:00000030 P5IN
-       pmem_defs.asm:77     *ABS*:00000031 P5OUT
-       pmem_defs.asm:78     *ABS*:00000032 P5DIR
-       pmem_defs.asm:79     *ABS*:00000033 P5SEL
-       pmem_defs.asm:81     *ABS*:00000034 P6IN
-       pmem_defs.asm:82     *ABS*:00000035 P6OUT
-       pmem_defs.asm:83     *ABS*:00000036 P6DIR
-       pmem_defs.asm:84     *ABS*:00000037 P6SEL
-       pmem_defs.asm:89     *ABS*:00000057 BCSCTL1
-       pmem_defs.asm:90     *ABS*:00000058 BCSCTL2
-       pmem_defs.asm:95     *ABS*:00000120 WDTCTL
-       pmem_defs.asm:100    *ABS*:00000130 MPY
-       pmem_defs.asm:101    *ABS*:00000132 MPYS
-       pmem_defs.asm:102    *ABS*:00000134 MAC
-       pmem_defs.asm:103    *ABS*:00000136 MACS
-       pmem_defs.asm:104    *ABS*:00000138 OP2
-       pmem_defs.asm:105    *ABS*:0000013a RESLO
-       pmem_defs.asm:106    *ABS*:0000013c RESHI
-       pmem_defs.asm:107    *ABS*:0000013e SUMEXT
-       pmem_defs.asm:112    *ABS*:00000160 TACTL
-       pmem_defs.asm:113    *ABS*:00000170 TAR
-       pmem_defs.asm:114    *ABS*:00000162 TACCTL0
-       pmem_defs.asm:115    *ABS*:00000172 TACCR0
-       pmem_defs.asm:116    *ABS*:00000164 TACCTL1
-       pmem_defs.asm:117    *ABS*:00000174 TACCR1
-       pmem_defs.asm:118    *ABS*:00000166 TACCTL2
-       pmem_defs.asm:119    *ABS*:00000176 TACCR2
+       pmem_defs.asm:39     *ABS*:0000000000000000 IE1
+       pmem_defs.asm:40     *ABS*:0000000000000001 IE1_HI
+       pmem_defs.asm:41     *ABS*:0000000000000002 IFG1
+       pmem_defs.asm:42     *ABS*:0000000000000003 IFG1_HI
+       pmem_defs.asm:43     *ABS*:0000000000000004 CPU_ID_LO
+       pmem_defs.asm:44     *ABS*:0000000000000006 CPU_ID_HI
+       pmem_defs.asm:45     *ABS*:0000000000000008 CPU_NR
+       pmem_defs.asm:50     *ABS*:0000000000000020 P1IN
+       pmem_defs.asm:51     *ABS*:0000000000000021 P1OUT
+       pmem_defs.asm:52     *ABS*:0000000000000022 P1DIR
+       pmem_defs.asm:53     *ABS*:0000000000000023 P1IFG
+       pmem_defs.asm:54     *ABS*:0000000000000024 P1IES
+       pmem_defs.asm:55     *ABS*:0000000000000025 P1IE
+       pmem_defs.asm:56     *ABS*:0000000000000026 P1SEL
+       pmem_defs.asm:58     *ABS*:0000000000000028 P2IN
+       pmem_defs.asm:59     *ABS*:0000000000000029 P2OUT
+       pmem_defs.asm:60     *ABS*:000000000000002a P2DIR
+       pmem_defs.asm:61     *ABS*:000000000000002b P2IFG
+       pmem_defs.asm:62     *ABS*:000000000000002c P2IES
+       pmem_defs.asm:63     *ABS*:000000000000002d P2IE
+       pmem_defs.asm:64     *ABS*:000000000000002e P2SEL
+       pmem_defs.asm:66     *ABS*:0000000000000018 P3IN
+       pmem_defs.asm:67     *ABS*:0000000000000019 P3OUT
+       pmem_defs.asm:68     *ABS*:000000000000001a P3DIR
+       pmem_defs.asm:69     *ABS*:000000000000001b P3SEL
+       pmem_defs.asm:71     *ABS*:000000000000001c P4IN
+       pmem_defs.asm:72     *ABS*:000000000000001d P4OUT
+       pmem_defs.asm:73     *ABS*:000000000000001e P4DIR
+       pmem_defs.asm:74     *ABS*:000000000000001f P4SEL
+       pmem_defs.asm:76     *ABS*:0000000000000030 P5IN
+       pmem_defs.asm:77     *ABS*:0000000000000031 P5OUT
+       pmem_defs.asm:78     *ABS*:0000000000000032 P5DIR
+       pmem_defs.asm:79     *ABS*:0000000000000033 P5SEL
+       pmem_defs.asm:81     *ABS*:0000000000000034 P6IN
+       pmem_defs.asm:82     *ABS*:0000000000000035 P6OUT
+       pmem_defs.asm:83     *ABS*:0000000000000036 P6DIR
+       pmem_defs.asm:84     *ABS*:0000000000000037 P6SEL
+       pmem_defs.asm:89     *ABS*:0000000000000057 BCSCTL1
+       pmem_defs.asm:90     *ABS*:0000000000000058 BCSCTL2
+       pmem_defs.asm:95     *ABS*:0000000000000120 WDTCTL
+       pmem_defs.asm:100    *ABS*:0000000000000130 MPY
+       pmem_defs.asm:101    *ABS*:0000000000000132 MPYS
+       pmem_defs.asm:102    *ABS*:0000000000000134 MAC
+       pmem_defs.asm:103    *ABS*:0000000000000136 MACS
+       pmem_defs.asm:104    *ABS*:0000000000000138 OP2
+       pmem_defs.asm:105    *ABS*:000000000000013a RESLO
+       pmem_defs.asm:106    *ABS*:000000000000013c RESHI
+       pmem_defs.asm:107    *ABS*:000000000000013e SUMEXT
+       pmem_defs.asm:112    *ABS*:0000000000000160 TACTL
+       pmem_defs.asm:113    *ABS*:0000000000000170 TAR
+       pmem_defs.asm:114    *ABS*:0000000000000162 TACCTL0
+       pmem_defs.asm:115    *ABS*:0000000000000172 TACCR0
+       pmem_defs.asm:116    *ABS*:0000000000000164 TACCTL1
+       pmem_defs.asm:117    *ABS*:0000000000000174 TACCR1
+       pmem_defs.asm:118    *ABS*:0000000000000166 TACCTL2
+       pmem_defs.asm:119    *ABS*:0000000000000176 TACCR2
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43 			page 12
 
 
-       pmem_defs.asm:120    *ABS*:0000012e TAIV
-       pmem_defs.asm:125    *ABS*:00004000 DMEM_BASE
-       pmem_defs.asm:127    *ABS*:00004000 DMEM_200
-       pmem_defs.asm:128    *ABS*:00004001 DMEM_201
-       pmem_defs.asm:129    *ABS*:00004002 DMEM_202
-       pmem_defs.asm:130    *ABS*:00004003 DMEM_203
-       pmem_defs.asm:131    *ABS*:00004004 DMEM_204
-       pmem_defs.asm:132    *ABS*:00004005 DMEM_205
-       pmem_defs.asm:133    *ABS*:00004006 DMEM_206
-       pmem_defs.asm:134    *ABS*:00004007 DMEM_207
-       pmem_defs.asm:135    *ABS*:00004008 DMEM_208
-       pmem_defs.asm:136    *ABS*:00004009 DMEM_209
-       pmem_defs.asm:137    *ABS*:0000400a DMEM_20A
-       pmem_defs.asm:138    *ABS*:0000400b DMEM_20B
-       pmem_defs.asm:139    *ABS*:0000400c DMEM_20C
-       pmem_defs.asm:140    *ABS*:0000400d DMEM_20D
-       pmem_defs.asm:141    *ABS*:0000400e DMEM_20E
-       pmem_defs.asm:142    *ABS*:0000400f DMEM_20F
-       pmem_defs.asm:144    *ABS*:00004010 DMEM_210
-       pmem_defs.asm:145    *ABS*:00004011 DMEM_211
-       pmem_defs.asm:146    *ABS*:00004012 DMEM_212
-       pmem_defs.asm:147    *ABS*:00004013 DMEM_213
-       pmem_defs.asm:148    *ABS*:00004014 DMEM_214
-       pmem_defs.asm:149    *ABS*:00004015 DMEM_215
-       pmem_defs.asm:150    *ABS*:00004016 DMEM_216
-       pmem_defs.asm:151    *ABS*:00004017 DMEM_217
-       pmem_defs.asm:152    *ABS*:00004018 DMEM_218
-       pmem_defs.asm:153    *ABS*:00004019 DMEM_219
-       pmem_defs.asm:154    *ABS*:0000401a DMEM_21A
-       pmem_defs.asm:155    *ABS*:0000401b DMEM_21B
-       pmem_defs.asm:156    *ABS*:0000401c DMEM_21C
-       pmem_defs.asm:157    *ABS*:0000401d DMEM_21D
-       pmem_defs.asm:158    *ABS*:0000401e DMEM_21E
-       pmem_defs.asm:159    *ABS*:0000401f DMEM_21F
-       pmem_defs.asm:161    *ABS*:00004020 DMEM_220
-       pmem_defs.asm:162    *ABS*:00004021 DMEM_221
-       pmem_defs.asm:163    *ABS*:00004022 DMEM_222
-       pmem_defs.asm:164    *ABS*:00004023 DMEM_223
-       pmem_defs.asm:165    *ABS*:00004024 DMEM_224
-       pmem_defs.asm:166    *ABS*:00004025 DMEM_225
-       pmem_defs.asm:167    *ABS*:00004026 DMEM_226
-       pmem_defs.asm:168    *ABS*:00004027 DMEM_227
-       pmem_defs.asm:169    *ABS*:00004028 DMEM_228
-       pmem_defs.asm:170    *ABS*:00004029 DMEM_229
-       pmem_defs.asm:171    *ABS*:0000402a DMEM_22A
-       pmem_defs.asm:172    *ABS*:0000402b DMEM_22B
-       pmem_defs.asm:173    *ABS*:0000402c DMEM_22C
-       pmem_defs.asm:174    *ABS*:0000402d DMEM_22D
-       pmem_defs.asm:175    *ABS*:0000402e DMEM_22E
-       pmem_defs.asm:176    *ABS*:0000402f DMEM_22F
-       pmem_defs.asm:178    *ABS*:00004030 DMEM_230
-       pmem_defs.asm:179    *ABS*:00004031 DMEM_231
-       pmem_defs.asm:180    *ABS*:00004032 DMEM_232
-       pmem_defs.asm:181    *ABS*:00004033 DMEM_233
-       pmem_defs.asm:182    *ABS*:00004034 DMEM_234
-       pmem_defs.asm:183    *ABS*:00004035 DMEM_235
-       pmem_defs.asm:184    *ABS*:00004036 DMEM_236
+       pmem_defs.asm:120    *ABS*:000000000000012e TAIV
+       pmem_defs.asm:125    *ABS*:0000000000004000 DMEM_BASE
+       pmem_defs.asm:127    *ABS*:0000000000004000 DMEM_200
+       pmem_defs.asm:128    *ABS*:0000000000004001 DMEM_201
+       pmem_defs.asm:129    *ABS*:0000000000004002 DMEM_202
+       pmem_defs.asm:130    *ABS*:0000000000004003 DMEM_203
+       pmem_defs.asm:131    *ABS*:0000000000004004 DMEM_204
+       pmem_defs.asm:132    *ABS*:0000000000004005 DMEM_205
+       pmem_defs.asm:133    *ABS*:0000000000004006 DMEM_206
+       pmem_defs.asm:134    *ABS*:0000000000004007 DMEM_207
+       pmem_defs.asm:135    *ABS*:0000000000004008 DMEM_208
+       pmem_defs.asm:136    *ABS*:0000000000004009 DMEM_209
+       pmem_defs.asm:137    *ABS*:000000000000400a DMEM_20A
+       pmem_defs.asm:138    *ABS*:000000000000400b DMEM_20B
+       pmem_defs.asm:139    *ABS*:000000000000400c DMEM_20C
+       pmem_defs.asm:140    *ABS*:000000000000400d DMEM_20D
+       pmem_defs.asm:141    *ABS*:000000000000400e DMEM_20E
+       pmem_defs.asm:142    *ABS*:000000000000400f DMEM_20F
+       pmem_defs.asm:144    *ABS*:0000000000004010 DMEM_210
+       pmem_defs.asm:145    *ABS*:0000000000004011 DMEM_211
+       pmem_defs.asm:146    *ABS*:0000000000004012 DMEM_212
+       pmem_defs.asm:147    *ABS*:0000000000004013 DMEM_213
+       pmem_defs.asm:148    *ABS*:0000000000004014 DMEM_214
+       pmem_defs.asm:149    *ABS*:0000000000004015 DMEM_215
+       pmem_defs.asm:150    *ABS*:0000000000004016 DMEM_216
+       pmem_defs.asm:151    *ABS*:0000000000004017 DMEM_217
+       pmem_defs.asm:152    *ABS*:0000000000004018 DMEM_218
+       pmem_defs.asm:153    *ABS*:0000000000004019 DMEM_219
+       pmem_defs.asm:154    *ABS*:000000000000401a DMEM_21A
+       pmem_defs.asm:155    *ABS*:000000000000401b DMEM_21B
+       pmem_defs.asm:156    *ABS*:000000000000401c DMEM_21C
+       pmem_defs.asm:157    *ABS*:000000000000401d DMEM_21D
+       pmem_defs.asm:158    *ABS*:000000000000401e DMEM_21E
+       pmem_defs.asm:159    *ABS*:000000000000401f DMEM_21F
+       pmem_defs.asm:161    *ABS*:0000000000004020 DMEM_220
+       pmem_defs.asm:162    *ABS*:0000000000004021 DMEM_221
+       pmem_defs.asm:163    *ABS*:0000000000004022 DMEM_222
+       pmem_defs.asm:164    *ABS*:0000000000004023 DMEM_223
+       pmem_defs.asm:165    *ABS*:0000000000004024 DMEM_224
+       pmem_defs.asm:166    *ABS*:0000000000004025 DMEM_225
+       pmem_defs.asm:167    *ABS*:0000000000004026 DMEM_226
+       pmem_defs.asm:168    *ABS*:0000000000004027 DMEM_227
+       pmem_defs.asm:169    *ABS*:0000000000004028 DMEM_228
+       pmem_defs.asm:170    *ABS*:0000000000004029 DMEM_229
+       pmem_defs.asm:171    *ABS*:000000000000402a DMEM_22A
+       pmem_defs.asm:172    *ABS*:000000000000402b DMEM_22B
+       pmem_defs.asm:173    *ABS*:000000000000402c DMEM_22C
+       pmem_defs.asm:174    *ABS*:000000000000402d DMEM_22D
+       pmem_defs.asm:175    *ABS*:000000000000402e DMEM_22E
+       pmem_defs.asm:176    *ABS*:000000000000402f DMEM_22F
+       pmem_defs.asm:178    *ABS*:0000000000004030 DMEM_230
+       pmem_defs.asm:179    *ABS*:0000000000004031 DMEM_231
+       pmem_defs.asm:180    *ABS*:0000000000004032 DMEM_232
+       pmem_defs.asm:181    *ABS*:0000000000004033 DMEM_233
+       pmem_defs.asm:182    *ABS*:0000000000004034 DMEM_234
+       pmem_defs.asm:183    *ABS*:0000000000004035 DMEM_235
+       pmem_defs.asm:184    *ABS*:0000000000004036 DMEM_236
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43 			page 13
 
 
-       pmem_defs.asm:185    *ABS*:00004037 DMEM_237
-       pmem_defs.asm:186    *ABS*:00004038 DMEM_238
-       pmem_defs.asm:187    *ABS*:00004039 DMEM_239
-       pmem_defs.asm:188    *ABS*:0000403a DMEM_23A
-       pmem_defs.asm:189    *ABS*:0000403b DMEM_23B
-       pmem_defs.asm:190    *ABS*:0000403c DMEM_23C
-       pmem_defs.asm:191    *ABS*:0000403d DMEM_23D
-       pmem_defs.asm:192    *ABS*:0000403e DMEM_23E
-       pmem_defs.asm:193    *ABS*:0000403f DMEM_23F
-       pmem_defs.asm:195    *ABS*:00004040 DMEM_240
-       pmem_defs.asm:196    *ABS*:00004041 DMEM_241
-       pmem_defs.asm:197    *ABS*:00004042 DMEM_242
-       pmem_defs.asm:198    *ABS*:00004043 DMEM_243
-       pmem_defs.asm:199    *ABS*:00004044 DMEM_244
-       pmem_defs.asm:200    *ABS*:00004045 DMEM_245
-       pmem_defs.asm:201    *ABS*:00004046 DMEM_246
-       pmem_defs.asm:202    *ABS*:00004047 DMEM_247
-       pmem_defs.asm:203    *ABS*:00004048 DMEM_248
-       pmem_defs.asm:204    *ABS*:00004049 DMEM_249
-       pmem_defs.asm:205    *ABS*:0000404a DMEM_24A
-       pmem_defs.asm:206    *ABS*:0000404b DMEM_24B
-       pmem_defs.asm:207    *ABS*:0000404c DMEM_24C
-       pmem_defs.asm:208    *ABS*:0000404d DMEM_24D
-       pmem_defs.asm:209    *ABS*:0000404e DMEM_24E
-       pmem_defs.asm:210    *ABS*:0000404f DMEM_24F
-       pmem_defs.asm:212    *ABS*:00004050 DMEM_250
-       pmem_defs.asm:213    *ABS*:00004051 DMEM_251
-       pmem_defs.asm:214    *ABS*:00004052 DMEM_252
-       pmem_defs.asm:215    *ABS*:00004053 DMEM_253
-       pmem_defs.asm:216    *ABS*:00004054 DMEM_254
-       pmem_defs.asm:217    *ABS*:00004055 DMEM_255
-       pmem_defs.asm:218    *ABS*:00004056 DMEM_256
-       pmem_defs.asm:219    *ABS*:00004057 DMEM_257
-       pmem_defs.asm:220    *ABS*:00004058 DMEM_258
-       pmem_defs.asm:221    *ABS*:00004059 DMEM_259
-       pmem_defs.asm:222    *ABS*:0000405a DMEM_25A
-       pmem_defs.asm:223    *ABS*:0000405b DMEM_25B
-       pmem_defs.asm:224    *ABS*:0000405c DMEM_25C
-       pmem_defs.asm:225    *ABS*:0000405d DMEM_25D
-       pmem_defs.asm:226    *ABS*:0000405e DMEM_25E
-       pmem_defs.asm:227    *ABS*:0000405f DMEM_25F
-       pmem_defs.asm:229    *ABS*:00004060 DMEM_260
-       pmem_defs.asm:230    *ABS*:00004061 DMEM_261
-       pmem_defs.asm:231    *ABS*:00004062 DMEM_262
-       pmem_defs.asm:232    *ABS*:00004063 DMEM_263
-       pmem_defs.asm:233    *ABS*:00004064 DMEM_264
-       pmem_defs.asm:234    *ABS*:00004065 DMEM_265
-       pmem_defs.asm:235    *ABS*:00004066 DMEM_266
-       pmem_defs.asm:236    *ABS*:00004067 DMEM_267
-       pmem_defs.asm:237    *ABS*:00004068 DMEM_268
-       pmem_defs.asm:238    *ABS*:00004069 DMEM_269
-       pmem_defs.asm:239    *ABS*:0000406a DMEM_26A
-       pmem_defs.asm:240    *ABS*:0000406b DMEM_26B
-       pmem_defs.asm:241    *ABS*:0000406c DMEM_26C
-       pmem_defs.asm:242    *ABS*:0000406d DMEM_26D
-       pmem_defs.asm:243    *ABS*:0000406e DMEM_26E
-       pmem_defs.asm:244    *ABS*:0000406f DMEM_26F
+       pmem_defs.asm:185    *ABS*:0000000000004037 DMEM_237
+       pmem_defs.asm:186    *ABS*:0000000000004038 DMEM_238
+       pmem_defs.asm:187    *ABS*:0000000000004039 DMEM_239
+       pmem_defs.asm:188    *ABS*:000000000000403a DMEM_23A
+       pmem_defs.asm:189    *ABS*:000000000000403b DMEM_23B
+       pmem_defs.asm:190    *ABS*:000000000000403c DMEM_23C
+       pmem_defs.asm:191    *ABS*:000000000000403d DMEM_23D
+       pmem_defs.asm:192    *ABS*:000000000000403e DMEM_23E
+       pmem_defs.asm:193    *ABS*:000000000000403f DMEM_23F
+       pmem_defs.asm:195    *ABS*:0000000000004040 DMEM_240
+       pmem_defs.asm:196    *ABS*:0000000000004041 DMEM_241
+       pmem_defs.asm:197    *ABS*:0000000000004042 DMEM_242
+       pmem_defs.asm:198    *ABS*:0000000000004043 DMEM_243
+       pmem_defs.asm:199    *ABS*:0000000000004044 DMEM_244
+       pmem_defs.asm:200    *ABS*:0000000000004045 DMEM_245
+       pmem_defs.asm:201    *ABS*:0000000000004046 DMEM_246
+       pmem_defs.asm:202    *ABS*:0000000000004047 DMEM_247
+       pmem_defs.asm:203    *ABS*:0000000000004048 DMEM_248
+       pmem_defs.asm:204    *ABS*:0000000000004049 DMEM_249
+       pmem_defs.asm:205    *ABS*:000000000000404a DMEM_24A
+       pmem_defs.asm:206    *ABS*:000000000000404b DMEM_24B
+       pmem_defs.asm:207    *ABS*:000000000000404c DMEM_24C
+       pmem_defs.asm:208    *ABS*:000000000000404d DMEM_24D
+       pmem_defs.asm:209    *ABS*:000000000000404e DMEM_24E
+       pmem_defs.asm:210    *ABS*:000000000000404f DMEM_24F
+       pmem_defs.asm:212    *ABS*:0000000000004050 DMEM_250
+       pmem_defs.asm:213    *ABS*:0000000000004051 DMEM_251
+       pmem_defs.asm:214    *ABS*:0000000000004052 DMEM_252
+       pmem_defs.asm:215    *ABS*:0000000000004053 DMEM_253
+       pmem_defs.asm:216    *ABS*:0000000000004054 DMEM_254
+       pmem_defs.asm:217    *ABS*:0000000000004055 DMEM_255
+       pmem_defs.asm:218    *ABS*:0000000000004056 DMEM_256
+       pmem_defs.asm:219    *ABS*:0000000000004057 DMEM_257
+       pmem_defs.asm:220    *ABS*:0000000000004058 DMEM_258
+       pmem_defs.asm:221    *ABS*:0000000000004059 DMEM_259
+       pmem_defs.asm:222    *ABS*:000000000000405a DMEM_25A
+       pmem_defs.asm:223    *ABS*:000000000000405b DMEM_25B
+       pmem_defs.asm:224    *ABS*:000000000000405c DMEM_25C
+       pmem_defs.asm:225    *ABS*:000000000000405d DMEM_25D
+       pmem_defs.asm:226    *ABS*:000000000000405e DMEM_25E
+       pmem_defs.asm:227    *ABS*:000000000000405f DMEM_25F
+       pmem_defs.asm:229    *ABS*:0000000000004060 DMEM_260
+       pmem_defs.asm:230    *ABS*:0000000000004061 DMEM_261
+       pmem_defs.asm:231    *ABS*:0000000000004062 DMEM_262
+       pmem_defs.asm:232    *ABS*:0000000000004063 DMEM_263
+       pmem_defs.asm:233    *ABS*:0000000000004064 DMEM_264
+       pmem_defs.asm:234    *ABS*:0000000000004065 DMEM_265
+       pmem_defs.asm:235    *ABS*:0000000000004066 DMEM_266
+       pmem_defs.asm:236    *ABS*:0000000000004067 DMEM_267
+       pmem_defs.asm:237    *ABS*:0000000000004068 DMEM_268
+       pmem_defs.asm:238    *ABS*:0000000000004069 DMEM_269
+       pmem_defs.asm:239    *ABS*:000000000000406a DMEM_26A
+       pmem_defs.asm:240    *ABS*:000000000000406b DMEM_26B
+       pmem_defs.asm:241    *ABS*:000000000000406c DMEM_26C
+       pmem_defs.asm:242    *ABS*:000000000000406d DMEM_26D
+       pmem_defs.asm:243    *ABS*:000000000000406e DMEM_26E
+       pmem_defs.asm:244    *ABS*:000000000000406f DMEM_26F
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43 			page 14
 
 
-       pmem_defs.asm:246    *ABS*:00004100 DMEM_300
-       pmem_defs.asm:251    *ABS*:00004000 PMEM_LENGTH
-       pmem_defs.asm:256    *ABS*:00000b00 DRAIN_CTRL
-       pmem_defs.asm:257    *ABS*:00000b02 GATE_S
-       pmem_defs.asm:258    *ABS*:00000b04 ADC
-       pmem_defs.asm:259    *ABS*:00000b06 PULSE_CTRL
-       pmem_defs.asm:260    *ABS*:00000b08 ROW_SEL
-       pmem_defs.asm:261    *ABS*:00000b0a COL_SEL
-       pmem_defs.asm:262    *ABS*:00000b0c PROG_BITS
-       pmem_defs.asm:263    *ABS*:00000b0e TUN_MUX
-       pmem_defs.asm:264    *ABS*:00000b10 GATE_US_P
-       pmem_defs.asm:265    *ABS*:00000b12 GATE_US_N
-       pmem_defs.asm:266    *ABS*:00000b14 BIAS_DACS
-       pmem_defs.asm:267    *ABS*:00000160 GP_PER_1
-       pmem_defs.asm:268    *ABS*:00000162 GP_PER_2
-       pmem_defs.asm:269    *ABS*:00000164 GP_PER_3
-       pmem_defs.asm:270    *ABS*:00000166 GP_PER_4
-    chip_para_TR.asm:4      *ABS*:00000003 TUN_TIME_SP
-    chip_para_TR.asm:5      *ABS*:00000002 R_TUN_TIME_SP
-    chip_para_TR.asm:6      *ABS*:00000028 TUN_TIME_TP_CAB
-    chip_para_TR.asm:7      *ABS*:00000014 R_TUN_TIME_TP_CAB
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:6      .text:00000000 main
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:11     .text:0000000e init_wait
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:33     .text:0000005a tunnel_swc
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:64     .text:000000d0 tunnel_cab
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:96     .text:00000148 reverse_tunnel_swc
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:133    .text:000001d4 reverse_tunnel_cab
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:195    .text:0000028e end_of_test
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:35     .text:0000005c tunnel_swc_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:173    .text:0000026a wait_ms
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:61     .text:000000ce tunnel_swc_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:66     .text:000000d2 tunnel_cab_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:93     .text:00000146 tunnel_cab_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:98     .text:0000014a reverse_tunnel_swc_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:130    .text:000001d2 reverse_tunnel_swc_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:135    .text:000001d6 reverse_tunnel_cab_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:170    .text:00000268 reverse_tunnel_cab_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:176    .text:00000270 wait_ms_loop
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:184    .text:0000027c wait_10us
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:187    .text:00000282 wait_10us_loop
+       pmem_defs.asm:246    *ABS*:0000000000004100 DMEM_300
+       pmem_defs.asm:251    *ABS*:0000000000004000 PMEM_LENGTH
+       pmem_defs.asm:256    *ABS*:0000000000000b00 DRAIN_CTRL
+       pmem_defs.asm:257    *ABS*:0000000000000b02 GATE_S
+       pmem_defs.asm:258    *ABS*:0000000000000b04 ADC
+       pmem_defs.asm:259    *ABS*:0000000000000b06 PULSE_CTRL
+       pmem_defs.asm:260    *ABS*:0000000000000b08 ROW_SEL
+       pmem_defs.asm:261    *ABS*:0000000000000b0a COL_SEL
+       pmem_defs.asm:262    *ABS*:0000000000000b0c PROG_BITS
+       pmem_defs.asm:263    *ABS*:0000000000000b0e TUN_MUX
+       pmem_defs.asm:264    *ABS*:0000000000000b10 GATE_US_P
+       pmem_defs.asm:265    *ABS*:0000000000000b12 GATE_US_N
+       pmem_defs.asm:266    *ABS*:0000000000000b14 BIAS_DACS
+       pmem_defs.asm:267    *ABS*:0000000000000160 GP_PER_1
+       pmem_defs.asm:268    *ABS*:0000000000000162 GP_PER_2
+       pmem_defs.asm:269    *ABS*:0000000000000164 GP_PER_3
+       pmem_defs.asm:270    *ABS*:0000000000000166 GP_PER_4
+    chip_para_TR.asm:4      *ABS*:0000000000000003 TUN_TIME_SP
+    chip_para_TR.asm:5      *ABS*:0000000000000002 R_TUN_TIME_SP
+    chip_para_TR.asm:6      *ABS*:0000000000000028 TUN_TIME_TP_CAB
+    chip_para_TR.asm:7      *ABS*:0000000000000028 R_TUN_TIME_TP_CAB
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:6      .text:0000000000000000 main
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:11     .text:000000000000000e init_wait
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:33     .text:000000000000005a tunnel_swc
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:64     .text:00000000000000d0 tunnel_cab
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:96     .text:0000000000000148 reverse_tunnel_swc
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:133    .text:00000000000001d4 reverse_tunnel_cab
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:195    .text:000000000000028e end_of_test
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:35     .text:000000000000005c tunnel_swc_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:173    .text:000000000000026a wait_ms
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:61     .text:00000000000000ce tunnel_swc_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:66     .text:00000000000000d2 tunnel_cab_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:93     .text:0000000000000146 tunnel_cab_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:98     .text:000000000000014a reverse_tunnel_swc_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:130    .text:00000000000001d2 reverse_tunnel_swc_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:135    .text:00000000000001d6 reverse_tunnel_cab_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:170    .text:0000000000000268 reverse_tunnel_cab_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:176    .text:0000000000000270 wait_ms_loop
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:184    .text:000000000000027c wait_10us
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/tunnel_revtun_SWC_CAB_ver00.s43:187    .text:0000000000000282 wait_10us_loop
 
 NO UNDEFINED SYMBOLS
 
@@ -1013,7 +1013,7 @@ SYMBOL TABLE:
 00000003 l       *ABS*	00000000 TUN_TIME_SP
 00000002 l       *ABS*	00000000 R_TUN_TIME_SP
 00000028 l       *ABS*	00000000 TUN_TIME_TP_CAB
-00000014 l       *ABS*	00000000 R_TUN_TIME_TP_CAB
+00000028 l       *ABS*	00000000 R_TUN_TIME_TP_CAB
 0000000e l       .text	00000000 init_wait
 0000005a l       .text	00000000 tunnel_swc
 000000d0 l       .text	00000000 tunnel_cab
@@ -1070,8 +1070,8 @@ Contents of section .text:
  01e0 6001b240 28000e0b b2406600 000bb240  `..@(....@f....@
  01f0 6000020b b2406000 100bb240 6000120b  `....@`....@`...
  0200 8243080b 82430a0b 35400500 b0120000  .C...C..5@......
- 0210 b2401000 60013540 1400b012 00003a50  .@..`.5@......:P
- 0220 1400b240 20006001 35400500 b0120000  ...@ .`.5@......
+ 0210 b2401000 60013540 2800b012 00003a50  .@..`.5@(.....:P
+ 0220 2800b240 20006001 35400500 b0120000  (..@ .`.5@......
  0230 b2404000 020bb240 4000100b b2404000  .@@....@@....@@.
  0240 120bb240 2600000b a2426001 2543b012  ...@&....B`.%C..
  0250 0000b240 24006001 a2430e0b 1543b012  ...@$.`..C...C..
@@ -1296,10 +1296,10 @@ Disassembly of section .text:
 			20e: R_MSP430_16	.text+0x26a
  210:	b2 40 10 00 	mov	#16,	&0x0160	;#0x0010
  214:	60 01 
- 216:	35 40 14 00 	mov	#20,	r5	;#0x0014
+ 216:	35 40 28 00 	mov	#40,	r5	;#0x0028
  21a:	b0 12 00 00 	call	#0x0000	
 			21c: R_MSP430_16	.text+0x26a
- 21e:	3a 50 14 00 	add	#20,	r10	;#0x0014
+ 21e:	3a 50 28 00 	add	#40,	r10	;#0x0028
  222:	b2 40 20 00 	mov	#32,	&0x0160	;#0x0020
  226:	60 01 
  228:	35 40 05 00 	mov	#5,	r5	;#0x0005

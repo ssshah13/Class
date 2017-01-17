@@ -7,4 +7,4 @@
 .set INJ_TIME_SP_4, 200 /* injection time for switch programming (10us) (4th pulse)*/
 .set INJ_TIME_SP_5, 200 /* injection time for switch programming (10us) (5th pulse)*/
 .set INJ_TIME_SP_SUM, 61 /* injection time for switch programming (ms) (calculation time)*/
-.set INJ_TIME_SP_RUN, 5000 /* injection time for switch programming in run-mode(10us)*/
+.set INJ_TIME_SP_RUN, 1 /* injection time for switch programming in run-mode(10us)*/

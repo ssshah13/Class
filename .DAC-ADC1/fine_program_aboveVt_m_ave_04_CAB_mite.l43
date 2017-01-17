@@ -296,45 +296,45 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt
    1               	/**********************************/
    2               	/* FP (Fine Program) parameters   */
    3               	/**********************************/
-   4               	.set ADC_1nA, 5717 /* 1nA ADC value */
+   4               	.set ADC_1nA, 4188 /* 1nA ADC value */
    5               	
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 6
 
 
    6               	/* sub threshold */
-   7               	.set FPS_GATE_S_SWC, 0x7430 /* Gate(SWC) = 2.9V @ IVDD 6.0V */
+   7               	.set FPS_GATE_S_SWC, 0x2400 /* Gate(SWC) = 3.0V @ IVDD 6.0V */
    8               	.set FPS_INJ_T_SWC, 1 /* Injection time (*10us) */
-   9               	.set FPS_NUM_SWC, 50 /* # of Fine Progrm */
+   9               	.set FPS_NUM_SWC, 100 /* # of Fine Progrm */
   10               	.set FPS_VD_A_SWC, 8 /* Vd constant A */
   11               	.set FPS_VD_B_SWC, 5 /* Vd constant B */
   12               	.set FPS_VD_OS_SWC, 40 /* Vd table offset */
   13               	.set FPS_VD_SA_SWC, 0 /* 0:Subtraction 1:Add */
   14               	.set FPS_VD_GND_SWC, 0 /* 0:Vd table 1:GND */
-  15               	.set FPS_GATE_S_OTA, 0x7430 /* Gate(OTA) = 2.9V @ IVDD 6.0V */
+  15               	.set FPS_GATE_S_OTA, 0x2e00 /* Gate(OTA) = 3.0V @ IVDD 6.0V */
   16               	.set FPS_INJ_T_OTA, 1 /* Injection time (*10us) */
   17               	.set FPS_NUM_OTA, 50 /* # of Fine Progrm */
   18               	.set FPS_VD_A_OTA, 8 /* Vd constant A */
   19               	.set FPS_VD_B_OTA, 5 /* Vd constant B */
-  20               	.set FPS_VD_OS_OTA, 55 /* Vd table offset */
+  20               	.set FPS_VD_OS_OTA, 47 /* Vd table offset */
   21               	.set FPS_VD_SA_OTA, 0 /* 0:Subtraction 1:Add */
   22               	.set FPS_VD_GND_OTA, 0 /* 0:Vd table 1:GND */
-  23               	.set FPS_GATE_S_OTAREF, 0x7430 /* Gate(OTAREF) = 2.9V @ IVDD 6.0V */
+  23               	.set FPS_GATE_S_OTAREF, 0x2e00 /* Gate(OTAREF) = 3.0V @ IVDD 6.0V */
   24               	.set FPS_INJ_T_OTAREF, 2 /* Injection time (*10us) */
   25               	.set FPS_NUM_OTAREF, 50 /* # of Fine Progrm */
   26               	.set FPS_VD_A_OTAREF, 8 /* Vd constant A */
   27               	.set FPS_VD_B_OTAREF, 5 /* Vd constant B */
-  28               	.set FPS_VD_OS_OTAREF, 55 /* Vd table offset */
+  28               	.set FPS_VD_OS_OTAREF, 53 /* Vd table offset */
   29               	.set FPS_VD_SA_OTAREF, 0 /* 0:Subtraction 1:Add */
   30               	.set FPS_VD_GND_OTAREF, 0 /* 0:Vd table 1:GND */
-  31               	.set FPS_GATE_S_MITE, 0x7430 /* Gate(MITE) = 2.9V @ IVDD 6.0V */
+  31               	.set FPS_GATE_S_MITE, 0x2e00 /* Gate(MITE) = 3.0V @ IVDD 6.0V */
   32               	.set FPS_INJ_T_MITE, 1 /* Injection time (*10us) */
   33               	.set FPS_NUM_MITE, 50 /* # of Fine Progrm */
-  34               	.set FPS_VD_A_MITE, 7 /* Vd constant A */
+  34               	.set FPS_VD_A_MITE, 8 /* Vd constant A */
   35               	.set FPS_VD_B_MITE, 5 /* Vd constant B */
-  36               	.set FPS_VD_OS_MITE, 55 /* Vd table offset */
+  36               	.set FPS_VD_OS_MITE, 49 /* Vd table offset */
   37               	.set FPS_VD_SA_MITE, 0 /* 0:Subtraction 1:Add */
   38               	.set FPS_VD_GND_MITE, 0 /* 0:Vd table 1:GND */
-  39               	.set FPS_GATE_S_DIRSWC, 0x7430 /* Gate(DIRSWC) = 2.9V @ IVDD 6.0V */
+  39               	.set FPS_GATE_S_DIRSWC, 0x2e00 /* Gate(DIRSWC) = 3.0V @ IVDD 6.0V */
   40               	.set FPS_INJ_T_DIRSWC, 1 /* Injection time (*10us) */
   41               	.set FPS_NUM_DIRSWC, 50 /* # of Fine Progrm */
   42               	.set FPS_VD_A_DIRSWC, 8 /* Vd constant A */
@@ -344,65 +344,65 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt
   46               	.set FPS_VD_GND_DIRSWC, 0 /* 0:Vd table 1:GND */
   47               	
   48               	/* above threshold */
-  49               	.set FPA_GATE_S_SWC, 0x7430 /* Gate(SWC) = 2.9V @ IVDD 6.0V */
+  49               	.set FPA_GATE_S_SWC, 0x3400 /* Gate(SWC) = 3.0V @ IVDD 6.0V */
   50               	.set FPA_INJ_T_SWC, 1 /* Injection time (*10us) */
-  51               	.set FPA_NUM_SWC, 50 /* # of Fine Progrm */
+  51               	.set FPA_NUM_SWC, 60 /* # of Fine Progrm */
   52               	.set FPA_VD_A_SWC, 8 /* Vd constant A */
   53               	.set FPA_VD_B_SWC, 5 /* Vd constant B */
-  54               	.set FPA_VD_OS_SWC, 20 /* Vd table offset */
+  54               	.set FPA_VD_OS_SWC, 28 /* Vd table offset */
   55               	.set FPA_VD_SA_SWC, 1 /* 0:Subtraction 1:Add */
   56               	.set FPA_VD_GND_SWC, 0 /* 0:Vd table 1:GND */
-  57               	.set FPA_GATE_S_OTA, 0x7430 /* Gate(OTA) = 2.9V @ IVDD 6.0V */
+  57               	.set FPA_GATE_S_OTA, 0x2e00 /* Gate(OTA) = 3.0V @ IVDD 6.0V */
   58               	.set FPA_INJ_T_OTA, 1 /* Injection time (*10us) */
   59               	.set FPA_NUM_OTA, 50 /* # of Fine Progrm */
   60               	.set FPA_VD_A_OTA, 8 /* Vd constant A */
   61               	.set FPA_VD_B_OTA, 5 /* Vd constant B */
-  62               	.set FPA_VD_OS_OTA, 30 /* Vd table offset */
+  62               	.set FPA_VD_OS_OTA, 34 /* Vd table offset */
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 7
 
 
   63               	.set FPA_VD_SA_OTA, 1 /* 0:Subtraction 1:Add */
   64               	.set FPA_VD_GND_OTA, 0 /* 0:Vd table 1:GND */
-  65               	.set FPA_GATE_S_OTAREF, 0x7430 /* Gate(OTAREF) = 2.9V @ IVDD 6.0V */
+  65               	.set FPA_GATE_S_OTAREF, 0x2e00 /* Gate(OTAREF) = 3.0V @ IVDD 6.0V */
   66               	.set FPA_INJ_T_OTAREF, 2 /* Injection time (*10us) */
   67               	.set FPA_NUM_OTAREF, 50 /* # of Fine Progrm */
   68               	.set FPA_VD_A_OTAREF, 8 /* Vd constant A */
   69               	.set FPA_VD_B_OTAREF, 5 /* Vd constant B */
-  70               	.set FPA_VD_OS_OTAREF, 30 /* Vd table offset */
+  70               	.set FPA_VD_OS_OTAREF, 35 /* Vd table offset */
   71               	.set FPA_VD_SA_OTAREF, 1 /* 0:Subtraction 1:Add */
   72               	.set FPA_VD_GND_OTAREF, 0 /* 0:Vd table 1:GND */
-  73               	.set FPA_GATE_S_MITE, 0x7430 /* Gate(MITE) = 2.9V @ IVDD 6.0V */
+  73               	.set FPA_GATE_S_MITE, 0x2e00 /* Gate(MITE) = 3.0V @ IVDD 6.0V */
   74               	.set FPA_INJ_T_MITE, 1 /* Injection time (*10us) */
   75               	.set FPA_NUM_MITE, 50 /* # of Fine Progrm */
   76               	.set FPA_VD_A_MITE, 8 /* Vd constant A */
   77               	.set FPA_VD_B_MITE, 5 /* Vd constant B */
-  78               	.set FPA_VD_OS_MITE, 30 /* Vd table offset */
+  78               	.set FPA_VD_OS_MITE, 37 /* Vd table offset */
   79               	.set FPA_VD_SA_MITE, 1 /* 0:Subtraction 1:Add */
   80               	.set FPA_VD_GND_MITE, 0 /* 0:Vd table 1:GND */
-  81               	.set FPA_GATE_S_DIRSWC, 0x7430 /* Gate(DIRSWC) = 2.9V @ IVDD 6.0V */
+  81               	.set FPA_GATE_S_DIRSWC, 0x2e00 /* Gate(DIRSWC) = 3.0V @ IVDD 6.0V */
   82               	.set FPA_INJ_T_DIRSWC, 1 /* Injection time (*10us) */
   83               	.set FPA_NUM_DIRSWC, 50 /* # of Fine Progrm */
   84               	.set FPA_VD_A_DIRSWC, 8 /* Vd constant A */
   85               	.set FPA_VD_B_DIRSWC, 5 /* Vd constant B */
-  86               	.set FPA_VD_OS_DIRSWC, 20 /* Vd table offset */
+  86               	.set FPA_VD_OS_DIRSWC, 30 /* Vd table offset */
   87               	.set FPA_VD_SA_DIRSWC, 1 /* 0:Subtraction 1:Add */
   88               	.set FPA_VD_GND_DIRSWC, 0 /* 0:Vd table 1:GND */
   89               	
   90               	/* low sub threshold */
   91               	.set FPL_GATE_S_SWC, 0x0040 /* Gate(SWC) = gnd */
   92               	.set FPL_INJ_T_SWC, 1 /* Injection time (*10us) */
-  93               	.set FPL_NUM_SWC, 50 /* # of Fine Progrm */
+  93               	.set FPL_NUM_SWC, 70 /* # of Fine Progrm */
   94               	.set FPL_VD_A_SWC, 8 /* Vd constant A */
   95               	.set FPL_VD_B_SWC, 5 /* Vd constant B */
   96               	.set FPL_VD_OS_SWC, 50 /* Vd table offset */
   97               	.set FPL_VD_SA_SWC, 1 /* 0:Subtraction 1:Add */
   98               	.set FPL_VD_GND_SWC, 0 /* 0:Vd table 1:GND */
-  99               	.set FPL_GATE_S_OTA, 0x4330 /* Gate(OTA) = 2.1V */
+  99               	.set FPL_GATE_S_OTA, 0x3700 /* Gate(OTA) = 2.4V */
  100               	.set FPL_INJ_T_OTA, 1 /* Injection time (*10us) */
  101               	.set FPL_NUM_OTA, 50 /* # of Fine Progrm */
  102               	.set FPL_VD_A_OTA, 8 /* Vd constant A */
  103               	.set FPL_VD_B_OTA, 5 /* Vd constant B */
- 104               	.set FPL_VD_OS_OTA, 40 /* Vd table offset */
+ 104               	.set FPL_VD_OS_OTA, 44 /* Vd table offset */
  105               	.set FPL_VD_SA_OTA, 1 /* 0:Subtraction 1:Add */
  106               	.set FPL_VD_GND_OTA, 0 /* 0:Vd table 1:GND */
  107               	.set FPL_GATE_S_OTAREF, 0x0040 /* Gate(OTAREF) = gnd */
@@ -410,26 +410,26 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt
  109               	.set FPL_NUM_OTAREF, 50 /* # of Fine Progrm */
  110               	.set FPL_VD_A_OTAREF, 8 /* Vd constant A */
  111               	.set FPL_VD_B_OTAREF, 5 /* Vd constant B */
- 112               	.set FPL_VD_OS_OTAREF, 50 /* Vd table offset */
+ 112               	.set FPL_VD_OS_OTAREF, 54 /* Vd table offset */
  113               	.set FPL_VD_SA_OTAREF, 1 /* 0:Subtraction 1:Add */
  114               	.set FPL_VD_GND_OTAREF, 0 /* 0:Vd table 1:GND */
- 115               	.set FPL_GATE_S_MITE, 0x4330 /* Gate(MITE) = 2.1V */
+ 115               	.set FPL_GATE_S_MITE, 0x2600 /* Gate(MITE) = 2.2V */
  116               	.set FPL_INJ_T_MITE, 1 /* Injection time (*10us) */
- 117               	.set FPL_NUM_MITE, 50 /* # of Fine Progrm */
+ 117               	.set FPL_NUM_MITE, 70 /* # of Fine Progrm */
  118               	.set FPL_VD_A_MITE, 8 /* Vd constant A */
  119               	.set FPL_VD_B_MITE, 5 /* Vd constant B */
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 8
 
 
- 120               	.set FPL_VD_OS_MITE, 40 /* Vd table offset */
+ 120               	.set FPL_VD_OS_MITE, 47 /* Vd table offset */
  121               	.set FPL_VD_SA_MITE, 1 /* 0:Subtraction 1:Add */
  122               	.set FPL_VD_GND_MITE, 0 /* 0:Vd table 1:GND */
- 123               	.set FPL_GATE_S_DIRSWC, 0x1530 /* Gate(DIRSWC) = 1.7V */
+ 123               	.set FPL_GATE_S_DIRSWC, 0x4200 /* Gate(DIRSWC) = 1.5V */
  124               	.set FPL_INJ_T_DIRSWC, 1 /* Injection time (*10us) */
- 125               	.set FPL_NUM_DIRSWC, 50 /* # of Fine Progrm */
+ 125               	.set FPL_NUM_DIRSWC, 100 /* # of Fine Progrm */
  126               	.set FPL_VD_A_DIRSWC, 8 /* Vd constant A */
  127               	.set FPL_VD_B_DIRSWC, 5 /* Vd constant B */
- 128               	.set FPL_VD_OS_DIRSWC, 35 /* Vd table offset */
+ 128               	.set FPL_VD_OS_DIRSWC, 48 /* Vd table offset */
  129               	.set FPL_VD_SA_DIRSWC, 1 /* 0:Subtraction 1:Add */
  130               	.set FPL_VD_GND_DIRSWC, 0 /* 0:Vd table 1:GND */
    4               	
@@ -530,7 +530,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt
   85 00da 284B      	        mov     @r11,    r8		; Read Vd
   86 00dc 0893      		cmp	#0x0000, r8
   87 00de 2C24      		jeq	fine_inject_skip
-  88 00e0 B240 3074 		mov	#FPA_GATE_S_MITE, &GATE_S	; gate_s 
+  88 00e0 B240 002E 		mov	#FPA_GATE_S_MITE, &GATE_S	; gate_s 
   88      020B 
   89 00e6 B240 6000 		mov	#0x0060, &GATE_US_P	; gate_us_p = ivdd
   89      100B 
@@ -692,7 +692,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt
  216 0248 0E93      		cmp	#0x0000, r14
  217 024a 2924      		jeq	No_calculation
  218 024c 0889      		sub	r9, r8			; r8 = r8(target)-r9(diff) = Istart
- 219 024e 3880 5516 		sub	#ADC_1nA, r8		; r8 = r8(Istart)-ADC_1nA(1nA) = diff_for_Vd1
+ 219 024e 3880 5C10 		sub	#ADC_1nA, r8		; r8 = r8(Istart)-ADC_1nA(1nA) = diff_for_Vd1
  220 0252 3642      	        mov     #FPA_VD_A_MITE, r6
  221 0254 0893      		cmp	#0, r8		        ; If r8(Vd1) < 0,
  222 0256 0134      		jge	Jump_r8_0
@@ -708,7 +708,7 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt
  232 026a 39C0 0080 	        bic     #0x8000, r9
  233 026e 1683      		dec.w   r6
  234 0270 FB23      	        jnz     Jump_r9_1
- 235 0272 3950 1E00 		add	#FPA_VD_OS_MITE, r9      ; Vd table offset
+ 235 0272 3950 2500 		add	#FPA_VD_OS_MITE, r9      ; Vd table offset
  236 0276 1643      	        mov     #FPA_VD_SA_MITE, r6      ; Add or Subtraction
  237 0278 0693      		cmp	#0, r6
  238 027a 0224      		jeq	Jump_Sub
@@ -865,377 +865,377 @@ GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt
 
 
 DEFINED SYMBOLS
-       pmem_defs.asm:39     *ABS*:00000000 IE1
-       pmem_defs.asm:40     *ABS*:00000001 IE1_HI
-       pmem_defs.asm:41     *ABS*:00000002 IFG1
-       pmem_defs.asm:42     *ABS*:00000003 IFG1_HI
-       pmem_defs.asm:43     *ABS*:00000004 CPU_ID_LO
-       pmem_defs.asm:44     *ABS*:00000006 CPU_ID_HI
-       pmem_defs.asm:45     *ABS*:00000008 CPU_NR
-       pmem_defs.asm:50     *ABS*:00000020 P1IN
-       pmem_defs.asm:51     *ABS*:00000021 P1OUT
-       pmem_defs.asm:52     *ABS*:00000022 P1DIR
-       pmem_defs.asm:53     *ABS*:00000023 P1IFG
-       pmem_defs.asm:54     *ABS*:00000024 P1IES
-       pmem_defs.asm:55     *ABS*:00000025 P1IE
-       pmem_defs.asm:56     *ABS*:00000026 P1SEL
-       pmem_defs.asm:58     *ABS*:00000028 P2IN
-       pmem_defs.asm:59     *ABS*:00000029 P2OUT
-       pmem_defs.asm:60     *ABS*:0000002a P2DIR
-       pmem_defs.asm:61     *ABS*:0000002b P2IFG
-       pmem_defs.asm:62     *ABS*:0000002c P2IES
-       pmem_defs.asm:63     *ABS*:0000002d P2IE
-       pmem_defs.asm:64     *ABS*:0000002e P2SEL
-       pmem_defs.asm:66     *ABS*:00000018 P3IN
-       pmem_defs.asm:67     *ABS*:00000019 P3OUT
-       pmem_defs.asm:68     *ABS*:0000001a P3DIR
-       pmem_defs.asm:69     *ABS*:0000001b P3SEL
-       pmem_defs.asm:71     *ABS*:0000001c P4IN
-       pmem_defs.asm:72     *ABS*:0000001d P4OUT
-       pmem_defs.asm:73     *ABS*:0000001e P4DIR
-       pmem_defs.asm:74     *ABS*:0000001f P4SEL
-       pmem_defs.asm:76     *ABS*:00000030 P5IN
-       pmem_defs.asm:77     *ABS*:00000031 P5OUT
-       pmem_defs.asm:78     *ABS*:00000032 P5DIR
-       pmem_defs.asm:79     *ABS*:00000033 P5SEL
-       pmem_defs.asm:81     *ABS*:00000034 P6IN
-       pmem_defs.asm:82     *ABS*:00000035 P6OUT
-       pmem_defs.asm:83     *ABS*:00000036 P6DIR
-       pmem_defs.asm:84     *ABS*:00000037 P6SEL
-       pmem_defs.asm:89     *ABS*:00000057 BCSCTL1
-       pmem_defs.asm:90     *ABS*:00000058 BCSCTL2
-       pmem_defs.asm:95     *ABS*:00000120 WDTCTL
-       pmem_defs.asm:100    *ABS*:00000130 MPY
-       pmem_defs.asm:101    *ABS*:00000132 MPYS
-       pmem_defs.asm:102    *ABS*:00000134 MAC
-       pmem_defs.asm:103    *ABS*:00000136 MACS
-       pmem_defs.asm:104    *ABS*:00000138 OP2
-       pmem_defs.asm:105    *ABS*:0000013a RESLO
-       pmem_defs.asm:106    *ABS*:0000013c RESHI
-       pmem_defs.asm:107    *ABS*:0000013e SUMEXT
-       pmem_defs.asm:112    *ABS*:00000160 TACTL
-       pmem_defs.asm:113    *ABS*:00000170 TAR
-       pmem_defs.asm:114    *ABS*:00000162 TACCTL0
-       pmem_defs.asm:115    *ABS*:00000172 TACCR0
-       pmem_defs.asm:116    *ABS*:00000164 TACCTL1
-       pmem_defs.asm:117    *ABS*:00000174 TACCR1
-       pmem_defs.asm:118    *ABS*:00000166 TACCTL2
-       pmem_defs.asm:119    *ABS*:00000176 TACCR2
+       pmem_defs.asm:39     *ABS*:0000000000000000 IE1
+       pmem_defs.asm:40     *ABS*:0000000000000001 IE1_HI
+       pmem_defs.asm:41     *ABS*:0000000000000002 IFG1
+       pmem_defs.asm:42     *ABS*:0000000000000003 IFG1_HI
+       pmem_defs.asm:43     *ABS*:0000000000000004 CPU_ID_LO
+       pmem_defs.asm:44     *ABS*:0000000000000006 CPU_ID_HI
+       pmem_defs.asm:45     *ABS*:0000000000000008 CPU_NR
+       pmem_defs.asm:50     *ABS*:0000000000000020 P1IN
+       pmem_defs.asm:51     *ABS*:0000000000000021 P1OUT
+       pmem_defs.asm:52     *ABS*:0000000000000022 P1DIR
+       pmem_defs.asm:53     *ABS*:0000000000000023 P1IFG
+       pmem_defs.asm:54     *ABS*:0000000000000024 P1IES
+       pmem_defs.asm:55     *ABS*:0000000000000025 P1IE
+       pmem_defs.asm:56     *ABS*:0000000000000026 P1SEL
+       pmem_defs.asm:58     *ABS*:0000000000000028 P2IN
+       pmem_defs.asm:59     *ABS*:0000000000000029 P2OUT
+       pmem_defs.asm:60     *ABS*:000000000000002a P2DIR
+       pmem_defs.asm:61     *ABS*:000000000000002b P2IFG
+       pmem_defs.asm:62     *ABS*:000000000000002c P2IES
+       pmem_defs.asm:63     *ABS*:000000000000002d P2IE
+       pmem_defs.asm:64     *ABS*:000000000000002e P2SEL
+       pmem_defs.asm:66     *ABS*:0000000000000018 P3IN
+       pmem_defs.asm:67     *ABS*:0000000000000019 P3OUT
+       pmem_defs.asm:68     *ABS*:000000000000001a P3DIR
+       pmem_defs.asm:69     *ABS*:000000000000001b P3SEL
+       pmem_defs.asm:71     *ABS*:000000000000001c P4IN
+       pmem_defs.asm:72     *ABS*:000000000000001d P4OUT
+       pmem_defs.asm:73     *ABS*:000000000000001e P4DIR
+       pmem_defs.asm:74     *ABS*:000000000000001f P4SEL
+       pmem_defs.asm:76     *ABS*:0000000000000030 P5IN
+       pmem_defs.asm:77     *ABS*:0000000000000031 P5OUT
+       pmem_defs.asm:78     *ABS*:0000000000000032 P5DIR
+       pmem_defs.asm:79     *ABS*:0000000000000033 P5SEL
+       pmem_defs.asm:81     *ABS*:0000000000000034 P6IN
+       pmem_defs.asm:82     *ABS*:0000000000000035 P6OUT
+       pmem_defs.asm:83     *ABS*:0000000000000036 P6DIR
+       pmem_defs.asm:84     *ABS*:0000000000000037 P6SEL
+       pmem_defs.asm:89     *ABS*:0000000000000057 BCSCTL1
+       pmem_defs.asm:90     *ABS*:0000000000000058 BCSCTL2
+       pmem_defs.asm:95     *ABS*:0000000000000120 WDTCTL
+       pmem_defs.asm:100    *ABS*:0000000000000130 MPY
+       pmem_defs.asm:101    *ABS*:0000000000000132 MPYS
+       pmem_defs.asm:102    *ABS*:0000000000000134 MAC
+       pmem_defs.asm:103    *ABS*:0000000000000136 MACS
+       pmem_defs.asm:104    *ABS*:0000000000000138 OP2
+       pmem_defs.asm:105    *ABS*:000000000000013a RESLO
+       pmem_defs.asm:106    *ABS*:000000000000013c RESHI
+       pmem_defs.asm:107    *ABS*:000000000000013e SUMEXT
+       pmem_defs.asm:112    *ABS*:0000000000000160 TACTL
+       pmem_defs.asm:113    *ABS*:0000000000000170 TAR
+       pmem_defs.asm:114    *ABS*:0000000000000162 TACCTL0
+       pmem_defs.asm:115    *ABS*:0000000000000172 TACCR0
+       pmem_defs.asm:116    *ABS*:0000000000000164 TACCTL1
+       pmem_defs.asm:117    *ABS*:0000000000000174 TACCR1
+       pmem_defs.asm:118    *ABS*:0000000000000166 TACCTL2
+       pmem_defs.asm:119    *ABS*:0000000000000176 TACCR2
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 17
 
 
-       pmem_defs.asm:120    *ABS*:0000012e TAIV
-       pmem_defs.asm:125    *ABS*:00004000 DMEM_BASE
-       pmem_defs.asm:127    *ABS*:00004000 DMEM_200
-       pmem_defs.asm:128    *ABS*:00004001 DMEM_201
-       pmem_defs.asm:129    *ABS*:00004002 DMEM_202
-       pmem_defs.asm:130    *ABS*:00004003 DMEM_203
-       pmem_defs.asm:131    *ABS*:00004004 DMEM_204
-       pmem_defs.asm:132    *ABS*:00004005 DMEM_205
-       pmem_defs.asm:133    *ABS*:00004006 DMEM_206
-       pmem_defs.asm:134    *ABS*:00004007 DMEM_207
-       pmem_defs.asm:135    *ABS*:00004008 DMEM_208
-       pmem_defs.asm:136    *ABS*:00004009 DMEM_209
-       pmem_defs.asm:137    *ABS*:0000400a DMEM_20A
-       pmem_defs.asm:138    *ABS*:0000400b DMEM_20B
-       pmem_defs.asm:139    *ABS*:0000400c DMEM_20C
-       pmem_defs.asm:140    *ABS*:0000400d DMEM_20D
-       pmem_defs.asm:141    *ABS*:0000400e DMEM_20E
-       pmem_defs.asm:142    *ABS*:0000400f DMEM_20F
-       pmem_defs.asm:144    *ABS*:00004010 DMEM_210
-       pmem_defs.asm:145    *ABS*:00004011 DMEM_211
-       pmem_defs.asm:146    *ABS*:00004012 DMEM_212
-       pmem_defs.asm:147    *ABS*:00004013 DMEM_213
-       pmem_defs.asm:148    *ABS*:00004014 DMEM_214
-       pmem_defs.asm:149    *ABS*:00004015 DMEM_215
-       pmem_defs.asm:150    *ABS*:00004016 DMEM_216
-       pmem_defs.asm:151    *ABS*:00004017 DMEM_217
-       pmem_defs.asm:152    *ABS*:00004018 DMEM_218
-       pmem_defs.asm:153    *ABS*:00004019 DMEM_219
-       pmem_defs.asm:154    *ABS*:0000401a DMEM_21A
-       pmem_defs.asm:155    *ABS*:0000401b DMEM_21B
-       pmem_defs.asm:156    *ABS*:0000401c DMEM_21C
-       pmem_defs.asm:157    *ABS*:0000401d DMEM_21D
-       pmem_defs.asm:158    *ABS*:0000401e DMEM_21E
-       pmem_defs.asm:159    *ABS*:0000401f DMEM_21F
-       pmem_defs.asm:161    *ABS*:00004020 DMEM_220
-       pmem_defs.asm:162    *ABS*:00004021 DMEM_221
-       pmem_defs.asm:163    *ABS*:00004022 DMEM_222
-       pmem_defs.asm:164    *ABS*:00004023 DMEM_223
-       pmem_defs.asm:165    *ABS*:00004024 DMEM_224
-       pmem_defs.asm:166    *ABS*:00004025 DMEM_225
-       pmem_defs.asm:167    *ABS*:00004026 DMEM_226
-       pmem_defs.asm:168    *ABS*:00004027 DMEM_227
-       pmem_defs.asm:169    *ABS*:00004028 DMEM_228
-       pmem_defs.asm:170    *ABS*:00004029 DMEM_229
-       pmem_defs.asm:171    *ABS*:0000402a DMEM_22A
-       pmem_defs.asm:172    *ABS*:0000402b DMEM_22B
-       pmem_defs.asm:173    *ABS*:0000402c DMEM_22C
-       pmem_defs.asm:174    *ABS*:0000402d DMEM_22D
-       pmem_defs.asm:175    *ABS*:0000402e DMEM_22E
-       pmem_defs.asm:176    *ABS*:0000402f DMEM_22F
-       pmem_defs.asm:178    *ABS*:00004030 DMEM_230
-       pmem_defs.asm:179    *ABS*:00004031 DMEM_231
-       pmem_defs.asm:180    *ABS*:00004032 DMEM_232
-       pmem_defs.asm:181    *ABS*:00004033 DMEM_233
-       pmem_defs.asm:182    *ABS*:00004034 DMEM_234
-       pmem_defs.asm:183    *ABS*:00004035 DMEM_235
-       pmem_defs.asm:184    *ABS*:00004036 DMEM_236
+       pmem_defs.asm:120    *ABS*:000000000000012e TAIV
+       pmem_defs.asm:125    *ABS*:0000000000004000 DMEM_BASE
+       pmem_defs.asm:127    *ABS*:0000000000004000 DMEM_200
+       pmem_defs.asm:128    *ABS*:0000000000004001 DMEM_201
+       pmem_defs.asm:129    *ABS*:0000000000004002 DMEM_202
+       pmem_defs.asm:130    *ABS*:0000000000004003 DMEM_203
+       pmem_defs.asm:131    *ABS*:0000000000004004 DMEM_204
+       pmem_defs.asm:132    *ABS*:0000000000004005 DMEM_205
+       pmem_defs.asm:133    *ABS*:0000000000004006 DMEM_206
+       pmem_defs.asm:134    *ABS*:0000000000004007 DMEM_207
+       pmem_defs.asm:135    *ABS*:0000000000004008 DMEM_208
+       pmem_defs.asm:136    *ABS*:0000000000004009 DMEM_209
+       pmem_defs.asm:137    *ABS*:000000000000400a DMEM_20A
+       pmem_defs.asm:138    *ABS*:000000000000400b DMEM_20B
+       pmem_defs.asm:139    *ABS*:000000000000400c DMEM_20C
+       pmem_defs.asm:140    *ABS*:000000000000400d DMEM_20D
+       pmem_defs.asm:141    *ABS*:000000000000400e DMEM_20E
+       pmem_defs.asm:142    *ABS*:000000000000400f DMEM_20F
+       pmem_defs.asm:144    *ABS*:0000000000004010 DMEM_210
+       pmem_defs.asm:145    *ABS*:0000000000004011 DMEM_211
+       pmem_defs.asm:146    *ABS*:0000000000004012 DMEM_212
+       pmem_defs.asm:147    *ABS*:0000000000004013 DMEM_213
+       pmem_defs.asm:148    *ABS*:0000000000004014 DMEM_214
+       pmem_defs.asm:149    *ABS*:0000000000004015 DMEM_215
+       pmem_defs.asm:150    *ABS*:0000000000004016 DMEM_216
+       pmem_defs.asm:151    *ABS*:0000000000004017 DMEM_217
+       pmem_defs.asm:152    *ABS*:0000000000004018 DMEM_218
+       pmem_defs.asm:153    *ABS*:0000000000004019 DMEM_219
+       pmem_defs.asm:154    *ABS*:000000000000401a DMEM_21A
+       pmem_defs.asm:155    *ABS*:000000000000401b DMEM_21B
+       pmem_defs.asm:156    *ABS*:000000000000401c DMEM_21C
+       pmem_defs.asm:157    *ABS*:000000000000401d DMEM_21D
+       pmem_defs.asm:158    *ABS*:000000000000401e DMEM_21E
+       pmem_defs.asm:159    *ABS*:000000000000401f DMEM_21F
+       pmem_defs.asm:161    *ABS*:0000000000004020 DMEM_220
+       pmem_defs.asm:162    *ABS*:0000000000004021 DMEM_221
+       pmem_defs.asm:163    *ABS*:0000000000004022 DMEM_222
+       pmem_defs.asm:164    *ABS*:0000000000004023 DMEM_223
+       pmem_defs.asm:165    *ABS*:0000000000004024 DMEM_224
+       pmem_defs.asm:166    *ABS*:0000000000004025 DMEM_225
+       pmem_defs.asm:167    *ABS*:0000000000004026 DMEM_226
+       pmem_defs.asm:168    *ABS*:0000000000004027 DMEM_227
+       pmem_defs.asm:169    *ABS*:0000000000004028 DMEM_228
+       pmem_defs.asm:170    *ABS*:0000000000004029 DMEM_229
+       pmem_defs.asm:171    *ABS*:000000000000402a DMEM_22A
+       pmem_defs.asm:172    *ABS*:000000000000402b DMEM_22B
+       pmem_defs.asm:173    *ABS*:000000000000402c DMEM_22C
+       pmem_defs.asm:174    *ABS*:000000000000402d DMEM_22D
+       pmem_defs.asm:175    *ABS*:000000000000402e DMEM_22E
+       pmem_defs.asm:176    *ABS*:000000000000402f DMEM_22F
+       pmem_defs.asm:178    *ABS*:0000000000004030 DMEM_230
+       pmem_defs.asm:179    *ABS*:0000000000004031 DMEM_231
+       pmem_defs.asm:180    *ABS*:0000000000004032 DMEM_232
+       pmem_defs.asm:181    *ABS*:0000000000004033 DMEM_233
+       pmem_defs.asm:182    *ABS*:0000000000004034 DMEM_234
+       pmem_defs.asm:183    *ABS*:0000000000004035 DMEM_235
+       pmem_defs.asm:184    *ABS*:0000000000004036 DMEM_236
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 18
 
 
-       pmem_defs.asm:185    *ABS*:00004037 DMEM_237
-       pmem_defs.asm:186    *ABS*:00004038 DMEM_238
-       pmem_defs.asm:187    *ABS*:00004039 DMEM_239
-       pmem_defs.asm:188    *ABS*:0000403a DMEM_23A
-       pmem_defs.asm:189    *ABS*:0000403b DMEM_23B
-       pmem_defs.asm:190    *ABS*:0000403c DMEM_23C
-       pmem_defs.asm:191    *ABS*:0000403d DMEM_23D
-       pmem_defs.asm:192    *ABS*:0000403e DMEM_23E
-       pmem_defs.asm:193    *ABS*:0000403f DMEM_23F
-       pmem_defs.asm:195    *ABS*:00004040 DMEM_240
-       pmem_defs.asm:196    *ABS*:00004041 DMEM_241
-       pmem_defs.asm:197    *ABS*:00004042 DMEM_242
-       pmem_defs.asm:198    *ABS*:00004043 DMEM_243
-       pmem_defs.asm:199    *ABS*:00004044 DMEM_244
-       pmem_defs.asm:200    *ABS*:00004045 DMEM_245
-       pmem_defs.asm:201    *ABS*:00004046 DMEM_246
-       pmem_defs.asm:202    *ABS*:00004047 DMEM_247
-       pmem_defs.asm:203    *ABS*:00004048 DMEM_248
-       pmem_defs.asm:204    *ABS*:00004049 DMEM_249
-       pmem_defs.asm:205    *ABS*:0000404a DMEM_24A
-       pmem_defs.asm:206    *ABS*:0000404b DMEM_24B
-       pmem_defs.asm:207    *ABS*:0000404c DMEM_24C
-       pmem_defs.asm:208    *ABS*:0000404d DMEM_24D
-       pmem_defs.asm:209    *ABS*:0000404e DMEM_24E
-       pmem_defs.asm:210    *ABS*:0000404f DMEM_24F
-       pmem_defs.asm:212    *ABS*:00004050 DMEM_250
-       pmem_defs.asm:213    *ABS*:00004051 DMEM_251
-       pmem_defs.asm:214    *ABS*:00004052 DMEM_252
-       pmem_defs.asm:215    *ABS*:00004053 DMEM_253
-       pmem_defs.asm:216    *ABS*:00004054 DMEM_254
-       pmem_defs.asm:217    *ABS*:00004055 DMEM_255
-       pmem_defs.asm:218    *ABS*:00004056 DMEM_256
-       pmem_defs.asm:219    *ABS*:00004057 DMEM_257
-       pmem_defs.asm:220    *ABS*:00004058 DMEM_258
-       pmem_defs.asm:221    *ABS*:00004059 DMEM_259
-       pmem_defs.asm:222    *ABS*:0000405a DMEM_25A
-       pmem_defs.asm:223    *ABS*:0000405b DMEM_25B
-       pmem_defs.asm:224    *ABS*:0000405c DMEM_25C
-       pmem_defs.asm:225    *ABS*:0000405d DMEM_25D
-       pmem_defs.asm:226    *ABS*:0000405e DMEM_25E
-       pmem_defs.asm:227    *ABS*:0000405f DMEM_25F
-       pmem_defs.asm:229    *ABS*:00004060 DMEM_260
-       pmem_defs.asm:230    *ABS*:00004061 DMEM_261
-       pmem_defs.asm:231    *ABS*:00004062 DMEM_262
-       pmem_defs.asm:232    *ABS*:00004063 DMEM_263
-       pmem_defs.asm:233    *ABS*:00004064 DMEM_264
-       pmem_defs.asm:234    *ABS*:00004065 DMEM_265
-       pmem_defs.asm:235    *ABS*:00004066 DMEM_266
-       pmem_defs.asm:236    *ABS*:00004067 DMEM_267
-       pmem_defs.asm:237    *ABS*:00004068 DMEM_268
-       pmem_defs.asm:238    *ABS*:00004069 DMEM_269
-       pmem_defs.asm:239    *ABS*:0000406a DMEM_26A
-       pmem_defs.asm:240    *ABS*:0000406b DMEM_26B
-       pmem_defs.asm:241    *ABS*:0000406c DMEM_26C
-       pmem_defs.asm:242    *ABS*:0000406d DMEM_26D
-       pmem_defs.asm:243    *ABS*:0000406e DMEM_26E
-       pmem_defs.asm:244    *ABS*:0000406f DMEM_26F
+       pmem_defs.asm:185    *ABS*:0000000000004037 DMEM_237
+       pmem_defs.asm:186    *ABS*:0000000000004038 DMEM_238
+       pmem_defs.asm:187    *ABS*:0000000000004039 DMEM_239
+       pmem_defs.asm:188    *ABS*:000000000000403a DMEM_23A
+       pmem_defs.asm:189    *ABS*:000000000000403b DMEM_23B
+       pmem_defs.asm:190    *ABS*:000000000000403c DMEM_23C
+       pmem_defs.asm:191    *ABS*:000000000000403d DMEM_23D
+       pmem_defs.asm:192    *ABS*:000000000000403e DMEM_23E
+       pmem_defs.asm:193    *ABS*:000000000000403f DMEM_23F
+       pmem_defs.asm:195    *ABS*:0000000000004040 DMEM_240
+       pmem_defs.asm:196    *ABS*:0000000000004041 DMEM_241
+       pmem_defs.asm:197    *ABS*:0000000000004042 DMEM_242
+       pmem_defs.asm:198    *ABS*:0000000000004043 DMEM_243
+       pmem_defs.asm:199    *ABS*:0000000000004044 DMEM_244
+       pmem_defs.asm:200    *ABS*:0000000000004045 DMEM_245
+       pmem_defs.asm:201    *ABS*:0000000000004046 DMEM_246
+       pmem_defs.asm:202    *ABS*:0000000000004047 DMEM_247
+       pmem_defs.asm:203    *ABS*:0000000000004048 DMEM_248
+       pmem_defs.asm:204    *ABS*:0000000000004049 DMEM_249
+       pmem_defs.asm:205    *ABS*:000000000000404a DMEM_24A
+       pmem_defs.asm:206    *ABS*:000000000000404b DMEM_24B
+       pmem_defs.asm:207    *ABS*:000000000000404c DMEM_24C
+       pmem_defs.asm:208    *ABS*:000000000000404d DMEM_24D
+       pmem_defs.asm:209    *ABS*:000000000000404e DMEM_24E
+       pmem_defs.asm:210    *ABS*:000000000000404f DMEM_24F
+       pmem_defs.asm:212    *ABS*:0000000000004050 DMEM_250
+       pmem_defs.asm:213    *ABS*:0000000000004051 DMEM_251
+       pmem_defs.asm:214    *ABS*:0000000000004052 DMEM_252
+       pmem_defs.asm:215    *ABS*:0000000000004053 DMEM_253
+       pmem_defs.asm:216    *ABS*:0000000000004054 DMEM_254
+       pmem_defs.asm:217    *ABS*:0000000000004055 DMEM_255
+       pmem_defs.asm:218    *ABS*:0000000000004056 DMEM_256
+       pmem_defs.asm:219    *ABS*:0000000000004057 DMEM_257
+       pmem_defs.asm:220    *ABS*:0000000000004058 DMEM_258
+       pmem_defs.asm:221    *ABS*:0000000000004059 DMEM_259
+       pmem_defs.asm:222    *ABS*:000000000000405a DMEM_25A
+       pmem_defs.asm:223    *ABS*:000000000000405b DMEM_25B
+       pmem_defs.asm:224    *ABS*:000000000000405c DMEM_25C
+       pmem_defs.asm:225    *ABS*:000000000000405d DMEM_25D
+       pmem_defs.asm:226    *ABS*:000000000000405e DMEM_25E
+       pmem_defs.asm:227    *ABS*:000000000000405f DMEM_25F
+       pmem_defs.asm:229    *ABS*:0000000000004060 DMEM_260
+       pmem_defs.asm:230    *ABS*:0000000000004061 DMEM_261
+       pmem_defs.asm:231    *ABS*:0000000000004062 DMEM_262
+       pmem_defs.asm:232    *ABS*:0000000000004063 DMEM_263
+       pmem_defs.asm:233    *ABS*:0000000000004064 DMEM_264
+       pmem_defs.asm:234    *ABS*:0000000000004065 DMEM_265
+       pmem_defs.asm:235    *ABS*:0000000000004066 DMEM_266
+       pmem_defs.asm:236    *ABS*:0000000000004067 DMEM_267
+       pmem_defs.asm:237    *ABS*:0000000000004068 DMEM_268
+       pmem_defs.asm:238    *ABS*:0000000000004069 DMEM_269
+       pmem_defs.asm:239    *ABS*:000000000000406a DMEM_26A
+       pmem_defs.asm:240    *ABS*:000000000000406b DMEM_26B
+       pmem_defs.asm:241    *ABS*:000000000000406c DMEM_26C
+       pmem_defs.asm:242    *ABS*:000000000000406d DMEM_26D
+       pmem_defs.asm:243    *ABS*:000000000000406e DMEM_26E
+       pmem_defs.asm:244    *ABS*:000000000000406f DMEM_26F
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 19
 
 
-       pmem_defs.asm:246    *ABS*:00004100 DMEM_300
-       pmem_defs.asm:251    *ABS*:00004000 PMEM_LENGTH
-       pmem_defs.asm:256    *ABS*:00000b00 DRAIN_CTRL
-       pmem_defs.asm:257    *ABS*:00000b02 GATE_S
-       pmem_defs.asm:258    *ABS*:00000b04 ADC
-       pmem_defs.asm:259    *ABS*:00000b06 PULSE_CTRL
-       pmem_defs.asm:260    *ABS*:00000b08 ROW_SEL
-       pmem_defs.asm:261    *ABS*:00000b0a COL_SEL
-       pmem_defs.asm:262    *ABS*:00000b0c PROG_BITS
-       pmem_defs.asm:263    *ABS*:00000b0e TUN_MUX
-       pmem_defs.asm:264    *ABS*:00000b10 GATE_US_P
-       pmem_defs.asm:265    *ABS*:00000b12 GATE_US_N
-       pmem_defs.asm:266    *ABS*:00000b14 BIAS_DACS
-       pmem_defs.asm:267    *ABS*:00000160 GP_PER_1
-       pmem_defs.asm:268    *ABS*:00000162 GP_PER_2
-       pmem_defs.asm:269    *ABS*:00000164 GP_PER_3
-       pmem_defs.asm:270    *ABS*:00000166 GP_PER_4
- chip_para_debug.asm:1      *ABS*:00000000 RI_MEAS_ON
- chip_para_debug.asm:2      *ABS*:00000000 RIL_MEAS_ON
- chip_para_debug.asm:3      *ABS*:00000000 CP_MEAS_ON
- chip_para_debug.asm:4      *ABS*:00000000 CPL_MEAS_ON
- chip_para_debug.asm:5      *ABS*:00000000 FP_MEAS_ON
- chip_para_debug.asm:6      *ABS*:00000000 FPL_MEAS_ON
-    chip_para_FP.asm:4      *ABS*:00001655 ADC_1nA
-    chip_para_FP.asm:7      *ABS*:00007430 FPS_GATE_S_SWC
-    chip_para_FP.asm:8      *ABS*:00000001 FPS_INJ_T_SWC
-    chip_para_FP.asm:9      *ABS*:00000032 FPS_NUM_SWC
-    chip_para_FP.asm:10     *ABS*:00000008 FPS_VD_A_SWC
-    chip_para_FP.asm:11     *ABS*:00000005 FPS_VD_B_SWC
-    chip_para_FP.asm:12     *ABS*:00000028 FPS_VD_OS_SWC
-    chip_para_FP.asm:13     *ABS*:00000000 FPS_VD_SA_SWC
-    chip_para_FP.asm:14     *ABS*:00000000 FPS_VD_GND_SWC
-    chip_para_FP.asm:15     *ABS*:00007430 FPS_GATE_S_OTA
-    chip_para_FP.asm:16     *ABS*:00000001 FPS_INJ_T_OTA
-    chip_para_FP.asm:17     *ABS*:00000032 FPS_NUM_OTA
-    chip_para_FP.asm:18     *ABS*:00000008 FPS_VD_A_OTA
-    chip_para_FP.asm:19     *ABS*:00000005 FPS_VD_B_OTA
-    chip_para_FP.asm:20     *ABS*:00000037 FPS_VD_OS_OTA
-    chip_para_FP.asm:21     *ABS*:00000000 FPS_VD_SA_OTA
-    chip_para_FP.asm:22     *ABS*:00000000 FPS_VD_GND_OTA
-    chip_para_FP.asm:23     *ABS*:00007430 FPS_GATE_S_OTAREF
-    chip_para_FP.asm:24     *ABS*:00000002 FPS_INJ_T_OTAREF
-    chip_para_FP.asm:25     *ABS*:00000032 FPS_NUM_OTAREF
-    chip_para_FP.asm:26     *ABS*:00000008 FPS_VD_A_OTAREF
-    chip_para_FP.asm:27     *ABS*:00000005 FPS_VD_B_OTAREF
-    chip_para_FP.asm:28     *ABS*:00000037 FPS_VD_OS_OTAREF
-    chip_para_FP.asm:29     *ABS*:00000000 FPS_VD_SA_OTAREF
-    chip_para_FP.asm:30     *ABS*:00000000 FPS_VD_GND_OTAREF
-    chip_para_FP.asm:31     *ABS*:00007430 FPS_GATE_S_MITE
-    chip_para_FP.asm:32     *ABS*:00000001 FPS_INJ_T_MITE
-    chip_para_FP.asm:33     *ABS*:00000032 FPS_NUM_MITE
-    chip_para_FP.asm:34     *ABS*:00000007 FPS_VD_A_MITE
-    chip_para_FP.asm:35     *ABS*:00000005 FPS_VD_B_MITE
-    chip_para_FP.asm:36     *ABS*:00000037 FPS_VD_OS_MITE
-    chip_para_FP.asm:37     *ABS*:00000000 FPS_VD_SA_MITE
-    chip_para_FP.asm:38     *ABS*:00000000 FPS_VD_GND_MITE
-    chip_para_FP.asm:39     *ABS*:00007430 FPS_GATE_S_DIRSWC
+       pmem_defs.asm:246    *ABS*:0000000000004100 DMEM_300
+       pmem_defs.asm:251    *ABS*:0000000000004000 PMEM_LENGTH
+       pmem_defs.asm:256    *ABS*:0000000000000b00 DRAIN_CTRL
+       pmem_defs.asm:257    *ABS*:0000000000000b02 GATE_S
+       pmem_defs.asm:258    *ABS*:0000000000000b04 ADC
+       pmem_defs.asm:259    *ABS*:0000000000000b06 PULSE_CTRL
+       pmem_defs.asm:260    *ABS*:0000000000000b08 ROW_SEL
+       pmem_defs.asm:261    *ABS*:0000000000000b0a COL_SEL
+       pmem_defs.asm:262    *ABS*:0000000000000b0c PROG_BITS
+       pmem_defs.asm:263    *ABS*:0000000000000b0e TUN_MUX
+       pmem_defs.asm:264    *ABS*:0000000000000b10 GATE_US_P
+       pmem_defs.asm:265    *ABS*:0000000000000b12 GATE_US_N
+       pmem_defs.asm:266    *ABS*:0000000000000b14 BIAS_DACS
+       pmem_defs.asm:267    *ABS*:0000000000000160 GP_PER_1
+       pmem_defs.asm:268    *ABS*:0000000000000162 GP_PER_2
+       pmem_defs.asm:269    *ABS*:0000000000000164 GP_PER_3
+       pmem_defs.asm:270    *ABS*:0000000000000166 GP_PER_4
+ chip_para_debug.asm:1      *ABS*:0000000000000000 RI_MEAS_ON
+ chip_para_debug.asm:2      *ABS*:0000000000000000 RIL_MEAS_ON
+ chip_para_debug.asm:3      *ABS*:0000000000000000 CP_MEAS_ON
+ chip_para_debug.asm:4      *ABS*:0000000000000000 CPL_MEAS_ON
+ chip_para_debug.asm:5      *ABS*:0000000000000000 FP_MEAS_ON
+ chip_para_debug.asm:6      *ABS*:0000000000000000 FPL_MEAS_ON
+    chip_para_FP.asm:4      *ABS*:000000000000105c ADC_1nA
+    chip_para_FP.asm:7      *ABS*:0000000000002400 FPS_GATE_S_SWC
+    chip_para_FP.asm:8      *ABS*:0000000000000001 FPS_INJ_T_SWC
+    chip_para_FP.asm:9      *ABS*:0000000000000064 FPS_NUM_SWC
+    chip_para_FP.asm:10     *ABS*:0000000000000008 FPS_VD_A_SWC
+    chip_para_FP.asm:11     *ABS*:0000000000000005 FPS_VD_B_SWC
+    chip_para_FP.asm:12     *ABS*:0000000000000028 FPS_VD_OS_SWC
+    chip_para_FP.asm:13     *ABS*:0000000000000000 FPS_VD_SA_SWC
+    chip_para_FP.asm:14     *ABS*:0000000000000000 FPS_VD_GND_SWC
+    chip_para_FP.asm:15     *ABS*:0000000000002e00 FPS_GATE_S_OTA
+    chip_para_FP.asm:16     *ABS*:0000000000000001 FPS_INJ_T_OTA
+    chip_para_FP.asm:17     *ABS*:0000000000000032 FPS_NUM_OTA
+    chip_para_FP.asm:18     *ABS*:0000000000000008 FPS_VD_A_OTA
+    chip_para_FP.asm:19     *ABS*:0000000000000005 FPS_VD_B_OTA
+    chip_para_FP.asm:20     *ABS*:000000000000002f FPS_VD_OS_OTA
+    chip_para_FP.asm:21     *ABS*:0000000000000000 FPS_VD_SA_OTA
+    chip_para_FP.asm:22     *ABS*:0000000000000000 FPS_VD_GND_OTA
+    chip_para_FP.asm:23     *ABS*:0000000000002e00 FPS_GATE_S_OTAREF
+    chip_para_FP.asm:24     *ABS*:0000000000000002 FPS_INJ_T_OTAREF
+    chip_para_FP.asm:25     *ABS*:0000000000000032 FPS_NUM_OTAREF
+    chip_para_FP.asm:26     *ABS*:0000000000000008 FPS_VD_A_OTAREF
+    chip_para_FP.asm:27     *ABS*:0000000000000005 FPS_VD_B_OTAREF
+    chip_para_FP.asm:28     *ABS*:0000000000000035 FPS_VD_OS_OTAREF
+    chip_para_FP.asm:29     *ABS*:0000000000000000 FPS_VD_SA_OTAREF
+    chip_para_FP.asm:30     *ABS*:0000000000000000 FPS_VD_GND_OTAREF
+    chip_para_FP.asm:31     *ABS*:0000000000002e00 FPS_GATE_S_MITE
+    chip_para_FP.asm:32     *ABS*:0000000000000001 FPS_INJ_T_MITE
+    chip_para_FP.asm:33     *ABS*:0000000000000032 FPS_NUM_MITE
+    chip_para_FP.asm:34     *ABS*:0000000000000008 FPS_VD_A_MITE
+    chip_para_FP.asm:35     *ABS*:0000000000000005 FPS_VD_B_MITE
+    chip_para_FP.asm:36     *ABS*:0000000000000031 FPS_VD_OS_MITE
+    chip_para_FP.asm:37     *ABS*:0000000000000000 FPS_VD_SA_MITE
+    chip_para_FP.asm:38     *ABS*:0000000000000000 FPS_VD_GND_MITE
+    chip_para_FP.asm:39     *ABS*:0000000000002e00 FPS_GATE_S_DIRSWC
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 20
 
 
-    chip_para_FP.asm:40     *ABS*:00000001 FPS_INJ_T_DIRSWC
-    chip_para_FP.asm:41     *ABS*:00000032 FPS_NUM_DIRSWC
-    chip_para_FP.asm:42     *ABS*:00000008 FPS_VD_A_DIRSWC
-    chip_para_FP.asm:43     *ABS*:00000005 FPS_VD_B_DIRSWC
-    chip_para_FP.asm:44     *ABS*:00000028 FPS_VD_OS_DIRSWC
-    chip_para_FP.asm:45     *ABS*:00000000 FPS_VD_SA_DIRSWC
-    chip_para_FP.asm:46     *ABS*:00000000 FPS_VD_GND_DIRSWC
-    chip_para_FP.asm:49     *ABS*:00007430 FPA_GATE_S_SWC
-    chip_para_FP.asm:50     *ABS*:00000001 FPA_INJ_T_SWC
-    chip_para_FP.asm:51     *ABS*:00000032 FPA_NUM_SWC
-    chip_para_FP.asm:52     *ABS*:00000008 FPA_VD_A_SWC
-    chip_para_FP.asm:53     *ABS*:00000005 FPA_VD_B_SWC
-    chip_para_FP.asm:54     *ABS*:00000014 FPA_VD_OS_SWC
-    chip_para_FP.asm:55     *ABS*:00000001 FPA_VD_SA_SWC
-    chip_para_FP.asm:56     *ABS*:00000000 FPA_VD_GND_SWC
-    chip_para_FP.asm:57     *ABS*:00007430 FPA_GATE_S_OTA
-    chip_para_FP.asm:58     *ABS*:00000001 FPA_INJ_T_OTA
-    chip_para_FP.asm:59     *ABS*:00000032 FPA_NUM_OTA
-    chip_para_FP.asm:60     *ABS*:00000008 FPA_VD_A_OTA
-    chip_para_FP.asm:61     *ABS*:00000005 FPA_VD_B_OTA
-    chip_para_FP.asm:62     *ABS*:0000001e FPA_VD_OS_OTA
-    chip_para_FP.asm:63     *ABS*:00000001 FPA_VD_SA_OTA
-    chip_para_FP.asm:64     *ABS*:00000000 FPA_VD_GND_OTA
-    chip_para_FP.asm:65     *ABS*:00007430 FPA_GATE_S_OTAREF
-    chip_para_FP.asm:66     *ABS*:00000002 FPA_INJ_T_OTAREF
-    chip_para_FP.asm:67     *ABS*:00000032 FPA_NUM_OTAREF
-    chip_para_FP.asm:68     *ABS*:00000008 FPA_VD_A_OTAREF
-    chip_para_FP.asm:69     *ABS*:00000005 FPA_VD_B_OTAREF
-    chip_para_FP.asm:70     *ABS*:0000001e FPA_VD_OS_OTAREF
-    chip_para_FP.asm:71     *ABS*:00000001 FPA_VD_SA_OTAREF
-    chip_para_FP.asm:72     *ABS*:00000000 FPA_VD_GND_OTAREF
-    chip_para_FP.asm:73     *ABS*:00007430 FPA_GATE_S_MITE
-    chip_para_FP.asm:74     *ABS*:00000001 FPA_INJ_T_MITE
-    chip_para_FP.asm:75     *ABS*:00000032 FPA_NUM_MITE
-    chip_para_FP.asm:76     *ABS*:00000008 FPA_VD_A_MITE
-    chip_para_FP.asm:77     *ABS*:00000005 FPA_VD_B_MITE
-    chip_para_FP.asm:78     *ABS*:0000001e FPA_VD_OS_MITE
-    chip_para_FP.asm:79     *ABS*:00000001 FPA_VD_SA_MITE
-    chip_para_FP.asm:80     *ABS*:00000000 FPA_VD_GND_MITE
-    chip_para_FP.asm:81     *ABS*:00007430 FPA_GATE_S_DIRSWC
-    chip_para_FP.asm:82     *ABS*:00000001 FPA_INJ_T_DIRSWC
-    chip_para_FP.asm:83     *ABS*:00000032 FPA_NUM_DIRSWC
-    chip_para_FP.asm:84     *ABS*:00000008 FPA_VD_A_DIRSWC
-    chip_para_FP.asm:85     *ABS*:00000005 FPA_VD_B_DIRSWC
-    chip_para_FP.asm:86     *ABS*:00000014 FPA_VD_OS_DIRSWC
-    chip_para_FP.asm:87     *ABS*:00000001 FPA_VD_SA_DIRSWC
-    chip_para_FP.asm:88     *ABS*:00000000 FPA_VD_GND_DIRSWC
-    chip_para_FP.asm:91     *ABS*:00000040 FPL_GATE_S_SWC
-    chip_para_FP.asm:92     *ABS*:00000001 FPL_INJ_T_SWC
-    chip_para_FP.asm:93     *ABS*:00000032 FPL_NUM_SWC
-    chip_para_FP.asm:94     *ABS*:00000008 FPL_VD_A_SWC
-    chip_para_FP.asm:95     *ABS*:00000005 FPL_VD_B_SWC
-    chip_para_FP.asm:96     *ABS*:00000032 FPL_VD_OS_SWC
-    chip_para_FP.asm:97     *ABS*:00000001 FPL_VD_SA_SWC
-    chip_para_FP.asm:98     *ABS*:00000000 FPL_VD_GND_SWC
-    chip_para_FP.asm:99     *ABS*:00004330 FPL_GATE_S_OTA
-    chip_para_FP.asm:100    *ABS*:00000001 FPL_INJ_T_OTA
+    chip_para_FP.asm:40     *ABS*:0000000000000001 FPS_INJ_T_DIRSWC
+    chip_para_FP.asm:41     *ABS*:0000000000000032 FPS_NUM_DIRSWC
+    chip_para_FP.asm:42     *ABS*:0000000000000008 FPS_VD_A_DIRSWC
+    chip_para_FP.asm:43     *ABS*:0000000000000005 FPS_VD_B_DIRSWC
+    chip_para_FP.asm:44     *ABS*:0000000000000028 FPS_VD_OS_DIRSWC
+    chip_para_FP.asm:45     *ABS*:0000000000000000 FPS_VD_SA_DIRSWC
+    chip_para_FP.asm:46     *ABS*:0000000000000000 FPS_VD_GND_DIRSWC
+    chip_para_FP.asm:49     *ABS*:0000000000003400 FPA_GATE_S_SWC
+    chip_para_FP.asm:50     *ABS*:0000000000000001 FPA_INJ_T_SWC
+    chip_para_FP.asm:51     *ABS*:000000000000003c FPA_NUM_SWC
+    chip_para_FP.asm:52     *ABS*:0000000000000008 FPA_VD_A_SWC
+    chip_para_FP.asm:53     *ABS*:0000000000000005 FPA_VD_B_SWC
+    chip_para_FP.asm:54     *ABS*:000000000000001c FPA_VD_OS_SWC
+    chip_para_FP.asm:55     *ABS*:0000000000000001 FPA_VD_SA_SWC
+    chip_para_FP.asm:56     *ABS*:0000000000000000 FPA_VD_GND_SWC
+    chip_para_FP.asm:57     *ABS*:0000000000002e00 FPA_GATE_S_OTA
+    chip_para_FP.asm:58     *ABS*:0000000000000001 FPA_INJ_T_OTA
+    chip_para_FP.asm:59     *ABS*:0000000000000032 FPA_NUM_OTA
+    chip_para_FP.asm:60     *ABS*:0000000000000008 FPA_VD_A_OTA
+    chip_para_FP.asm:61     *ABS*:0000000000000005 FPA_VD_B_OTA
+    chip_para_FP.asm:62     *ABS*:0000000000000022 FPA_VD_OS_OTA
+    chip_para_FP.asm:63     *ABS*:0000000000000001 FPA_VD_SA_OTA
+    chip_para_FP.asm:64     *ABS*:0000000000000000 FPA_VD_GND_OTA
+    chip_para_FP.asm:65     *ABS*:0000000000002e00 FPA_GATE_S_OTAREF
+    chip_para_FP.asm:66     *ABS*:0000000000000002 FPA_INJ_T_OTAREF
+    chip_para_FP.asm:67     *ABS*:0000000000000032 FPA_NUM_OTAREF
+    chip_para_FP.asm:68     *ABS*:0000000000000008 FPA_VD_A_OTAREF
+    chip_para_FP.asm:69     *ABS*:0000000000000005 FPA_VD_B_OTAREF
+    chip_para_FP.asm:70     *ABS*:0000000000000023 FPA_VD_OS_OTAREF
+    chip_para_FP.asm:71     *ABS*:0000000000000001 FPA_VD_SA_OTAREF
+    chip_para_FP.asm:72     *ABS*:0000000000000000 FPA_VD_GND_OTAREF
+    chip_para_FP.asm:73     *ABS*:0000000000002e00 FPA_GATE_S_MITE
+    chip_para_FP.asm:74     *ABS*:0000000000000001 FPA_INJ_T_MITE
+    chip_para_FP.asm:75     *ABS*:0000000000000032 FPA_NUM_MITE
+    chip_para_FP.asm:76     *ABS*:0000000000000008 FPA_VD_A_MITE
+    chip_para_FP.asm:77     *ABS*:0000000000000005 FPA_VD_B_MITE
+    chip_para_FP.asm:78     *ABS*:0000000000000025 FPA_VD_OS_MITE
+    chip_para_FP.asm:79     *ABS*:0000000000000001 FPA_VD_SA_MITE
+    chip_para_FP.asm:80     *ABS*:0000000000000000 FPA_VD_GND_MITE
+    chip_para_FP.asm:81     *ABS*:0000000000002e00 FPA_GATE_S_DIRSWC
+    chip_para_FP.asm:82     *ABS*:0000000000000001 FPA_INJ_T_DIRSWC
+    chip_para_FP.asm:83     *ABS*:0000000000000032 FPA_NUM_DIRSWC
+    chip_para_FP.asm:84     *ABS*:0000000000000008 FPA_VD_A_DIRSWC
+    chip_para_FP.asm:85     *ABS*:0000000000000005 FPA_VD_B_DIRSWC
+    chip_para_FP.asm:86     *ABS*:000000000000001e FPA_VD_OS_DIRSWC
+    chip_para_FP.asm:87     *ABS*:0000000000000001 FPA_VD_SA_DIRSWC
+    chip_para_FP.asm:88     *ABS*:0000000000000000 FPA_VD_GND_DIRSWC
+    chip_para_FP.asm:91     *ABS*:0000000000000040 FPL_GATE_S_SWC
+    chip_para_FP.asm:92     *ABS*:0000000000000001 FPL_INJ_T_SWC
+    chip_para_FP.asm:93     *ABS*:0000000000000046 FPL_NUM_SWC
+    chip_para_FP.asm:94     *ABS*:0000000000000008 FPL_VD_A_SWC
+    chip_para_FP.asm:95     *ABS*:0000000000000005 FPL_VD_B_SWC
+    chip_para_FP.asm:96     *ABS*:0000000000000032 FPL_VD_OS_SWC
+    chip_para_FP.asm:97     *ABS*:0000000000000001 FPL_VD_SA_SWC
+    chip_para_FP.asm:98     *ABS*:0000000000000000 FPL_VD_GND_SWC
+    chip_para_FP.asm:99     *ABS*:0000000000003700 FPL_GATE_S_OTA
+    chip_para_FP.asm:100    *ABS*:0000000000000001 FPL_INJ_T_OTA
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 21
 
 
-    chip_para_FP.asm:101    *ABS*:00000032 FPL_NUM_OTA
-    chip_para_FP.asm:102    *ABS*:00000008 FPL_VD_A_OTA
-    chip_para_FP.asm:103    *ABS*:00000005 FPL_VD_B_OTA
-    chip_para_FP.asm:104    *ABS*:00000028 FPL_VD_OS_OTA
-    chip_para_FP.asm:105    *ABS*:00000001 FPL_VD_SA_OTA
-    chip_para_FP.asm:106    *ABS*:00000000 FPL_VD_GND_OTA
-    chip_para_FP.asm:107    *ABS*:00000040 FPL_GATE_S_OTAREF
-    chip_para_FP.asm:108    *ABS*:00000001 FPL_INJ_T_OTAREF
-    chip_para_FP.asm:109    *ABS*:00000032 FPL_NUM_OTAREF
-    chip_para_FP.asm:110    *ABS*:00000008 FPL_VD_A_OTAREF
-    chip_para_FP.asm:111    *ABS*:00000005 FPL_VD_B_OTAREF
-    chip_para_FP.asm:112    *ABS*:00000032 FPL_VD_OS_OTAREF
-    chip_para_FP.asm:113    *ABS*:00000001 FPL_VD_SA_OTAREF
-    chip_para_FP.asm:114    *ABS*:00000000 FPL_VD_GND_OTAREF
-    chip_para_FP.asm:115    *ABS*:00004330 FPL_GATE_S_MITE
-    chip_para_FP.asm:116    *ABS*:00000001 FPL_INJ_T_MITE
-    chip_para_FP.asm:117    *ABS*:00000032 FPL_NUM_MITE
-    chip_para_FP.asm:118    *ABS*:00000008 FPL_VD_A_MITE
-    chip_para_FP.asm:119    *ABS*:00000005 FPL_VD_B_MITE
-    chip_para_FP.asm:120    *ABS*:00000028 FPL_VD_OS_MITE
-    chip_para_FP.asm:121    *ABS*:00000001 FPL_VD_SA_MITE
-    chip_para_FP.asm:122    *ABS*:00000000 FPL_VD_GND_MITE
-    chip_para_FP.asm:123    *ABS*:00001530 FPL_GATE_S_DIRSWC
-    chip_para_FP.asm:124    *ABS*:00000001 FPL_INJ_T_DIRSWC
-    chip_para_FP.asm:125    *ABS*:00000032 FPL_NUM_DIRSWC
-    chip_para_FP.asm:126    *ABS*:00000008 FPL_VD_A_DIRSWC
-    chip_para_FP.asm:127    *ABS*:00000005 FPL_VD_B_DIRSWC
-    chip_para_FP.asm:128    *ABS*:00000023 FPL_VD_OS_DIRSWC
-    chip_para_FP.asm:129    *ABS*:00000001 FPL_VD_SA_DIRSWC
-    chip_para_FP.asm:130    *ABS*:00000000 FPL_VD_GND_DIRSWC
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:7      .text:00000000 main
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:12     .text:0000000e init_wait
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:268    .text:000002a6 block_measure
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:33     .text:0000005a fine_loop_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:131    .text:0000016c measure_verify
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:204    .text:00000232 Vd_calculate
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:70     .text:000000ac fine_inject
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:46     .text:00000080 skip_measurement
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:50     .text:00000086 fine_loop_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:54     .text:00000088 last_measure_loop_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:64     .text:000000a2 last_measure_loop_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:345    .text:00000372 end_of_test
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:77     .text:000000c8 fine_inject_set_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:113    .text:00000138 fine_inject_skip
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:323    .text:0000034e wait_ms
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:104    .text:00000120 Jump_Vdtable
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:334    .text:00000360 wait_10us
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:110    .text:00000132 drain_pulse_end
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:117    .text:0000013e fine_inject_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:138    .text:00000188 measure_verify_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:195    .text:0000021e measure_verify_skip
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:162    .text:000001ce measure_v9_average_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:175    .text:000001f8 measure_v9_average_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:190    .text:00000214 status_1
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:199    .text:00000224 measure_verify_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:207    .text:00000238 Vd_cal_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:261    .text:0000029e No_calculation
+    chip_para_FP.asm:101    *ABS*:0000000000000032 FPL_NUM_OTA
+    chip_para_FP.asm:102    *ABS*:0000000000000008 FPL_VD_A_OTA
+    chip_para_FP.asm:103    *ABS*:0000000000000005 FPL_VD_B_OTA
+    chip_para_FP.asm:104    *ABS*:000000000000002c FPL_VD_OS_OTA
+    chip_para_FP.asm:105    *ABS*:0000000000000001 FPL_VD_SA_OTA
+    chip_para_FP.asm:106    *ABS*:0000000000000000 FPL_VD_GND_OTA
+    chip_para_FP.asm:107    *ABS*:0000000000000040 FPL_GATE_S_OTAREF
+    chip_para_FP.asm:108    *ABS*:0000000000000001 FPL_INJ_T_OTAREF
+    chip_para_FP.asm:109    *ABS*:0000000000000032 FPL_NUM_OTAREF
+    chip_para_FP.asm:110    *ABS*:0000000000000008 FPL_VD_A_OTAREF
+    chip_para_FP.asm:111    *ABS*:0000000000000005 FPL_VD_B_OTAREF
+    chip_para_FP.asm:112    *ABS*:0000000000000036 FPL_VD_OS_OTAREF
+    chip_para_FP.asm:113    *ABS*:0000000000000001 FPL_VD_SA_OTAREF
+    chip_para_FP.asm:114    *ABS*:0000000000000000 FPL_VD_GND_OTAREF
+    chip_para_FP.asm:115    *ABS*:0000000000002600 FPL_GATE_S_MITE
+    chip_para_FP.asm:116    *ABS*:0000000000000001 FPL_INJ_T_MITE
+    chip_para_FP.asm:117    *ABS*:0000000000000046 FPL_NUM_MITE
+    chip_para_FP.asm:118    *ABS*:0000000000000008 FPL_VD_A_MITE
+    chip_para_FP.asm:119    *ABS*:0000000000000005 FPL_VD_B_MITE
+    chip_para_FP.asm:120    *ABS*:000000000000002f FPL_VD_OS_MITE
+    chip_para_FP.asm:121    *ABS*:0000000000000001 FPL_VD_SA_MITE
+    chip_para_FP.asm:122    *ABS*:0000000000000000 FPL_VD_GND_MITE
+    chip_para_FP.asm:123    *ABS*:0000000000004200 FPL_GATE_S_DIRSWC
+    chip_para_FP.asm:124    *ABS*:0000000000000001 FPL_INJ_T_DIRSWC
+    chip_para_FP.asm:125    *ABS*:0000000000000064 FPL_NUM_DIRSWC
+    chip_para_FP.asm:126    *ABS*:0000000000000008 FPL_VD_A_DIRSWC
+    chip_para_FP.asm:127    *ABS*:0000000000000005 FPL_VD_B_DIRSWC
+    chip_para_FP.asm:128    *ABS*:0000000000000030 FPL_VD_OS_DIRSWC
+    chip_para_FP.asm:129    *ABS*:0000000000000001 FPL_VD_SA_DIRSWC
+    chip_para_FP.asm:130    *ABS*:0000000000000000 FPL_VD_GND_DIRSWC
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:7      .text:0000000000000000 main
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:12     .text:000000000000000e init_wait
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:268    .text:00000000000002a6 block_measure
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:33     .text:000000000000005a fine_loop_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:131    .text:000000000000016c measure_verify
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:204    .text:0000000000000232 Vd_calculate
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:70     .text:00000000000000ac fine_inject
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:46     .text:0000000000000080 skip_measurement
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:50     .text:0000000000000086 fine_loop_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:54     .text:0000000000000088 last_measure_loop_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:64     .text:00000000000000a2 last_measure_loop_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:345    .text:0000000000000372 end_of_test
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:77     .text:00000000000000c8 fine_inject_set_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:113    .text:0000000000000138 fine_inject_skip
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:323    .text:000000000000034e wait_ms
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:104    .text:0000000000000120 Jump_Vdtable
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:334    .text:0000000000000360 wait_10us
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:110    .text:0000000000000132 drain_pulse_end
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:117    .text:000000000000013e fine_inject_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:138    .text:0000000000000188 measure_verify_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:195    .text:000000000000021e measure_verify_skip
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:162    .text:00000000000001ce measure_v9_average_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:175    .text:00000000000001f8 measure_v9_average_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:190    .text:0000000000000214 status_1
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:199    .text:0000000000000224 measure_verify_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:207    .text:0000000000000238 Vd_cal_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:261    .text:000000000000029e No_calculation
 GAS LISTING /home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43 			page 22
 
 
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:224    .text:0000025a Jump_r8_0
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:230    .text:00000268 Jump_r9_1
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:241    .text:00000280 Jump_Sub
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:243    .text:00000282 Add_Sub_end
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:247    .text:00000288 Jump_r9_0
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:265    .text:000002a4 Vd_cal_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:275    .text:000002c2 block_measure_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:295    .text:00000302 measure_9_average_s
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:308    .text:0000032c measure_9_average_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:318    .text:00000340 block_measure_e
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:326    .text:00000354 wait_ms_loop
-/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:337    .text:00000366 wait_10us_loop
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:224    .text:000000000000025a Jump_r8_0
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:230    .text:0000000000000268 Jump_r9_1
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:241    .text:0000000000000280 Jump_Sub
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:243    .text:0000000000000282 Add_Sub_end
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:247    .text:0000000000000288 Jump_r9_0
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:265    .text:00000000000002a4 Vd_cal_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:275    .text:00000000000002c2 block_measure_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:295    .text:0000000000000302 measure_9_average_s
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:308    .text:000000000000032c measure_9_average_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:318    .text:0000000000000340 block_measure_e
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:326    .text:0000000000000354 wait_ms_loop
+/home/ubuntu/rasp30/prog_assembly/libs/asm_code/fine_program_aboveVt_m_ave_04_CAB_mite.s43:337    .text:0000000000000366 wait_10us_loop
 
 NO UNDEFINED SYMBOLS
 
@@ -1452,40 +1452,40 @@ SYMBOL TABLE:
 00000000 l       *ABS*	00000000 CPL_MEAS_ON
 00000000 l       *ABS*	00000000 FP_MEAS_ON
 00000000 l       *ABS*	00000000 FPL_MEAS_ON
-00001655 l       *ABS*	00000000 ADC_1nA
-00007430 l       *ABS*	00000000 FPS_GATE_S_SWC
+0000105c l       *ABS*	00000000 ADC_1nA
+00002400 l       *ABS*	00000000 FPS_GATE_S_SWC
 00000001 l       *ABS*	00000000 FPS_INJ_T_SWC
-00000032 l       *ABS*	00000000 FPS_NUM_SWC
+00000064 l       *ABS*	00000000 FPS_NUM_SWC
 00000008 l       *ABS*	00000000 FPS_VD_A_SWC
 00000005 l       *ABS*	00000000 FPS_VD_B_SWC
 00000028 l       *ABS*	00000000 FPS_VD_OS_SWC
 00000000 l       *ABS*	00000000 FPS_VD_SA_SWC
 00000000 l       *ABS*	00000000 FPS_VD_GND_SWC
-00007430 l       *ABS*	00000000 FPS_GATE_S_OTA
+00002e00 l       *ABS*	00000000 FPS_GATE_S_OTA
 00000001 l       *ABS*	00000000 FPS_INJ_T_OTA
 00000032 l       *ABS*	00000000 FPS_NUM_OTA
 00000008 l       *ABS*	00000000 FPS_VD_A_OTA
 00000005 l       *ABS*	00000000 FPS_VD_B_OTA
-00000037 l       *ABS*	00000000 FPS_VD_OS_OTA
+0000002f l       *ABS*	00000000 FPS_VD_OS_OTA
 00000000 l       *ABS*	00000000 FPS_VD_SA_OTA
 00000000 l       *ABS*	00000000 FPS_VD_GND_OTA
-00007430 l       *ABS*	00000000 FPS_GATE_S_OTAREF
+00002e00 l       *ABS*	00000000 FPS_GATE_S_OTAREF
 00000002 l       *ABS*	00000000 FPS_INJ_T_OTAREF
 00000032 l       *ABS*	00000000 FPS_NUM_OTAREF
 00000008 l       *ABS*	00000000 FPS_VD_A_OTAREF
 00000005 l       *ABS*	00000000 FPS_VD_B_OTAREF
-00000037 l       *ABS*	00000000 FPS_VD_OS_OTAREF
+00000035 l       *ABS*	00000000 FPS_VD_OS_OTAREF
 00000000 l       *ABS*	00000000 FPS_VD_SA_OTAREF
 00000000 l       *ABS*	00000000 FPS_VD_GND_OTAREF
-00007430 l       *ABS*	00000000 FPS_GATE_S_MITE
+00002e00 l       *ABS*	00000000 FPS_GATE_S_MITE
 00000001 l       *ABS*	00000000 FPS_INJ_T_MITE
 00000032 l       *ABS*	00000000 FPS_NUM_MITE
-00000007 l       *ABS*	00000000 FPS_VD_A_MITE
+00000008 l       *ABS*	00000000 FPS_VD_A_MITE
 00000005 l       *ABS*	00000000 FPS_VD_B_MITE
-00000037 l       *ABS*	00000000 FPS_VD_OS_MITE
+00000031 l       *ABS*	00000000 FPS_VD_OS_MITE
 00000000 l       *ABS*	00000000 FPS_VD_SA_MITE
 00000000 l       *ABS*	00000000 FPS_VD_GND_MITE
-00007430 l       *ABS*	00000000 FPS_GATE_S_DIRSWC
+00002e00 l       *ABS*	00000000 FPS_GATE_S_DIRSWC
 00000001 l       *ABS*	00000000 FPS_INJ_T_DIRSWC
 00000032 l       *ABS*	00000000 FPS_NUM_DIRSWC
 00000008 l       *ABS*	00000000 FPS_VD_A_DIRSWC
@@ -1493,60 +1493,60 @@ SYMBOL TABLE:
 00000028 l       *ABS*	00000000 FPS_VD_OS_DIRSWC
 00000000 l       *ABS*	00000000 FPS_VD_SA_DIRSWC
 00000000 l       *ABS*	00000000 FPS_VD_GND_DIRSWC
-00007430 l       *ABS*	00000000 FPA_GATE_S_SWC
+00003400 l       *ABS*	00000000 FPA_GATE_S_SWC
 00000001 l       *ABS*	00000000 FPA_INJ_T_SWC
-00000032 l       *ABS*	00000000 FPA_NUM_SWC
+0000003c l       *ABS*	00000000 FPA_NUM_SWC
 00000008 l       *ABS*	00000000 FPA_VD_A_SWC
 00000005 l       *ABS*	00000000 FPA_VD_B_SWC
-00000014 l       *ABS*	00000000 FPA_VD_OS_SWC
+0000001c l       *ABS*	00000000 FPA_VD_OS_SWC
 00000001 l       *ABS*	00000000 FPA_VD_SA_SWC
 00000000 l       *ABS*	00000000 FPA_VD_GND_SWC
-00007430 l       *ABS*	00000000 FPA_GATE_S_OTA
+00002e00 l       *ABS*	00000000 FPA_GATE_S_OTA
 00000001 l       *ABS*	00000000 FPA_INJ_T_OTA
 00000032 l       *ABS*	00000000 FPA_NUM_OTA
 00000008 l       *ABS*	00000000 FPA_VD_A_OTA
 00000005 l       *ABS*	00000000 FPA_VD_B_OTA
-0000001e l       *ABS*	00000000 FPA_VD_OS_OTA
+00000022 l       *ABS*	00000000 FPA_VD_OS_OTA
 00000001 l       *ABS*	00000000 FPA_VD_SA_OTA
 00000000 l       *ABS*	00000000 FPA_VD_GND_OTA
-00007430 l       *ABS*	00000000 FPA_GATE_S_OTAREF
+00002e00 l       *ABS*	00000000 FPA_GATE_S_OTAREF
 00000002 l       *ABS*	00000000 FPA_INJ_T_OTAREF
 00000032 l       *ABS*	00000000 FPA_NUM_OTAREF
 00000008 l       *ABS*	00000000 FPA_VD_A_OTAREF
 00000005 l       *ABS*	00000000 FPA_VD_B_OTAREF
-0000001e l       *ABS*	00000000 FPA_VD_OS_OTAREF
+00000023 l       *ABS*	00000000 FPA_VD_OS_OTAREF
 00000001 l       *ABS*	00000000 FPA_VD_SA_OTAREF
 00000000 l       *ABS*	00000000 FPA_VD_GND_OTAREF
-00007430 l       *ABS*	00000000 FPA_GATE_S_MITE
+00002e00 l       *ABS*	00000000 FPA_GATE_S_MITE
 00000001 l       *ABS*	00000000 FPA_INJ_T_MITE
 00000032 l       *ABS*	00000000 FPA_NUM_MITE
 00000008 l       *ABS*	00000000 FPA_VD_A_MITE
 00000005 l       *ABS*	00000000 FPA_VD_B_MITE
-0000001e l       *ABS*	00000000 FPA_VD_OS_MITE
+00000025 l       *ABS*	00000000 FPA_VD_OS_MITE
 00000001 l       *ABS*	00000000 FPA_VD_SA_MITE
 00000000 l       *ABS*	00000000 FPA_VD_GND_MITE
-00007430 l       *ABS*	00000000 FPA_GATE_S_DIRSWC
+00002e00 l       *ABS*	00000000 FPA_GATE_S_DIRSWC
 00000001 l       *ABS*	00000000 FPA_INJ_T_DIRSWC
 00000032 l       *ABS*	00000000 FPA_NUM_DIRSWC
 00000008 l       *ABS*	00000000 FPA_VD_A_DIRSWC
 00000005 l       *ABS*	00000000 FPA_VD_B_DIRSWC
-00000014 l       *ABS*	00000000 FPA_VD_OS_DIRSWC
+0000001e l       *ABS*	00000000 FPA_VD_OS_DIRSWC
 00000001 l       *ABS*	00000000 FPA_VD_SA_DIRSWC
 00000000 l       *ABS*	00000000 FPA_VD_GND_DIRSWC
 00000040 l       *ABS*	00000000 FPL_GATE_S_SWC
 00000001 l       *ABS*	00000000 FPL_INJ_T_SWC
-00000032 l       *ABS*	00000000 FPL_NUM_SWC
+00000046 l       *ABS*	00000000 FPL_NUM_SWC
 00000008 l       *ABS*	00000000 FPL_VD_A_SWC
 00000005 l       *ABS*	00000000 FPL_VD_B_SWC
 00000032 l       *ABS*	00000000 FPL_VD_OS_SWC
 00000001 l       *ABS*	00000000 FPL_VD_SA_SWC
 00000000 l       *ABS*	00000000 FPL_VD_GND_SWC
-00004330 l       *ABS*	00000000 FPL_GATE_S_OTA
+00003700 l       *ABS*	00000000 FPL_GATE_S_OTA
 00000001 l       *ABS*	00000000 FPL_INJ_T_OTA
 00000032 l       *ABS*	00000000 FPL_NUM_OTA
 00000008 l       *ABS*	00000000 FPL_VD_A_OTA
 00000005 l       *ABS*	00000000 FPL_VD_B_OTA
-00000028 l       *ABS*	00000000 FPL_VD_OS_OTA
+0000002c l       *ABS*	00000000 FPL_VD_OS_OTA
 00000001 l       *ABS*	00000000 FPL_VD_SA_OTA
 00000000 l       *ABS*	00000000 FPL_VD_GND_OTA
 00000040 l       *ABS*	00000000 FPL_GATE_S_OTAREF
@@ -1554,23 +1554,23 @@ SYMBOL TABLE:
 00000032 l       *ABS*	00000000 FPL_NUM_OTAREF
 00000008 l       *ABS*	00000000 FPL_VD_A_OTAREF
 00000005 l       *ABS*	00000000 FPL_VD_B_OTAREF
-00000032 l       *ABS*	00000000 FPL_VD_OS_OTAREF
+00000036 l       *ABS*	00000000 FPL_VD_OS_OTAREF
 00000001 l       *ABS*	00000000 FPL_VD_SA_OTAREF
 00000000 l       *ABS*	00000000 FPL_VD_GND_OTAREF
-00004330 l       *ABS*	00000000 FPL_GATE_S_MITE
+00002600 l       *ABS*	00000000 FPL_GATE_S_MITE
 00000001 l       *ABS*	00000000 FPL_INJ_T_MITE
-00000032 l       *ABS*	00000000 FPL_NUM_MITE
+00000046 l       *ABS*	00000000 FPL_NUM_MITE
 00000008 l       *ABS*	00000000 FPL_VD_A_MITE
 00000005 l       *ABS*	00000000 FPL_VD_B_MITE
-00000028 l       *ABS*	00000000 FPL_VD_OS_MITE
+0000002f l       *ABS*	00000000 FPL_VD_OS_MITE
 00000001 l       *ABS*	00000000 FPL_VD_SA_MITE
 00000000 l       *ABS*	00000000 FPL_VD_GND_MITE
-00001530 l       *ABS*	00000000 FPL_GATE_S_DIRSWC
+00004200 l       *ABS*	00000000 FPL_GATE_S_DIRSWC
 00000001 l       *ABS*	00000000 FPL_INJ_T_DIRSWC
-00000032 l       *ABS*	00000000 FPL_NUM_DIRSWC
+00000064 l       *ABS*	00000000 FPL_NUM_DIRSWC
 00000008 l       *ABS*	00000000 FPL_VD_A_DIRSWC
 00000005 l       *ABS*	00000000 FPL_VD_B_DIRSWC
-00000023 l       *ABS*	00000000 FPL_VD_OS_DIRSWC
+00000030 l       *ABS*	00000000 FPL_VD_OS_DIRSWC
 00000001 l       *ABS*	00000000 FPL_VD_SA_DIRSWC
 00000000 l       *ABS*	00000000 FPL_VD_GND_DIRSWC
 0000000e l       .text	00000000 init_wait
@@ -1630,7 +1630,7 @@ Contents of section .text:
  00b0 2c4bb240 00800c0b b24004be 6401b240  ,K.@.....@..d..@
  00c0 24006001 b2430e0b 2b53a24b 080b2b53  $.`..C..+S.K..+S
  00d0 a24b0a0b 2b532b53 2b53284b 08932c24  .K..+S+S+S(K..,$
- 00e0 b2403074 020bb240 6000100b b2406000  .@0t...@`....@`.
+ 00e0 b240002e 020bb240 6000100b b2406000  .@.....@`....@`.
  00f0 120bb240 6600000b b2401400 60012543  ...@f....@..`.%C
  0100 b0120000 06430693 0b24b240 2600000b  .....C...$.@&...
  0110 1543b012 00001a53 b2406600 000b093c  .C.....S.@f....<
@@ -1653,9 +1653,9 @@ Contents of section .text:
  0220 0124b23f b2406600 000bb240 24006001  .$.?.@f....@$.`.
  0230 30413b40 00702c4b 2b532b53 2b53284b  0A;@.p,K+S+S+S(K
  0240 2b53294b 2b532e4b 0e932924 08893880  +S)K+S.K..)$..8.
- 0250 55163642 08930134 08430810 38c00080  U.6B...4.C..8...
+ 0250 5c103642 08930134 08430810 38c00080  \.6B...4.C..8...
  0260 1683fb23 36400500 091039c0 00801683  ...#6@....9.....
- 0270 fb233950 1e001643 06930224 0958013c  .#9P...C...$.X.<
+ 0270 fb233950 25001643 06930224 0958013c  .#9P%..C...$.X.<
  0280 09880993 01340943 096919c3 39500068  .....4.C.i..9P.h
  0290 2b838b49 00002b53 2e498b4e 00001c83  +..I..+S.I.N....
  02a0 0124ca3f 30413b40 00702c4b b2400080  .$.?0A;@.p,K.@..
@@ -1779,7 +1779,7 @@ Disassembly of section .text:
   da:	28 4b       	mov	@r11,	r8	
   dc:	08 93       	tst	r8		
   de:	2c 24       	jz	$+90     	;abs 0x138
-  e0:	b2 40 30 74 	mov	#29744,	&0x0b02	;#0x7430
+  e0:	b2 40 00 2e 	mov	#11776,	&0x0b02	;#0x2e00
   e4:	02 0b 
   e6:	b2 40 60 00 	mov	#96,	&0x0b10	;#0x0060
   ea:	10 0b 
@@ -1949,7 +1949,7 @@ Disassembly of section .text:
  248:	0e 93       	tst	r14		
  24a:	29 24       	jz	$+84     	;abs 0x29e
  24c:	08 89       	sub	r9,	r8	
- 24e:	38 80 55 16 	sub	#5717,	r8	;#0x1655
+ 24e:	38 80 5c 10 	sub	#4188,	r8	;#0x105c
  252:	36 42       	mov	#8,	r6	;r2 As==11
  254:	08 93       	tst	r8		
  256:	01 34       	jge	$+4      	;abs 0x25a
@@ -1967,7 +1967,7 @@ Disassembly of section .text:
  26a:	39 c0 00 80 	bic	#-32768,r9	;#0x8000
  26e:	16 83       	dec	r6		
  270:	fb 23       	jnz	$-8      	;abs 0x268
- 272:	39 50 1e 00 	add	#30,	r9	;#0x001e
+ 272:	39 50 25 00 	add	#37,	r9	;#0x0025
  276:	16 43       	mov	#1,	r6	;r3 As==01
  278:	06 93       	tst	r6		
  27a:	02 24       	jz	$+6      	;abs 0x280

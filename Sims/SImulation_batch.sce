@@ -10,8 +10,8 @@ temp=27;
 K=1.38064852e-23;
 q=1.60217662e-19;
 
-Ithnmos_1=60.65e-9./(temp+273)^0.5//5.438e-8./(temp+273)^0.5
-Ithfgpmos_1=90e-9./(temp+273)^0.5
+Ithnmos_1=60.65e-9./(temp+273)^0.2//5.438e-8./(temp+273)^0.5
+Ithfgpmos_1=90e-9./(temp+273)^0.2
 
 temp=25;
 K=1.38064852e-23;
@@ -29,7 +29,7 @@ A1_fg=Vt1 -(A2_fg*Ut1)
 Vtfgpmos_1=A1_fg + A2_fg*Ut1
 
 Vt1= 0.42//0.6616
-Vt2=0.419//0.653
+Vt2=0.40//0.653
 A2_nmos=(Vt1 - Vt2)./(Ut1-Ut2)
 A1_nmos=Vt1 -(A2_nmos*Ut1)
 Vtfgpmos_1=A1_nmos + A2_nmos*Ut1
@@ -45,15 +45,18 @@ temp=-10;
 while i_loop<14
     
     Ut=K*(temp+273)./q;
-Ithnmos=Ithnmos_1*(temp+273)^0.5   
-Ithfgpmos=Ithfgpmos_1*(temp+273)^0.5   
+Ithnmos=Ithnmos_1*(temp+273)^0.2   
+Ithfgpmos=Ithfgpmos_1*(temp+273)^0.2   
     
 Vtfgpmos=A1_fg + A2_fg*Ut
 Vtnmos=A1_nmos + A2_nmos*Ut 
-R=10.07e6 * (1+alpha*(temp-25))
+//R=10.07e6 * (1+alpha*(temp-25))
+R=10.07e6 
 
 
 importXcosDiagram("./Biasgen.xcos")
+typeof(scs_m) //The diagram data structure
+
 scs_m.props.context
 INFO=xcos_simulate(scs_m, 4);
 PMOS_voltage(:,i_loop)=mean(Output.values(100:$,1))
@@ -67,10 +70,14 @@ end
 temp=linspace(-10,50,13)
 figure();
 plot(temp,abs(PMOS_voltage(1,:)),'-r')
-figure()
-plot(temp,abs(Bias_Vref(1,:)),'-r')
+//figure()
+//plot(temp,abs(Bias_Vref(1,:)),'-r')
  //p = get("hdl"); p.children.mark_mode = "on"; p.children.mark_style = 9; p.children.thickness = 3; 
-//Voltage_bias=csvRead('Voltage_Biasgen_temp_trial01.csv')
-//figure();plot(temp,Voltage_bias,'-x')
+Voltage_bias=csvRead('Temperature_Biasgen_voltage.csv')
+plot(temp,Voltage_bias,'-x')
 //Voltage_bias1=csvRead('Voltage_Biasgen_temp_trial04.csv')
 //plot(temp,Voltage_bias1,'o')
+figure();
+plot(temp,abs(Bias_Vref(1,:)),'-r')
+current_bias=csvRead('Temperature_Biasgen_current.csv')
+plot(temp,current_bias,'-x')
